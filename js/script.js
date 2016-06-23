@@ -46,6 +46,18 @@
 	//Clonar iconos sociales
 	$('.social-icons').clone().appendTo('.site-footer .wrap p');
 
+
+	//Color single post
+
+	colorImagen=$('body.single article').attr('class');
+	if (colorImagen){
+		colorImagen = colorImagen.split(' ');
+		colorImagen = colorImagen[colorImagen.length-1];
+		colorImagen = '#' + colorImagen.substring(2);
+		
+		$('article .thumbnail').css('background-color',colorImagen);
+		
+	}
 /*
 //alert($('.wysija-input').attr('placeholder'));
 

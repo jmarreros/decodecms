@@ -196,10 +196,19 @@ function getCustomfield($field='Nivel'){
 //-----------------
 add_action( 'genesis_before_entry_content', 'featured_post_image', 1 );
 function featured_post_image() {
-  if ( is_singular( 'post' ) )  return;
+  //if ( is_singular( 'post' ) )  return;
 	//the_post_thumbnail('post-image');
   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
 }
+
+// add_action( 'genesis_before_entry', 'featured_post_image', 8 );
+// function featured_post_image() {
+//   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
+//   //if ( ! is_singular( 'post' ) )  return;
+//   //the_post_thumbnail('post-image');
+// }
+
+
 
 
 //Read more
@@ -208,6 +217,8 @@ add_filter( 'the_content_more_link', 'sp_read_more_link' );
 function sp_read_more_link() {
 	return ' <a class="more-link" href="' . get_permalink() . '">[Leer más]</a>';
 }
+
+
 
 
 //Navigation

@@ -1138,6 +1138,17 @@ div.img404 img{
 	background:white;
 }
 
-.content article .thumbnail{
+article .thumbnail{
 	width:180px;
+}
+
+.single-post article .thumbnail{
+	width:100%;
+	text-align:center;
+	//background-color:#424A60;
+	border-radius:4px;
+	margin-bottom:16px;
+	img{
+		width:200px;
+	}
 }
