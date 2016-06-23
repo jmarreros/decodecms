@@ -1,0 +1,285 @@
+html {
+    font-size: 62.5%; /* 10px browser default */
+}
+
+/* Chrome fix */
+body > div {
+    font-size: 1.6rem;
+}
+
+body {
+	background-color: $white;
+	color: $color-texto;
+	font-family: $font-body;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 300;
+	line-height: 1.625;
+}
+
+article{
+	font-family:$font-article;
+	line-height:1.8;
+}
+
+a,
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button,
+.gallery img {
+	transition:all 0.1s ease-in-out;
+}
+
+a {
+	color: $links;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #333;
+	text-decoration: none;
+}
+
+p {
+	margin: 0 0 20px;
+	padding: 0;
+}
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+hr {
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #ddd;
+	clear: both;
+	margin: 1em 0;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+blockquote,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 40px;
+}
+
+blockquote::before {
+	content: "\201C";
+	display: block;
+	font-size: 30px;
+	font-size: 3rem;
+	height: 0;
+	left: -20px;
+	position: relative;
+	top: -10px;
+}
+
+
+
+
+h1 a,h2 a,h3 a{
+	color : $color-titles;	
+}
+
+
+.content a{
+	color : $color-texto;
+	text-decoration:underline;
+	
+	&:hover{
+		color : $links;
+	}
+}
+
+.content .entry-categories a{
+	text-decoration:none;
+}
+
+.blog .content .entry-title{
+	margin-left:-10px;
+}
+
+.content .entry-title{
+	font-size: 48px;
+	font-size: 4.8rem;
+	padding:10px;
+	
+	a{
+		text-decoration:none;
+		color:$color-titles;
+		display:inline-block;
+		width:100%;
+	}
+
+	&:hover{
+		background-color:$background-titles-hover;
+		a{
+			color:$color-titles;
+		}
+	}
+
+}
+
+
+.entry-meta{
+	font-family:$font-meta;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+/*
+.entry-time:before, .entry-author:before{
+	font-family: 'FontAwesome';
+	margin-right: 5px;
+}
+
+.entry-time:before{
+	content: "\f073";
+}
+
+.entry-author:before{
+	content: "\f007";
+}
+*/
+
+.entry-tags a,
+.widget_tag_cloud .tagcloud a{
+	color: $color-entry-meta;
+	font-family:$font-meta;
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-decoration:none;
+	color:$color-tags;
+	background-color:$background-tags;
+	padding:5px 10px;
+	border-radius:4px;
+	&:hover{
+		color:$color-tags;
+		background-color:darken($background-tags,10%);
+	}
+}
+
+//social icons
+.social-icons {
+	font-size:12px;
+	li{
+		display:inline-block;
+		margin-right:8px;
+		a{
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			padding:6px;
+			border-radius:3px;//50%;
+			color : $white;
+			opacity: 0.7;
+			transition:opacity 0.3s ease 0s, transform 0.3s ease 0s;
+			box-sizing:content-box;
+
+			&:hover{
+				opacity:1;
+				transform:scale(1.2);
+			}
+		}
+		i{
+			display: block;
+			text-align: center;
+			vertical-align:middle;
+			width: 12px;
+			height: 12px;
+		}
+	}
+	
+	.rss{
+		background:#F67F00;
+	}
+	.twitter{
+		background:#7AC9ED;
+	}
+	.facebook{
+		background:#3B5998;
+	}
+	.google-plus{
+		background:#D74D2F;
+	}
+	.github{
+		background:#91C661;
+	}
+	.linkedin{
+		background:#0C7BB6;
+	}
+}
+
+
+.widget_recent_entries li:before,
+.featuredpost h4:before{
+	font-family:'FontAwesome';
+	content: "\f0da";
+	font-weight: normal;
+  	font-style: normal;
+	vertical-align:middle;
+}
+
+//Icons nav-primary
+.nav-primary .wrap > ul > li a:before{
+	font-family: "FontAwesome";
+	font-size: 24px;
+	vertical-align:middle;
+	line-height:1px;
+	margin-right:10px;
+}
+
+.nav-primary .wrap > ul > li:first-child > a:before{
+	content: "\f015";
+}
+
+.nav-primary .wrap > ul > li:nth-child(2) > a:before{
+	content: "\f19a";
+}
+
+/*
+.nav-primary .wrap > ul > li:nth-child(3) > a:before{
+	content: "\f1aa";
+	font-size:30px;
+}
+*/
+
+.nav-primary .wrap > ul > li:nth-child(3) > a:before{
+	content: "\f0ad";
+}
+
+a.more-link{
+	text-decoration:none;
+	//color:$links;
+}
+
+
+::selection {
+  background: $color-selection; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $color-selection; /* Gecko Browsers */
+}
+
+

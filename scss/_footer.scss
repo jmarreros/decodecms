@@ -1,0 +1,71 @@
+
+.site-footer {
+	
+	background-color:$background-footer;
+	color : $color-footer;
+	font-size: 16px;
+	font-size: 1.6rem;
+	padding:20px 0;	
+
+	.copy{
+		color:darken($logo-blanco-medio,40%);
+		margin:10px 15px;
+		font-size: 14px;
+		font-size: 1.4rem;
+		.politica{
+			display: inline-block;
+			margin-bottom: 10px;
+			color:#747474;
+			border-bottom:1px dotted #747474;
+		}
+	}
+
+	img{
+		position: relative;
+		top:4px;
+	}
+}
+
+
+// To Top
+
+.to-top {
+	height:40px;
+	width:40px;
+	border-radius:5px;
+	position:fixed;
+	bottom:15px;
+	right:10px;
+	text-indent:100%;
+	background:rgba(66,137,178,0.8) url(images/to-top.png) no-repeat center 50%;
+	visibility:hidden;
+	opacity:0;
+
+	-webkit-transition:all .3s;
+	-moz-transition:all .3s;
+	transition:all .3s;
+}
+
+.to-top.top-is-visible {
+	visibility:visible;
+	opacity:1;
+}
+
+.to-top.top-fade-out {
+	opacity:.5;
+}
+
+.no-touch .to-top:hover {
+	background-color:#e86256;
+	opacity:1;
+}
+
+
+//redes sociales
+.site-footer .social-icons{
+	float:right;
+	margin-right:60px;
+	li a{
+		opacity:.9;
+	}
+}

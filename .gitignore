@@ -1,0 +1,6 @@
+node_modules/
+tmp/
+style.css
+proyectoDecodeCMS.sublime-project
+proyectoDecodeCMS.sublime-workspace
+package.json
