@@ -58,32 +58,12 @@
 		$('article .thumbnail').css('background-color',colorImagen);
 		
 	}
-/*
-//alert($('.wysija-input').attr('placeholder'));
 
-$('.wysija-input').value="";
-console.log ( $('.wysija-input').value );
-console.log ( $('.wysija-input').attr('placeholder') );
-
-	if ( $('.wysija-input').value == $('.wysija-input').attr('placeholder') ){
-
-		$('.wysija-input').value="";
+	// Detectar <=IE11
+	if(navigator.userAgent.indexOf('MSIE')!==-1
+	|| navigator.appVersion.indexOf('Trident/') > 0){
+	   $('body').addClass('cssie');
 	}
-*/
-
-
-/*
-
-	$('.widget_wysija .wysija-input').focusout(function(){
-		console.log($('.formErrorContent').lenght);
-		
-		if ( $('.formErrorContent').lenght ){
-			console.log('error');
-		}
-		
-	});
-*/
-
 
 })(jQuery);
 

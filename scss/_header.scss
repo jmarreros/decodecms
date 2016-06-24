@@ -46,7 +46,12 @@
 	width: 100%;
 }
 
-
+.cssie.header-image .site-title > a{
+	background-image: url($logo);
+	background-position:center center;
+	background-size:75% auto;
+	background-repeat:no-repeat;
+}
 
 .site-description {
 	font-size: 16px;

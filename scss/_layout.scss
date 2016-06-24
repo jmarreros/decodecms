@@ -68,7 +68,7 @@ body{
 	width: 35%; //360px;
 	background:#eee;
 	padding:10px;
-	border-bottom-right-radius:6px;
+	// border-bottom-right-radius:6px;
 }
 
 main.content{
@@ -162,12 +162,9 @@ main.content{
 
 	.thumbnail{
 		float:left;
-		min-height: 200px;
-	}
-
-	.wp-post-image{
 		border-radius:4px;
 		margin-right: 20px;
+		min-height: 200px;
 	}
 
 	.entry-meta{
