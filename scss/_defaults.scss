@@ -15,32 +15,26 @@ h6 {
 }
 
 h1 {
-	font-size: 36px;
 	font-size: 3.6rem;
 }
 
 h2 {
-	font-size: 30px;
 	font-size: 3rem;
 }
 
 h3 {
-	font-size: 24px;
 	font-size: 2.4rem;
 }
 
 h4 {
-	font-size: 20px;
 	font-size: 2rem;
 }
 
 h5 {
-	font-size: 18px;
 	font-size: 1.8rem;
 }
 
 h6 {
-	font-size: 16px;
 	font-size: 1.6rem;
 }
 
@@ -130,7 +124,6 @@ textarea {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	color: $color-boton;
-	font-size: 16px;
 	font-size: 1.6rem;
 	font-weight: 300;
 	padding: 10px;
@@ -170,7 +163,6 @@ input[type="submit"],
 	border: 0;
 	color: #fff;
 	cursor: pointer;
-	font-size: 16px;
 	font-size: 1.6rem;
 	font-weight: 300;
 	padding: 10px 20px;
@@ -337,7 +329,6 @@ img.alignright,
 }
 
 .wp-caption-text {
-	font-size: 14px;
 	font-size: 1.4rem;
 	font-weight: 700;
 	text-align: center;
@@ -412,7 +403,6 @@ img.alignright,
 }
 
 .wp-caption-text {
-	font-size: 14px;
 	font-size: 1.4rem;
 	font-weight: 700;
 	text-align: center;
@@ -475,7 +465,6 @@ img.alignright,
 }
 
 .widget_search input[type="search"]{
-	font-size:14px;
 	font-size:1.4rem;
 	color : $gris-oscuro;
 	width:160px;
@@ -535,7 +524,6 @@ img.alignright,
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 16px;
 	font-size: 1.6rem;
 	padding: 8px 12px;
 	text-decoration: none;
@@ -564,15 +552,17 @@ img.alignright,
 	}
 }
 
-.featuredpost h4{
-	font-family:$font-body;
-	font-size:18px;
-	font-size:1.8rem;
-	font-weight:300;	
+
+
+.featuredpost h4,
+.widget_recent_entries a{
+	font-family:$font-titles;
+	font-size:1.6rem;
+	font-weight:300;
 }
 
 .widget_tag_cloud .tagcloud a{
-	font-size:15px!important;
+	font-size:1.5rem!important;
 	display:inline-block;
 	margin-bottom:4px;
 }
@@ -618,7 +608,6 @@ img.alignright,
 }
 
 .entry-comments h3{
-	font-size:20px;
 	font-size:2.0rem;
 	color:$white;
 	background-color: $logo-azul-medio;
@@ -679,7 +668,6 @@ img.alignright,
 
 		p{
 			//color : $white;
-			font-size: 16px;
 			font-size: 1.6rem;
 			margin-bottom: 10px;
 		}
@@ -830,7 +818,6 @@ img.alignright,
 	}
 
 	.msgcode,.msgcode a{
-		font-size: 14px;
 		font-size: 1.4rem;
 		font-style: italic;
 		color:$gris-claro;
@@ -957,7 +944,6 @@ span.required{
 //breadcrumb
 .breadcrumb{
 	font-family:Helvetica, sans-serif;
-	font-size:14px;
 	font-size:1.4rem;
 	font-style:italic;
 	color:gris-claro;
@@ -1026,6 +1012,16 @@ aside {
 
 }
 
+aside .featuredpost{
+	.widget-title{
+		//background-color:red;
+		&:before{
+			content: "\f004";
+		}
+	}
+}
+
+
 aside .widget_tag_cloud{
 	.widget-title{
 		background-color:#69C773;
@@ -1063,7 +1059,6 @@ aside .widget_wysija {
 	}
 
 	.updated{
-		font-size: 16px;
 		font-size: 1.6rem;
 		background-color:$background-titles-hover;
 		border-radius:6px;
