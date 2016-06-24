@@ -545,21 +545,51 @@ img.alignright,
 //Widgets
 //--------
 
-.widget.featuredpost a{
-	color : $color-links-featured;
-	&:hover{
-		color:$links;
-	}
-}
-
-
-
 .featuredpost h4,
 .widget_recent_entries a{
 	font-family:$font-titles;
 	font-size:1.6rem;
 	font-weight:300;
+	line-height:normal;
+	margin:0;
 }
+
+.widget.featuredpost a,
+.widget_recent_entries a{
+	width:90%;
+	display:inline-block;
+	color : $color-links-featured;
+	padding:8px 5px;
+	border-radius:4px;
+	&:before{
+		display: inline-block;
+		width: 10%;
+	}
+	&:hover{
+		background-color:#FFFFDC;
+	}
+}
+
+
+.widget.featuredpost h4:before,
+.widget_recent_entries li:before{
+	padding-top:10px;
+	margin-right:6px;
+	float: left;
+	color:$color-links-featured;
+}
+
+/*Recents*/
+
+.widget_recent_entries a{
+	color : $color-links-recents;
+}
+
+.widget_recent_entries li:before{
+	color:$color-links-recents;
+}
+
+
 
 .widget_tag_cloud .tagcloud a{
 	font-size:1.5rem!important;
@@ -1014,7 +1044,7 @@ aside {
 
 aside .featuredpost{
 	.widget-title{
-		//background-color:red;
+		background-color:$links;
 		&:before{
 			content: "\f004";
 		}

@@ -230,12 +230,14 @@ h1 a,h2 a,h3 a{
 .widget_recent_entries li:before,
 .featuredpost h4:before{
 	font-family:'FontAwesome';
-	//content: "\f0da";
 	content:"\f0a9";
 	font-weight: normal;
   	font-style: normal;
-	vertical-align:middle;
 }
+
+// .widget_recent_entries li:before{
+// 	content: "\f054";
+// }
 
 //Icons nav-primary
 .nav-primary .wrap > ul > li a:before{
