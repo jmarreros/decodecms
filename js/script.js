@@ -47,23 +47,27 @@
 	$('.social-icons').clone().appendTo('.site-footer .wrap p');
 
 
-	//Color single post
+	//Color fondo de thumbnail
+	$('article.post').each(function(){
+		clase	= $(this).attr('class').split(' ').pop();
+		color 	= '#' + clase.substring(2);
+		$(this).find('.thumbnail').css('background-color',color);
+	});
 
-	colorImagen=$('body.single article').attr('class');
-	if (colorImagen){
-		colorImagen = colorImagen.split(' ');
-		colorImagen = colorImagen[colorImagen.length-1];
-		colorImagen = '#' + colorImagen.substring(2);
-		
-		$('article .thumbnail').css('background-color',colorImagen);
-		
-	}
 
 	// Detectar <=IE11
 	if(navigator.userAgent.indexOf('MSIE')!==-1
 	|| navigator.appVersion.indexOf('Trident/') > 0){
 	   $('body').addClass('cssie');
 	}
+
+
+	//Clonar y cambiar icono de facebook
+	strShareGoogle ='<a class="mashicon-google" href="https://plus.google.com/share?url='+$(location).attr('href')+
+					'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" rel="nofollow">'+
+					'<span class="icon"></span><span class="text">Compartir</span></a>';
+
+	$('.mashsb-buttons').append(strShareGoogle);
 
 })(jQuery);
 

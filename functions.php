@@ -15,12 +15,13 @@ define ('CHILD_THEME_VERSION', '1.0.0' );
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
   //wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Lora:400,700', array(), CHILD_THEME_VERSION );
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,600', array(), CHILD_THEME_VERSION );
-  //wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Fenix', array(), CHILD_THEME_VERSION );
+//  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,600|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
+
 
 //* Add Accessibility support
 add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
@@ -104,6 +105,11 @@ function wpdocs_dequeue_style(){
 add_action( 'wp_print_styles', 'wpdocs_dequeue_style', 100 );
 
 
+//Para el rating con estrellas
+add_action('genesis_entry_content','colocarEstrellas');
+function colocarEstrellas(){
+  if ( is_single() and  function_exists('the_ratings') ) the_ratings();  
+}
 
 
 // genesis_after_header posicion búsqueda
@@ -201,14 +207,6 @@ function featured_post_image() {
   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
 }
 
-// add_action( 'genesis_before_entry', 'featured_post_image', 8 );
-// function featured_post_image() {
-//   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
-//   //if ( ! is_singular( 'post' ) )  return;
-//   //the_post_thumbnail('post-image');
-// }
-
-
 
 
 //Read more
@@ -243,4 +241,9 @@ function sp_disable_hoverIntent() {
 //Cantidad de revisiones
 define('WP_POST_REVISIONS', 3);
 
+
+
+//Eliminar la carga de archivo contact form 7
+//add_filter( 'wpcf7_load_js', '__return_false' );
+//add_filter( 'wpcf7_load_css', '__return_false' );
 

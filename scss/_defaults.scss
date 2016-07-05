@@ -593,11 +593,6 @@ img.alignright,
 
 
 
-.widget_tag_cloud .tagcloud a{
-	font-size:1.5rem!important;
-	display:inline-block;
-	margin-bottom:4px;
-}
 
 //single
 
@@ -613,9 +608,14 @@ img.alignright,
 
 
 //addthis
+.entry-content .addthis_toolbox{
+	margin-top:20px!important;
+}
 
 .addthis_toolbox a .at-icon-wrapper{
 	border-radius:3px;
+	text-align:center;
+	width:50px!important;
 }
 
 //Comentarios
@@ -1051,6 +1051,13 @@ aside .featuredpost{
 
 
 aside .widget_tag_cloud{
+	
+	.tagcloud a{
+		font-size:1.5rem!important;
+		display:inline-block;
+		margin-bottom:4px;
+	}
+
 	.widget-title{
 		background-color:#69C773;
 		&:before{
@@ -1174,13 +1181,43 @@ article .thumbnail{
 	width:180px;
 }
 
+article .thumbnail img{
+	border-radius:4px;
+}
+
 .single-post article .thumbnail{
 	width:100%;
 	text-align:center;
-	//background-color:#424A60;
+	background-color:#192D38; //por defecto
 	border-radius:4px;
 	margin-bottom:16px;
+	padding:20px 5px;
 	img{
-		width:200px;
+		width:250px;
+	}
+}
+
+.post-ratings{
+	text-align:right;
+	margin-top:20px;
+	border-top : 2px solid #E0E0E0;
+	//background-color:#E0E0E0;
+	padding:10px 15px;
+	height:70px;
+}
+
+.acerca_de .entry-content{
+	max-width:980px;
+	margin:auto;
+}
+
+
+
+@media (min-width:768px){
+	article .entry-content{
+		margin-left:200px;
+	}
+	.single article .entry-content{
+		margin-left:0;
 	}
 }

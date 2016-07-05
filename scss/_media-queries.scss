@@ -292,8 +292,8 @@
 	}
 }
 
-@media only screen and(max-width:768px)
-{
+@media only screen and(max-width:768px){
+
 	//formulario
 	#commentform{
 		.comment-form-author,
@@ -328,6 +328,17 @@
 		content: "\f27a";
 	}
 
+	.content article .thumbnail{
+		float: none;
+		width: 100%;
+		padding:15px 5px;
+		margin-bottom: 15px;
+		text-align: center;
+		img{
+			max-width: 200px;
+		}
+	}
+
 }
 
 
@@ -337,6 +348,16 @@
 	nav {
 		display: block !important;
 	}
+
+
+	article .entry-content{
+		margin-left:200px;
+	}
+
+	.single article .entry-content{
+		margin-left:0;
+	}
+
 }
 
 
@@ -534,11 +555,11 @@
 
 
 	#anuncios{
-		
 		.nuevo{
 			display: none;
 		} 
 	}
+
 }
 
 

@@ -18,7 +18,9 @@ body {
 
 article{
 	font-family:$font-article;
-	line-height:1.8;
+	line-height:1.4;
+	// text-align:justify;
+	font-size:1.4em;
 }
 
 a,
@@ -103,10 +105,11 @@ h1 a,h2 a,h3 a{
 
 .content a{
 	color : $color-texto;
-	text-decoration:underline;
-	
+	//text-decoration:underline;
+	border-bottom:1px dotted $color-texto;
 	&:hover{
 		color : $links;
+		border-bottom:1px dotted $links;
 	}
 }
 
