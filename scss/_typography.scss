@@ -99,17 +99,17 @@ blockquote::before {
 
 
 h1 a,h2 a,h3 a{
-	color : $color-titles;	
+	color : $color-titles;
+	border-bottom:none!important;
 }
 
 
 .content a{
 	color : $color-texto;
-	//text-decoration:underline;
 	border-bottom:1px dotted $color-texto;
 	&:hover{
 		color : $links;
-		border-bottom:1px dotted $links;
+		border-color:$links;
 	}
 }
 
@@ -172,6 +172,7 @@ h1 a,h2 a,h3 a{
 	background-color:$background-tags;
 	padding:5px 10px;
 	border-radius:4px;
+	border-bottom:none;
 	&:hover{
 		color:$color-tags;
 		background-color:darken($background-tags,10%);
@@ -270,10 +271,10 @@ h1 a,h2 a,h3 a{
 	content: "\f0ad";
 }
 
-a.more-link{
-	text-decoration:none;
-	font-weight:bold;
-	//color:$links;
+
+.post-ratings{
+	font-family:Helvetica,sans-serif;
+	font-size:1.6rem;
 }
 
 

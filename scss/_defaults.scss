@@ -115,6 +115,12 @@ img {
 	border: 1px solid #999;
 }
 
+/*Links*/
+
+// a:active {
+//     outline: none;
+// }
+
 /* ## Forms
 --------------------------------------------- */
 
@@ -843,6 +849,7 @@ img.alignright,
 	a{
 		text-decoration: none;
 		color:$logo-blanco-medio;
+		border-color:$logo-blanco-medio;
 	}
 
 	label{
@@ -853,6 +860,10 @@ img.alignright,
 		font-size: 1.4rem;
 		font-style: italic;
 		color:$gris-claro;
+	}
+
+	.msgcode a{
+		border-color:$gris-claro;
 	}
 	
 	.required{
@@ -925,6 +936,8 @@ span.required{
 //formulario contacto
 
 .wpcf7-form {
+	font-family:Helvetica;
+	font-size:1.6rem;
 	color:$color-form-contact;
 	background-color:$background-form-contact;
 	border: 2px solid $borde-form-contact;
@@ -943,11 +956,15 @@ span.required{
 	}
 	
 	.fa,.required{
+		font-size: 2rem;
 		text-align: right;
 		margin-right: 10px;
 		vertical-align: top;
 		margin-top: 12px;
 		width:2%;
+		&.fa-lock{
+			margin-top:2px;
+		}
 	}
 
 
@@ -1119,6 +1136,7 @@ aside section.widget_wysija {
 	padding:20px;
 	border-radius:6px;
 	background-color:#ececec;
+	font-size:2rem;
 	
 	p{
 		margin:0;
@@ -1127,6 +1145,9 @@ aside section.widget_wysija {
 	.img{
 		float:left;
 		width: 120px;
+		img{
+			border-radius:4px;
+		}
 	}
 	
 	.info{
@@ -1188,10 +1209,12 @@ article .thumbnail img{
 .single-post article .thumbnail{
 	width:100%;
 	text-align:center;
-	background-color:#192D38; //por defecto
+	//background-color:#192D38; //por defecto
 	border-radius:4px;
 	margin-bottom:16px;
 	padding:20px 5px;
+	float:none;
+	opacity:0;
 	img{
 		width:250px;
 	}
@@ -1206,18 +1229,40 @@ article .thumbnail img{
 	height:70px;
 }
 
-.acerca_de .entry-content{
+.page.acerca_de .entry-content{
 	max-width:980px;
 	margin:auto;
 }
 
 
-
-@media (min-width:768px){
-	article .entry-content{
-		margin-left:200px;
-	}
-	.single article .entry-content{
-		margin-left:0;
-	}
+aside.mashsb-container{
+	padding : 10px auto;
+	padding-left:0;
 }
+
+.entry-content .mashsb-box .mashsb-buttons a{
+	padding:10px;
+	min-width:120px;
+}
+
+.entry-content .entry-meta:first-child{
+	margin-bottom:15px;
+	background-color:#eee;
+	padding:5px;
+	border-radius:4px;
+}
+
+.entry-content .entry-meta:first-child > span{
+	display:inline-block;
+}
+
+
+// .more-link{
+// 	//font-weight:bold;
+// 	a{
+// 		font-weight: normal;
+// 	}
+// 	&:hover{
+// 		color:$links;		
+// 	}
+// }

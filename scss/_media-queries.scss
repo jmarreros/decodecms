@@ -354,6 +354,7 @@
 		margin-left:200px;
 	}
 
+	.page article .entry-content,
 	.single article .entry-content{
 		margin-left:0;
 	}
@@ -511,6 +512,10 @@
 
 	.genesis-nav-menu .sub-menu a{
 		width: 100%;
+	}
+
+	.entry-content .mashsb-box .mashsb-buttons a{
+		min-width:auto;
 	}
 
 }

@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
   //wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Lora:400,700', array(), CHILD_THEME_VERSION );
 //  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,600|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Crimson+Text:400,600', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
@@ -178,9 +178,10 @@ add_action('genesis_entry_content', 'genesis_post_meta',2);
 
 add_filter( 'genesis_post_info', 'post_info_filter' );
 function post_info_filter($post_info) {
-	$post_info =  '[ [post_date format="F j / Y"] - [post_author before=""] ] '.
-                '[ [post_categories before=""] - '.
-                getCustomfield().
+	$post_info =  '<span>[ [post_date format="j F Y"] ]</span> '.
+                '<span> [ Autor: [post_author_link before=""] ]</span> '.
+                '<span>[ [post_categories before=""] - '.
+                getCustomfield()."</span>".
                 '[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]'.
                 ' [post_edit]';
 
@@ -195,7 +196,7 @@ if ( !is_page() ) {
 }}
 
 function getCustomfield($field='Nivel'){
-  return "<span class='custom".$field."'>".genesis_get_custom_field( $field)."]</span>";
+  return "<span class='custom".$field."'>".genesis_get_custom_field( $field)."]</span> ";
 }
 
 // Featured images
@@ -213,7 +214,7 @@ function featured_post_image() {
 //----------
 add_filter( 'the_content_more_link', 'sp_read_more_link' );
 function sp_read_more_link() {
-	return ' <a class="more-link" href="' . get_permalink() . '"> [Leer más]</a>';
+	return ' [<a href="' . get_permalink() . '">Leer más</a>]';
 }
 
 
