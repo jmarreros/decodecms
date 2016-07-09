@@ -940,12 +940,16 @@ span.required{
 	font-size:1.6rem;
 	color:$color-form-contact;
 	background-color:$background-form-contact;
-	border: 2px solid $borde-form-contact;
+	border: 3px solid $borde-form-contact;
 	border-radius:6px;
 	padding:35px 20px 20px;
 	margin:auto;
 	width:80%;
-	
+	position:relative;
+
+	div + p{
+		margin:0;
+	}
 
 	p{
 		margin: 0 auto 15px;
@@ -1247,15 +1251,36 @@ aside.mashsb-container{
 
 .entry-content .entry-meta:first-child{
 	margin-bottom:15px;
-	background-color:#eee;
 	padding:5px;
-	border-radius:4px;
+	//background-color:#eee;
+	// border-radius:4px;
+	// span:first-child{
+	// 	background-color:#eee;
+	// }
 }
 
 .entry-content .entry-meta:first-child > span{
 	display:inline-block;
 }
 
+
+.contacto .entry-content p:first-child{
+	margin-bottom:34px;
+}
+
+
+
+#contacto_robot{
+	position:absolute;
+	top:-101px;
+	right:0;
+}
+
+#contacto_robot_brazo{
+	position:absolute;
+	right:-19px;
+	top:6px;
+}
 
 // .more-link{
 // 	//font-weight:bold;

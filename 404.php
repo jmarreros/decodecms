@@ -25,7 +25,7 @@ function genesis_404() {
 	echo genesis_html5() ? '<article class="entry pag404">' : '<div class="post hentry">';
 
 		printf( '<h1 class="entry-title">%s</h1>', apply_filters( 'genesis_404_entry_title', __( 'Not found, error 404', 'genesis' ) ) );
-		echo '<div class="entry-content">';
+		echo '<div>';
 
 			if ( genesis_html5() ) :
 				echo "<strong> He buscado, pero no he podido encontrar la página que estas buscando :(</strong>";

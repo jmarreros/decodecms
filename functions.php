@@ -153,7 +153,7 @@ remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'sp_custom_footer' );
 function sp_custom_footer() {
 	$year = date("Y");
-	$img  = "<img src='".get_stylesheet_directory_uri()."/images/logo-pie.png' alt='logo decode pie'>";
+	$img  = "<img src='".get_stylesheet_directory_uri()."/images/logo-pie.svg' alt='logo decode pie' width='134' height='17' />";
 	$str  = "<p class='copy'>&copy $img  <span> Copyright $year | </span> <span> Todos los derechos reservados | <a class='politica' href='/politica-de-privacidad/' >Política de Privacidad</a></span> </p> ";
 	echo $str;
 }
@@ -241,7 +241,6 @@ function sp_disable_hoverIntent() {
 
 //Cantidad de revisiones
 define('WP_POST_REVISIONS', 3);
-
 
 
 //Eliminar la carga de archivo contact form 7

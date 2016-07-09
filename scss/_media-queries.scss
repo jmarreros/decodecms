@@ -154,6 +154,11 @@
 	#search .wrap, #genesis-nav-primary .wrap,.site-header .wrap{
 		padding:0;
 	}
+
+	#contacto_robot, #contacto_robot_brazo{
+		display: none;
+	}
+	
 }
 
 @media only screen and (max-width: 800px) {
