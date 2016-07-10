@@ -40,6 +40,7 @@
 	background:rgba(66,137,178,0.8) url(images/to-top.png) no-repeat center 50%;
 	visibility:hidden;
 	opacity:0;
+	z-index:1;
 
 	-webkit-transition:all .3s;
 	-moz-transition:all .3s;

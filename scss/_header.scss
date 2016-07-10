@@ -17,6 +17,7 @@
 	float: left;
 	padding: 10px 0;
 	width: 360px;
+	position:relative;
 }
 
 .header-full-width .title-area {
@@ -38,7 +39,7 @@
 
 .header-image .site-title > a {
 	background-image: url($logo), url($robot);
-	background-position:right center, 15px center;
+	background-position:right 15px, 15px center;
 	background-size:75% auto,auto auto;
 	background-repeat:no-repeat,no-repeat;
 	float: left;
@@ -65,10 +66,20 @@
 	margin-bottom: 0;
 }
 
-.header-image .site-description,
 .header-image .site-title {
 	display: block;
 	text-indent: -9999px;
 }
 
-
+.header-image .site-description{
+	font-style:italic;
+	font-size:1.2rem;
+	font-weight:bold;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	color:$logo-azul-claro;
+	display:block;
+	position:absolute;
+	left:100px;
+	top:58px;
+}

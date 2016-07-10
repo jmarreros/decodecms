@@ -159,7 +159,12 @@
 		display: none;
 	}
 	
+	.header-image .site-description{
+		position:static;
+		margin-bottom: 10px;
+	}
 }
+
 
 @media only screen and (max-width: 800px) {
 
@@ -261,6 +266,24 @@
 		}
 	}
 
+	.contacto{
+		.content{
+			padding-right:0;
+		}
+		.texto,.formulario{
+			width:40%;
+			.fa{
+				margin-right:14px;
+			}
+		}
+		.formulario{
+			width: 60%;
+			.wpcf7-form{
+				width: 98%;
+			}
+		}
+	}
+
 }
 
 @media only screen and (min-width: 960px) {
@@ -343,6 +366,20 @@
 			max-width: 200px;
 		}
 	}
+
+	.acerca_de{
+		.texto,.personal{
+			float:none;
+			width: 100%;
+		}
+	}
+	.contacto{
+		.texto,.formulario{
+			float:none;
+			width: 100%;
+		}
+	}
+
 
 }
 
@@ -570,6 +607,27 @@
 		} 
 	}
 
+	.acerca_de{
+
+		.personal {
+
+			margin-top: 0;
+
+			.info{
+				margin-top: 5px;
+				text-align: center;
+				width: 100%;
+				float: none;
+			}
+
+			.img{
+				float: none;
+				width: 100%;
+				text-align: center;
+			}
+
+		}
+	}
 }
 
 

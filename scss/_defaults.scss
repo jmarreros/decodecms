@@ -944,7 +944,7 @@ span.required{
 	border-radius:6px;
 	padding:35px 20px 20px;
 	margin:auto;
-	width:80%;
+	width:95%;
 	position:relative;
 
 	div + p{
@@ -1133,45 +1133,6 @@ aside section.widget_wysija {
 }
 
 
-//acerca de 
-
-.personal {
-	margin-top: 30px;
-	padding:20px;
-	border-radius:6px;
-	background-color:#ececec;
-	font-size:2rem;
-	
-	p{
-		margin:0;
-	}
-
-	.img{
-		float:left;
-		width: 120px;
-		img{
-			border-radius:4px;
-		}
-	}
-	
-	.info{
-		float:left;
-		margin-top: 30px;
-	}
-
-	.adicional{
-		float: none;
-		clear:both;
-	}
-
-	&:after{
-		content: "";
-		display: block;
-		clear: both;
-	}
-}
-
-
 //  Place holder
 // ------------------
 
@@ -1233,12 +1194,6 @@ article .thumbnail img{
 	height:70px;
 }
 
-.page.acerca_de .entry-content{
-	max-width:980px;
-	margin:auto;
-}
-
-
 aside.mashsb-container{
 	padding : 10px auto;
 	padding-left:0;
@@ -1260,15 +1215,89 @@ aside.mashsb-container{
 }
 
 .entry-content .entry-meta:first-child > span{
-	display:inline-block;
+	// display:inline-block;
 }
 
 
-.contacto .entry-content p:first-child{
-	margin-bottom:34px;
+.acerca_de{
+
+	.texto{
+		float:left;
+		width: 60%;
+		padding:10px 15px;
+	}
+
+	.personal {
+		float:left;
+		width:40%;
+		margin-top: -20px;
+		padding:20px;
+		border-radius:6px;
+		background-color:#ececec;
+		font-size:2rem;
+		
+		p{
+			margin:0;
+		}
+
+		.img{
+			float:left;
+			width: 120px;
+			img{
+				border-radius:4px;
+			}
+		}
+		
+		.info{
+			float:left;
+			margin-top: 30px;
+			margin-bottom: 15px;
+		}
+
+		.adicional{
+			float: none;
+			clear:both;
+			p{
+				margin-bottom: 10px;
+			}
+		}
+
+		&:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+
 }
 
 
+
+
+.contacto{
+
+	.texto{
+		float:left;
+		width:35%;
+		padding:14px;
+		background-color:#ececec;
+		border-radius:6px;
+		margin-bottom:20px;
+	}
+
+	.formulario{
+		float:left;
+		width:65%;
+	}
+
+	p{
+		margin-bottom:12px;
+	}
+
+	.to-top{
+		background-color:rgba(0,0,0,.5);
+	}
+}
 
 #contacto_robot{
 	position:absolute;
@@ -1281,6 +1310,9 @@ aside.mashsb-container{
 	right:-19px;
 	top:6px;
 }
+
+
+
 
 // .more-link{
 // 	//font-weight:bold;
