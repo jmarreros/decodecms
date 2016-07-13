@@ -1,6 +1,8 @@
 var gulp 	= require('gulp');
 var sass 	= require('gulp-sass');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
 
 //convertir estilos
 gulp.task('convertirCSS', function() {
@@ -23,8 +25,21 @@ gulp.task('watch_scss',function(){
 });
 
 
+//Para Javascript
+gulp.task('comprimirJS', function (cb) {
+  pump([
+        gulp.src('dev/*.js'),
+        uglify(),
+        gulp.dest('./js')
+    ],
+    cb
+  );
+});
+
+
+
 //Default task
-gulp.task('default',['watch_scss']);
+gulp.task('default',['comprimirJS','watch_scss']);
 
 
 

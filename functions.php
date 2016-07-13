@@ -26,6 +26,7 @@ add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list'
 //* Add Accessibility support
 add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
 
+
 //* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
 
@@ -45,12 +46,6 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_header_right', 'genesis_do_subnav' );
-
-
-add_action( 'wp_enqueue_scripts', 'custom_stript');
-function custom_stript() {
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
-}
 
 
 //Eliminar Emotions Emoji
@@ -77,31 +72,38 @@ function disable_wp_emojicons() {
 add_action( 'init', 'disable_wp_emojicons' );
 
 
-//Jquery y skip-links at the bottom
+add_action( 'wp_enqueue_scripts', 'custom_stript');
+function custom_stript() {
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', false );
+}
 
-function wpdocs_dequeue_script() {
 
-  if( !is_admin()){
-
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"), false, '1.11.3', false);
-    wp_enqueue_script('jquery');
-
+//Skip-links at the bottom
+function dequeue_script_skip_links() {
     wp_dequeue_script('skip-links');
     wp_enqueue_script('skip-links',GENESIS_JS_URL . "/skip-links.js",array(),'',true);
-    
-  }
-
 }
-add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );
+add_action( 'wp_print_scripts', 'dequeue_script_skip_links', 100 );
 
 
-function wpdocs_dequeue_style(){
+// Sustituimos la versión de jQuery local por la del CDN de Google
+function dequeue_script_jquery() {
+   if( !is_admin()){
+      wp_deregister_script('jquery');
+      wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"), false, '1.11.3', true);
+      wp_enqueue_script('jquery');
+    }
+}
+add_action('wp_enqueue_scripts', 'dequeue_script_jquery');
+
+
+
+function dequeue_style_boletin(){
   if ( !is_admin() ){
     wp_deregister_style('validate-engine-css'); //Para el boletin de suscirpciones
   }
 }
-add_action( 'wp_print_styles', 'wpdocs_dequeue_style', 100 );
+add_action( 'wp_print_styles', 'dequeue_style_boletin', 100 );
 
 
 //Para el rating con estrellas
@@ -217,8 +219,6 @@ function sp_read_more_link() {
 }
 
 
-
-
 //Navigation
 //--------------
 add_filter ( 'genesis_next_link_text' , 'sp_next_page_link' );
@@ -238,19 +238,20 @@ function sp_disable_hoverIntent() {
 }
 
 
-//Cantidad de revisiones
-// define('WP_POST_REVISIONS', 3);
-
-
 //Eliminar la carga de archivo contact form 7
 //add_filter( 'wpcf7_load_js', '__return_false' );
-//add_filter( 'wpcf7_load_css', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
 
 
+//Eliminamos el CSS de ratings
+function dequeue_style_ratings() {
+  wp_deregister_style('wp-postratings');
+}
+add_action('wp_print_styles', 'dequeue_style_ratings', 100);
 
 
-//Excluimos
-//add_filter( 'wpcf7_load_js', '__return_false' );
-//add_filter( 'wpcf7_load_css', '__return_false' );
-
-
+//Para el js embed
+function dequeue_script_embed(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'dequeue_script_embed' );
