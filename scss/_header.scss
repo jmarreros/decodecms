@@ -8,6 +8,13 @@
 	//background-position:center top;
 	min-height: 62px;
 	position:relative;
+	
+	>.wrap:first-child{
+		background-image:url(images/logo-wordpress-header.svg);
+		background-repeat:no-repeat;
+		background-position:90% -20px;
+		background-size:175px 170px;
+	}
 }
 
 /* ## Title Area
@@ -72,11 +79,12 @@
 }
 
 .header-image .site-description{
+	font-family:Ubuntu,sans-serif;
 	font-style:italic;
-	font-size:1.2rem;
-	font-weight:bold;
+	// font-weight:bold;
+	font-size:1.4rem;
 	text-transform:uppercase;
-	letter-spacing:1px;
+	letter-spacing:.25px;
 	color:$logo-azul-claro;
 	display:block;
 	position:absolute;

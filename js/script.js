@@ -53,7 +53,7 @@
 		color 	= '#' + clase.substring(2);
 		$(this).find('.thumbnail').css('background-color',color);
 
-		$('.single-post article .thumbnail').fadeTo(400,1);
+		$('.single-post article .thumbnail').fadeTo(200,1);
 	});
 
 

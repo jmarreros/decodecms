@@ -1,6 +1,5 @@
 /* ## Headings
 --------------------------------------------- */
-
 h1,
 h2,
 h3,
@@ -1174,12 +1173,12 @@ article .thumbnail img{
 .single-post article .thumbnail{
 	width:100%;
 	text-align:center;
-	//background-color:#192D38; //por defecto
+	background-color:#192D38; //por defecto
 	border-radius:4px;
 	margin-bottom:16px;
 	padding:20px 5px;
 	float:none;
-	opacity:0;
+	opacity:.5;
 	img{
 		width:250px;
 	}

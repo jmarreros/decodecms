@@ -81,7 +81,6 @@ add_action( 'init', 'disable_wp_emojicons' );
 
 function wpdocs_dequeue_script() {
 
-
   if( !is_admin()){
 
     wp_deregister_script('jquery');
@@ -240,10 +239,18 @@ function sp_disable_hoverIntent() {
 
 
 //Cantidad de revisiones
-define('WP_POST_REVISIONS', 3);
+// define('WP_POST_REVISIONS', 3);
 
 
 //Eliminar la carga de archivo contact form 7
 //add_filter( 'wpcf7_load_js', '__return_false' );
 //add_filter( 'wpcf7_load_css', '__return_false' );
+
+
+
+
+//Excluimos
+//add_filter( 'wpcf7_load_js', '__return_false' );
+//add_filter( 'wpcf7_load_css', '__return_false' );
+
 

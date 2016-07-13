@@ -1,40 +1,30 @@
 var gulp 	= require('gulp');
 var sass 	= require('gulp-sass');
-//var cssnano = require('gulp-cssnano');
-//var autoprefixer = require('gulp-autoprefixer');
+var concat = require('gulp-concat');
 
 //convertir estilos
-gulp.task('styles', function() {
-    gulp.src('scss/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./'));
+gulp.task('convertirCSS', function() {
+    return gulp.src('scss/**/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('./dev/'));
 });
 
-//autoprefixer
-/*
-gulp.task('autoprefixer', function () {
-	return gulp.src('style.css')
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
-		.pipe(gulp.dest('./'));
+//concatenar con comentarios.css
+gulp.task('concatenar',['convertirCSS'], function () {
+   return gulp.src('./dev/*.css')
+     .pipe(concat("./style.css"))
+     .pipe(gulp.dest('./'));
 });
-*/
 
-//minificar
-/*
-gulp.task('minificar', function() {
-    return gulp.src('./style.css')
-        .pipe(cssnano())
-        .pipe(gulp.dest('./min'));
-});
-*/
 
-//Watch task
-gulp.task('default',function() {
-    gulp.watch('scss/**/*.scss',['styles']);
-    //gulp.watch('./style.css',['autoprefixer']);
-    //gulp.watch('./style.css',['minificar']);
+//Tarea para monitorear cambios en los archivos sass
+gulp.task('watch_scss',function(){
+    gulp.watch('scss/**/*.scss',['concatenar']);
 });
+
+
+//Default task
+gulp.task('default',['watch_scss']);
+
+
 
