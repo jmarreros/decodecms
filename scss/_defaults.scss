@@ -314,7 +314,9 @@ img.centered,
 .aligncenter {
 	display: block;
 	margin: 0 auto 24px;
+	text-align:center;
 }
+
 
 img.alignnone,
 .alignnone {
@@ -1271,8 +1273,6 @@ aside.mashsb-container{
 }
 
 
-
-
 .contacto{
 
 	.texto{
@@ -1311,7 +1311,9 @@ aside.mashsb-container{
 }
 
 
-
+// .text-center{
+// 	text-align:center;
+// }
 
 // .more-link{
 // 	//font-weight:bold;

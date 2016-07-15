@@ -190,7 +190,9 @@ aside .widget{
 	top:32px;
 }
 
-
-
+//A 960px cambia a block en media queries
+.site-inner > .content-sidebar-wrap{
+	display:flex;
+}
 
 

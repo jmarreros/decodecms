@@ -2,7 +2,10 @@
 
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
-
+	.site-inner > .content-sidebar-wrap{
+		display:flex;
+	}
+	
 @media only screen and (max-width: 1290px) {
 
 	aside .widget .widget-wrap{
@@ -231,6 +234,11 @@
 //--- Medias personalizadas
 
 @media only screen and (max-width: 960px) {
+
+	.site-inner > .content-sidebar-wrap{
+		display:block;
+	}
+
 	//Search
 	.widget_search{
 		position:static;
