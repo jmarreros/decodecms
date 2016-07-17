@@ -113,6 +113,12 @@ function dequeue_script_skip_links() {
 add_action( 'wp_print_scripts', 'dequeue_script_skip_links', 100 );
 
 
+function dequeue_script_lightbox(){
+  wp_dequeue_script('enqueue_client_files_footer');
+}
+add_action('wp_print_scripts','dequeue_script_lightbox');
+
+
 function dequeue_style_boletin(){
   if ( !is_admin() ){
     wp_deregister_style('validate-engine-css'); //Para el boletin de suscirpciones
