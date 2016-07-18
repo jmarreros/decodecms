@@ -12,7 +12,7 @@
     
     $arg['comment_field'] =   '<p class="comment-form-comment">' .
                                 '<textarea id="comment" name="comment" cols="45" placeholder="Comentarios" rows="6" tabindex="4" aria-required="true"></textarea>' .
-                                '<span class="msgcode">'.__('Para escribir código usar las etiquetas :','decodecms').'[code] [/code]</span>' ;
+                                '<span class="msgcode">'.__('Para escribir código envolver con: ','decodecms').' &lt;pre class="language-xxx"&gt;&lt;code&gt; &lt;/code&gt;&lt;/pre&gt; ,reemplaza las xxx (php, css, html)</span>' ;
                               '</p>'.
     
     $arg['fields']['author']= '<p class="comment-form-author">' .
@@ -124,7 +124,7 @@ jQuery(document).ready(function($) {
 }
 }
 
-add_action('wp_footer', 'comment_validation_init');
+add_action('wp_footer', 'comment_validation_init',20);
 
 
 

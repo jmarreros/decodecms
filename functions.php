@@ -91,7 +91,7 @@ function jquery_script_remove_header() {
       wp_deregister_script( 'jquery' );
 }
  
-add_action('genesis_after_footer', 'jquery_script_add_footer');
+add_action('genesis_after_footer', 'jquery_script_add_footer',0);
 function jquery_script_add_footer() {
       wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
       wp_enqueue_script( 'jquery');
@@ -113,18 +113,34 @@ function dequeue_script_skip_links() {
 add_action( 'wp_print_scripts', 'dequeue_script_skip_links', 100 );
 
 
+//Para el lightbox
 function dequeue_script_lightbox(){
   wp_dequeue_script('enqueue_client_files_footer');
 }
 add_action('wp_print_scripts','dequeue_script_lightbox');
 
 
+//Para el boletin de suscirpciones
 function dequeue_style_boletin(){
   if ( !is_admin() ){
-    wp_deregister_style('validate-engine-css'); //Para el boletin de suscirpciones
+    wp_deregister_style('validate-engine-css'); 
   }
 }
 add_action( 'wp_print_styles', 'dequeue_style_boletin', 100 );
+
+
+//Para el plugin prism
+// add_action( 'wp_print_scripts', 'dequeue_script_prism' );
+// function dequeue_script_prism() {
+//   if ( !is_single() ) wp_deregister_style( 'prism' );
+// }
+
+// add_action( 'wp_print_scripts', 'dequeue_style_prism' );
+// function dequeue_style_prism() {
+//   if ( !is_single() ) wp_deregister_style( 'prism' );
+// }
+// //
+
 
 
 //Para el rating con estrellas

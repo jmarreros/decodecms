@@ -82,18 +82,27 @@ i {
 }
 
 blockquote {
-	margin: 40px;
+	font-family:Consolas, Monaco;
+	font-style:normal;
+	font-size:1.6rem;
+	margin: 20px;
+	background-color:$background-titles-hover;
+	padding:10px;
+	border-radius:6px;
+	p{
+		margin-bottom: 0;
+	}
 }
 
-blockquote::before {
-	content: "\201C";
-	display: block;
-	font-size: 3rem;
-	height: 0;
-	left: -20px;
-	position: relative;
-	top: -10px;
-}
+// blockquote::before {
+// 	content: "\201C";
+// 	display: block;
+// 	font-size: 3rem;
+// 	height: 0;
+// 	left: -20px;
+// 	position: relative;
+// 	top: -10px;
+// }
 
 
 
