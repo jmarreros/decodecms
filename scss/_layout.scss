@@ -155,8 +155,8 @@ main.content{
 //Articles
 .content article {
 
-	margin-bottom:20px;
-	padding-bottom:20px;
+	margin-bottom:10px;
+	padding-bottom:10px;
 	clear:both;
 	//border-bottom : 1px dotted $gris-claro;
 
@@ -164,7 +164,7 @@ main.content{
 		float:left;
 		border-radius:4px;
 		margin-right: 20px;
-		min-height: 200px;
+		// min-height: 200px;
 	}
 
 	.entry-meta{

@@ -1178,6 +1178,7 @@ div.img404 img{
 
 article .thumbnail{
 	width:180px;
+	height:180px;
 }
 
 article .thumbnail img{
@@ -1186,6 +1187,7 @@ article .thumbnail img{
 
 .single-post article .thumbnail{
 	width:100%;
+	height:auto;
 	text-align:center;
 	background-color:#192D38; //por defecto
 	border-radius:4px;
@@ -1197,6 +1199,7 @@ article .thumbnail img{
 		width:250px;
 	}
 }
+
 
 .post-ratings{
 	text-align:right;
