@@ -574,8 +574,21 @@
 
 }
 
+@media only screen and (max-width:600px){
+	.wp_rp_content .related_post li{
+		width: 40%;
+		margin-left:15px;
+		margin-bottom: 15px;
+
+		&:nth-child(odd){
+			clear:both;
+		}
+	}
+}
+
 
 @media only screen and (max-width: 480px) {
+
 
 	.header-image .site-title > a {
 		background-size:70% auto;
