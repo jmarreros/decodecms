@@ -217,8 +217,10 @@ function post_info_filter($post_info) {
                 '<span> [ Autor: [post_author_link before=""] ]</span> '.
                 '<span>[ [post_categories before=""] - '.
                 getCustomfield()."</span>".
-                '[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]'.
-                ' [post_edit]';
+                '<span>[ <i class="fa fa-video-camera"></i> ]';
+
+                //'[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]'.
+                //' [post_edit]';
 
 	return $post_info;
 }

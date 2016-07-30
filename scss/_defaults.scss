@@ -1372,16 +1372,73 @@ aside.mashsb-container{
 	}
 }
 
-// .text-center{
-// 	text-align:center;
-// }
 
-// .more-link{
-// 	//font-weight:bold;
-// 	a{
-// 		font-weight: normal;
-// 	}
-// 	&:hover{
-// 		color:$links;		
-// 	}
-// }
+
+.mashsb_above_buttons{
+	font-size:1.6rem;
+	font-family:$font-body;
+	margin-bottom:10px;
+	font-style:italic;
+	color:#979797;
+}
+
+
+
+.wp_rp_content{
+	
+	border-top:1px dotted $gris-claro;
+	padding-top:20px;
+
+	&:after{
+		content: "";
+		display: block;
+		margin-bottom: 20px;
+		padding-bottom:20px;
+		border-bottom:1px dotted $gris-claro;
+		clear: both;
+	}
+
+	.related_post{
+		
+		width: 100%;
+
+		li{
+			list-style: none;
+			width: 20%;
+			float:left;
+
+			&:hover .wp_rp_title{
+				background-color:$background-titles-hover;
+				border-radius:3px;
+			}
+
+			>a{
+				border-bottom:none;
+				
+				&:hover{
+					color :$gris-oscuro;
+				}
+
+				img{
+					width: 100%;
+					border-radius:4px;
+				}
+			}
+			
+			.wp_rp_title{
+				display: block;
+				font-family: $font-titles;
+				font-size: 1.3rem;
+				padding: 4px;
+			}
+
+		} //li
+
+	}// .related-post
+
+	.related_post_title{
+		margin-bottom: 20px;
+		margin-left: 20px;
+	}
+
+}
