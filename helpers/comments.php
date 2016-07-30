@@ -38,87 +38,17 @@
     return $arg;
 }
 
-/*
-function wp_move_textarea( $input = array () )
-{
-    static $textarea = '';
 
-    if ( 'comment_form_defaults' === current_filter() )
-    {
-        // Copy the field to our internal variable …
-        $textarea = $input['comment_field'];
-        // … and remove it from the defaults array.
-        $input['comment_field'] = '';
-        return $input;
-    }
-
-    print apply_filters( 'comment_form_field_comment', $textarea );
-}
-*/
-
-/*
-function wp_print_messages(){
-  print "<ul id='message-box'></ul>";
-}
-*/
 
 add_filter( 'comment_form_defaults', 'wp_modify_comment_form' );
-//add_filter( 'comment_form_defaults', 'wp_move_textarea' );
-//add_action( 'comment_form_after_fields', 'wp_move_textarea' );
-//add_action( 'comment_form_before_fields', 'wp_print_messages' );
+
 
 
 function comment_validation_init() {
 if(is_singular() && comments_open() ) { ?>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-
-    $('#commentform').validate({
-
-    onfocusout: function(element) {
-      this.element(element);
-    },
-     
-    rules: {
-
-      author: {
-                required: true,
-                minlength: 3
-              },
-     
-      email:  {
-                required: true,
-                email: true
-              },
-     
-      comment:  {
-                required: true,
-                minlength: 10
-                }
-    },
-     
-    messages: {
-              author  : "Requerido",
-              email   : {
-                          required:"Requerido",
-                          email:"No válido"
-                        },
-              comment : {
-                          required:"Requerido",
-                          minlength:"Mínimo 10 caracteres"
-                        }
-    },
-
-  errorPlacement: function(error, element) {},
-
-  //errorElement: "span",
-  //errorLabelContainer: "#message-box",
-  //wrapper: "li",
-   
-    }); //validate
-}); //onready
-
+jQuery(document).ready(function(e){e("#commentform").validate({onfocusout:function(e){this.element(e)},rules:{author:{required:!0,minlength:3},email:{required:!0,email:!0},comment:{required:!0,minlength:10}},messages:{author:"Requerido",email:{required:"Requerido",email:"No válido"},comment:{required:"Requerido",minlength:"Mínimo 10 caracteres"}},errorPlacement:function(e,r){}})});
 </script>
 <?php
 }
@@ -185,7 +115,47 @@ add_filter('comment_reply_link', 'custom_comment_reply');
 
 
 
+/*
+jQuery(document).ready(function($) {
 
+    $('#commentform').validate({
 
+    onfocusout: function(element) {
+      this.element(element);
+    },
+     
+    rules: {
+      
+      author: {
+                required: true,
+                minlength: 3
+              },
+     
+      email:  {
+                required: true,
+                email: true
+              },
+     
+      comment:  {
+                required: true,
+                minlength: 10
+                }
+    },
+     
+    messages: {
+              author  : "Requerido",
+              email   : {
+                          required:"Requerido",
+                          email:"No válido"
+                        },
+              comment : {
+                          required:"Requerido",
+                          minlength:"Mínimo 10 caracteres"
+                        }
+    },
 
-
+  errorPlacement: function(error, element) {},
+   
+    }); //validate
+}); //onready
+*/

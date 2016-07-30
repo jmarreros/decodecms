@@ -5,6 +5,7 @@
 include_once( get_template_directory() . '/lib/init.php' );
 include_once('helpers/comments.php');
 include_once('helpers/breadcrumbs.php');
+include_once('helpers/related.php');
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );

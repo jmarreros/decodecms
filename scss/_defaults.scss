@@ -1384,7 +1384,7 @@ aside.mashsb-container{
 
 
 
-.wp_rp_content{
+.rel_posts{
 	
 	border-top:1px dotted $gris-claro;
 	padding-top:20px;
@@ -1398,7 +1398,7 @@ aside.mashsb-container{
 		clear: both;
 	}
 
-	.related_post{
+	ul{
 		
 		width: 100%;
 
@@ -1406,8 +1406,9 @@ aside.mashsb-container{
 			list-style: none;
 			width: 20%;
 			float:left;
+			margin-left: 20px;
 
-			&:hover .wp_rp_title{
+			&:hover .title_rel{
 				background-color:$background-titles-hover;
 				border-radius:3px;
 			}
@@ -1425,7 +1426,7 @@ aside.mashsb-container{
 				}
 			}
 			
-			.wp_rp_title{
+			.title_rel{
 				display: block;
 				font-family: $font-titles;
 				font-size: 1.3rem;
@@ -1436,7 +1437,7 @@ aside.mashsb-container{
 
 	}// .related-post
 
-	.related_post_title{
+	h3{
 		margin-bottom: 20px;
 		margin-left: 20px;
 	}
