@@ -5,7 +5,8 @@
 include_once( get_template_directory() . '/lib/init.php' );
 include_once('helpers/comments.php');
 include_once('helpers/breadcrumbs.php');
-include_once('helpers/related.php');
+// include_once('helpers/related.php');
+include_once('helpers/social.php');
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
@@ -101,7 +102,6 @@ function jquery_script_add_footer() {
 
 add_action( 'wp_enqueue_scripts', 'custom_stript');
 function custom_stript() {
-    // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
     wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', false, '1.0', true );
 }
 

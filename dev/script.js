@@ -64,13 +64,24 @@
 	}
 
 
-	//Clonar y cambiar icono de facebook
-	strShareGoogle ='<a class="mashicon-google" href="https://plus.google.com/share?url='+$(location).attr('href')+
-					'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" rel="nofollow">'+
-					'<span class="icon"></span><span class="text">Compartir</span></a>';
+	//Para los botones de redes sociales
+	$('.dc-social a').click(function(event){
+		event.preventDefault();
 
-	$('.mashsb-buttons').append(strShareGoogle);
+                //popup 
+                var width  = 575,
+                    height = 520,
+                    left   = ($(window).width()  - width)  / 2,
+                    top    = ($(window).height() - height) / 2,
+                    opts   = 'status=1' +
+                        ',width='  + width  +
+                        ',height=' + height +
+                        ',top='    + top    +
+                        ',left='   + left;
+
+                window.open($(this).attr("href"), 'share', opts);
+        
+	});
 
 
 })(jQuery);
-

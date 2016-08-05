@@ -4,7 +4,7 @@ function dc_related_post_tags()
 {
 	if ( !is_single() ) return;
 
-	$orig_post 	 	= $post;
+	// $orig_post 	 	= $post;
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
 
@@ -51,8 +51,8 @@ function dc_related_post_tags()
 
 	} //if
 
-	$post = $orig_post;
-	wp_reset_query();
+	// $post = $orig_post;
+	wp_reset_postdata();
 
 }
   

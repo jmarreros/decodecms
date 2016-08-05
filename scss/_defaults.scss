@@ -1101,49 +1101,99 @@ aside .widget_tag_cloud{
 	}
 }
 
-//boletin
-aside section.widget_wysija {
 
-	background-color:#f8f2e9;
-	border:2px dotted #ecdbc6;
+#text-4{
 
-	.widget_wysija_cont .abs-req{
-		display: none;
+	padding:0;
+	.widget-wrap, .textwidget{
+		padding:0;
 	}
 
+	.textwidget{
+		background-color:#4289B2;
+		border-radius:4px;
+	}
 
-	.widget-title{
-		background-color:#f7931e;
-		&:before{
-			content: "\f0e0";
+	.wheader{
+		background-color:#192D38;
+		border-top-left-radius:4px;
+		border-top-right-radius:4px;
+		min-height: 80px;
+		background-image:url(http://decodecms.app/wp-content/uploads/2016/08/boletin-widget.svg);
+		background-repeat: no-repeat;
+		background-position: top right;
+
+		h3{
+			padding-left:20px;
+			padding-top:5%;
+			width: 70%;
+			color:white;
+			text-align: left;
+		}
+
+	}
+
+	.boton{
+		margin-top: 10px;
+		input{
+			width: 100%;
+			text-transform:none;
 		}
 	}
+	
+	// background-color:#192D38;
 
-	.formError{
-		display: none;
-	}
-
-	.formError + input{
-		border : 2px solid $border-error;
-	}
-
-	input[type="text"]{
-		color:#7A7A7A;
-	}
-
-	.updated{
-		font-size: 1.6rem;
-		background-color:#ffe7ca;
-		padding:5px 10px;
-		border-radius:4px;
-		border:1px dashed #F7931E;
-	}
-
-	.boletin-texto{
-		color:#7A7A7A;
-		margin: 10px 4px;
-	}
+	// border-radius:5px;
+	// border:2px dotted #ecdbc6;
 }
+	
+#mc_embed_signup{
+	padding:15px;
+}
+
+//boletin
+// aside section.widget_wysija {
+
+// 	background-color:#f8f2e9;
+// 	border:2px dotted #ecdbc6;
+
+// 	.widget_wysija_cont .abs-req{
+// 		display: none;
+// 	}
+
+
+// 	.widget-title{
+// 		background-color:#f7931e;
+// 		&:before{
+// 			content: "\f0e0";
+// 		}
+// 	}
+
+// 	.formError{
+// 		display: none;
+// 	}
+
+// 	.formError + input{
+// 		border : 2px solid $border-error;
+// 	}
+
+// 	input[type="text"]{
+// 		color:#7A7A7A;
+// 	}
+
+// 	.updated{
+// 		font-size: 1.6rem;
+// 		background-color:#ffe7ca;
+// 		padding:5px 10px;
+// 		border-radius:4px;
+// 		border:1px dashed #F7931E;
+// 	}
+
+// 	.boletin-texto{
+// 		color:#7A7A7A;
+// 		margin: 10px 4px;
+// 	}
+// }
 
 
 //  Place holder
@@ -1335,7 +1385,8 @@ aside.mashsb-container{
 
 	ul li{
 		list-style-type: disc;
-		margin-left: 20px;
+		margin-left: 36px;
+		margin-bottom: 10px;
 	}
 
 	img.aligncenter{
@@ -1366,21 +1417,21 @@ aside.mashsb-container{
 }
 
 
-.single-wysijap{
-	.entry-meta, .thumbnail , .post-ratings, .entry-comments-link{
-		display: none;
-	}
-}
+// .single-wysijap{
+// 	.entry-meta, .thumbnail , .post-ratings, .entry-comments-link{
+// 		display: none;
+// 	}
+// }
 
 
 
-.mashsb_above_buttons{
-	font-size:1.6rem;
-	font-family:$font-body;
-	margin-bottom:10px;
-	font-style:italic;
-	color:#979797;
-}
+// .mashsb_above_buttons{
+// 	font-size:1.6rem;
+// 	font-family:$font-body;
+// 	margin-bottom:10px;
+// 	font-style:italic;
+// 	color:#979797;
+// }
 
 
 
@@ -1443,3 +1494,86 @@ aside.mashsb-container{
 	}
 
 }
+
+
+//Social
+
+
+.dc-link:hover,.dc-link:active {
+    color: white;
+}
+ 
+.dc-twitter {
+    background: #00aced;
+}
+
+.dc-twitter:hover,.dc-twitter:active {
+    background: #0084b4;
+}
+ 
+.dc-facebook {
+    background: #3B5997;
+}
+ 
+.dc-facebook:hover,.dc-facebook:active {
+    background: #2d4372;
+}
+ 
+.dc-googleplus {
+    background: #D64937;
+}
+ 
+.dc-googleplus:hover,.dc-googleplus:active {
+    background: #b53525;
+}
+ 
+
+.dc-whatsapp {
+    background: #43d854;
+}
+ 
+.dc-whatsapp:hover,.dc-whatsapp:active {
+    background: #009688;
+}
+
+.dc-linkedin {
+    background: #0074A1;
+}
+ 
+.dc-linkedin:hover,.dc-linkedin:active {
+    background: #006288;
+}
+
+ 
+.dc-social {
+	font-family: Helvetica;
+	font-size:1.6rem;
+	// color:$gris-oscuro;
+    margin-bottom: 20px;
+    text-align: center;
+    p{
+    	margin-bottom: 8px;
+    }
+    .dc-link {
+	    color: white!important;
+	    font-size: 1.4rem;
+	    padding: 10px 15px;
+	    border-radius: 2px;
+	    margin-right: 2px;
+	    margin-top: 2px;
+	    cursor: pointer;
+	    display: inline-block;
+	 	border-bottom:none;
+	 	i{
+	 		font-size: 1.6rem;
+	 	}
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+    .dc-whatsapp {
+	display: none!important;
+    }
+}
+
