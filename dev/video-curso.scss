@@ -31,6 +31,8 @@
 	.seccion{
 		font-weight: bold;
 		margin-top:24px;
+		clear:both;
+		float:none;
 	}
 
 	a{
@@ -48,10 +50,17 @@
 	font-family:Helvetica;
 	float:right;
 	width:60%;
+
 	.seccion{
 		text-transform: uppercase;
 		text-align: center;
 		font-size: 1.6rem;
+		clear:both;
+		float:none;
+		
+		&:first-child{
+			font-weight: bold;
+		}
 	}
 
 	p{
@@ -62,6 +71,8 @@
 	#prev,#next{
 		font-size: 1.4rem;
 		border-bottom:none;
+		padding:5px;
+		margin-bottom:20px;
 	}
 	#prev{
 		float:left;
@@ -76,4 +87,8 @@
 		width:100%;
 		float:none;
 	}
+	.mini-curso-videos .entry-title{
+		font-size: 2.4rem!important;
+	}
+
 }
