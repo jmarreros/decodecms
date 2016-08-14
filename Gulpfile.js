@@ -11,6 +11,12 @@ gulp.task('convertirCSS', function() {
         .pipe(gulp.dest('./dev/'));
 });
 
+gulp.task('convertirCSSMiniCurso',function(){
+  return gulp.src('dev/video-curso.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('./css/'));
+});
+
 //concatenar con comentarios.css
 gulp.task('concatenar',['convertirCSS'], function () {
    return gulp.src('./dev/*.css')
@@ -21,7 +27,7 @@ gulp.task('concatenar',['convertirCSS'], function () {
 
 //Tarea para monitorear cambios en los archivos sass
 gulp.task('watch_scss',function(){
-    gulp.watch('scss/**/*.scss',['concatenar']);
+    gulp.watch(['scss/**/*.scss','dev/video-curso.scss'],['concatenar','convertirCSSMiniCurso']);
 });
 
 

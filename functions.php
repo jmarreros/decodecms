@@ -298,3 +298,15 @@ function dequeue_script_embed(){
   wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'dequeue_script_embed' );
+
+
+//Para la página del video-curso
+
+function enqueue_styles_scripts_video_curso() {
+  if ( is_page(289) ){
+    wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
+    wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.0.0', true );
+  }
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );
