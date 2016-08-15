@@ -8,6 +8,8 @@
 		
 		var_url 	= $(this).attr('href');
 		var_texto 	= $(this).text();
+		var_texto = var_texto.replace(/\(.*\)/, ""); 
+
 		var_id		= $(this).attr('id');
  		
  		$('.temario a').css('font-weight','');
@@ -37,12 +39,24 @@
 
 	function cambiar_video( var_url, var_texto, var_id ){
 
-		$('.video-actual ').attr('rel',var_id);
+		$('.video-actual').attr('rel',var_id);
+		$('.video-actual video').attr('poster',cambiar_portada(var_id));
 		$('.video-actual video source').attr('src',var_url);
 		$('.video-actual video')[0].load();
 
 		$('.video-actual .seccion:first-child').text(var_texto);
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
+
+
+	function cambiar_portada( var_id ){
+
+		var_numero = var_id.substring(5);
+		var_poster = $('.video-actual video').attr('poster');
+		var_poster = var_poster.substring(0,var_poster.length-5) + var_numero + '.png';
+
+		return var_poster;
+	}
+
 
 })(jQuery);
