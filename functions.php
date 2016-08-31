@@ -18,7 +18,7 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
   //wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Lora:400,700', array(), CHILD_THEME_VERSION );
 //  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,600|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Crimson+Text:400,600', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
@@ -265,8 +265,7 @@ function sp_next_page_link ( $text ) {
 
 add_filter ( 'genesis_prev_link_text' , 'sp_previous_page_link' );
 function sp_previous_page_link ( $text ) {
-    //return '&#x000AB;';
-    return '<span class="arrow-right"> </span>';
+    return '&#x000AB;';
 }
 
 add_action( 'wp_enqueue_scripts', 'sp_disable_hoverIntent' );
@@ -307,6 +306,12 @@ function enqueue_styles_scripts_video_curso() {
     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
     wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.0.0', true );
   }
+  if ( is_page(326) ){
+        wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
+  } 
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );
+
+
+

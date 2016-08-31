@@ -22,47 +22,6 @@
 		border-radius:0;
 	}
 
-/*
-	.site-inner,
-	.wrap {
-		max-width: 1200px;
-	}
-
-	.content {
-		//width: 620px;
-		width:65%;
-	}
-
-	.sidebar-primary{
-		//width: 360px;
-		width:35%
-	}
-*/
-
-/*
-	.content-sidebar-sidebar .content-sidebar-wrap,
-	.sidebar-content-sidebar .content-sidebar-wrap,
-	.sidebar-sidebar-content .content-sidebar-wrap {
-		width: 740px;
-	}
-
-	.sidebar-content-sidebar .content,
-	.sidebar-sidebar-content .content,
-	.content-sidebar-sidebar .content {
-		width: 400px;
-	}
-
-	.footer-widgets-1,
-	.footer-widgets-2,
-	.footer-widgets-3,
-	.sidebar-primary{
-		width: 300px;
-	}
-
-	.footer-widgets-1 {
-		margin-right: 30px;
-	}
-*/
 }
 
 @media only screen and (max-width: 960px) {
@@ -413,6 +372,10 @@
 		margin-left:0;
 	}
 
+	.dc-whatsapp {
+		display: none!important;
+    }
+
 }
 
 
@@ -575,6 +538,7 @@
 }
 
 @media only screen and (max-width:600px){
+
 	.rel_posts ul li{
 		width: 40%;
 		margin-left:15px;
@@ -584,11 +548,21 @@
 			clear:both;
 		}
 	}
+
 }
 
 
 @media only screen and (max-width: 480px) {
 
+	.blog .content .entry-title,
+	.category .content .entry-title{
+		font-size: 2.6rem;
+	}
+
+	.msg-wrap p{
+		float:none!important;
+		text-align: center!important;
+	}
 
 	.header-image .site-title > a {
 		background-size:70% auto;
