@@ -35,7 +35,7 @@ gulp.task('watch_scss',function(){
 gulp.task('comprimirJS', function (cb) {
   pump([
         gulp.src('dev/*.js'),
-        uglify(),
+        //uglify(),
         gulp.dest('./js')
     ],
     cb

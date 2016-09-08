@@ -1,16 +1,25 @@
 <?php
 
 
+//Seguridad
+add_action( 'send_headers', 'add_header_seguridad' );
+function add_header_seguridad() {
+  header( 'X-Content-Type-Options: nosniff' );
+  header( 'X-Frame-Options: SAMEORIGIN' );
+  header( 'X-XSS-Protection: 1;mode=block' );
+}
+
+
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
 include_once('helpers/comments.php');
 include_once('helpers/breadcrumbs.php');
-// include_once('helpers/related.php');
+include_once('helpers/related.php');
 include_once('helpers/social.php');
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
-define( 'CHILD_THEME_URL', 'http://www.decodecms.com/' );
+define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
 define ('CHILD_THEME_VERSION', '1.0.0' );
 
 //* Enqueue Google Fonts
@@ -80,7 +89,7 @@ add_action( 'init', 'disable_wp_emojicons' );
 // function dequeue_script_jquery() {
 //    if( !is_admin()){
 //       wp_deregister_script('jquery');
-//       wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
+//       wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
 //       wp_enqueue_script('jquery');
 //     }
 // }
@@ -95,13 +104,16 @@ function jquery_script_remove_header() {
  
 add_action('genesis_after_footer', 'jquery_script_add_footer',0);
 function jquery_script_add_footer() {
-      wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
+      wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
       wp_enqueue_script( 'jquery');
 }
 //Fin Jquery al final
 
 add_action( 'wp_enqueue_scripts', 'custom_stript');
 function custom_stript() {
+
+    // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
+
     wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', false, '1.0', true );
 }
 
@@ -131,16 +143,16 @@ add_action( 'wp_print_styles', 'dequeue_style_boletin', 100 );
 
 
 //Para el plugin prism
-// add_action( 'wp_print_scripts', 'dequeue_script_prism' );
-// function dequeue_script_prism() {
-//   if ( !is_single() ) wp_deregister_style( 'prism' );
-// }
+add_action( 'wp_print_scripts', 'dequeue_script_prism' );
+function dequeue_script_prism() {
+  if ( !is_single() ) wp_deregister_style( 'prism' );
+}
 
-// add_action( 'wp_print_scripts', 'dequeue_style_prism' );
-// function dequeue_style_prism() {
-//   if ( !is_single() ) wp_deregister_style( 'prism' );
-// }
-// //
+add_action( 'wp_print_scripts', 'dequeue_style_prism' );
+function dequeue_style_prism() {
+  if ( !is_single() ) wp_deregister_style( 'prism' );
+}
+//
 
 
 
@@ -154,17 +166,17 @@ function colocarEstrellas(){
 // genesis_after_header posicion búsqueda
 //---------------------------------------
 genesis_register_sidebar( array(
-	'id'			=> 'bottom-header',
-	'name'			=> 'Bottom header position',
-	'description'	=>  'Bottom header',
+  'id'      => 'bottom-header',
+  'name'      => 'Bottom header position',
+  'description' =>  'Bottom header',
 ) );
 
 function positionBottomHeader() {
 
-	genesis_widget_area( 'bottom-header', array(
-		'before' => '<div id="search"><div class="wrap">',
-		'after' => '</div></div>'
-	) );
+  genesis_widget_area( 'bottom-header', array(
+    'before' => '<div id="search"><div class="wrap">',
+    'after' => '</div></div>'
+  ) );
 
 }
 
@@ -175,7 +187,7 @@ add_action( 'genesis_after_header', 'positionBottomHeader' );
 //-----------------
 add_filter( 'genesis_search_text', 'sp_search_text' );
 function sp_search_text( $text ) {
-	return esc_attr( 'Buscar...' );
+  return esc_attr( 'Buscar...' );
 }
 
 
@@ -188,10 +200,10 @@ function wpsites_search_button_icon( $text ) {
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'sp_custom_footer' );
 function sp_custom_footer() {
-	$year = date("Y");
-	$img  = "<img src='".get_stylesheet_directory_uri()."/images/logo-pie.svg' alt='logo decode pie' width='134' height='17' />";
-	$str  = "<p class='copy'>&copy $img  <span> Copyright $year | </span> <span> Todos los derechos reservados | <a class='politica' href='/politica-de-privacidad/' >Política de Privacidad</a></span> </p> ";
-	echo $str;
+  $year = date("Y");
+  $img  = "<img src='".get_stylesheet_directory_uri()."/images/logo-pie.svg' alt='logo decode pie' width='134' height='17' />";
+  $str  = "<p class='copy'>&copy $img  <span> Copyright $year | </span> <span> Todos los derechos reservados | <a class='politica' href='/politica-de-privacidad/' >Política de Privacidad</a></span> </p> ";
+  echo $str;
 }
 
 
@@ -199,7 +211,7 @@ function sp_custom_footer() {
 //--------
 add_action( 'genesis_before', 'genesis_to_top');
 function genesis_to_top() {
-	 echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
+   echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
 }
 
 
@@ -214,7 +226,7 @@ add_action('genesis_entry_content', 'genesis_post_meta',2);
 
 add_filter( 'genesis_post_info', 'post_info_filter' );
 function post_info_filter($post_info) {
-	$post_info =  '<span>[ [post_date format="j F Y"] ]</span> '.
+  $post_info =  '<span>[ [post_date format="j F Y"] ]</span> '.
                 '<span> [ Autor: [post_author_link before=""] ]</span> '.
                 '<span>[ [post_categories before=""] - '.
                 getCustomfield()."</span>".
@@ -223,14 +235,16 @@ function post_info_filter($post_info) {
                 //'[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]'.
                 //' [post_edit]';
 
-	return $post_info;
+  return $post_info;
 }
+
+//[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]
 
 add_filter( 'genesis_post_meta', 'sp_post_meta_filter' );
 function sp_post_meta_filter($post_meta) {
 if ( !is_page() ) {
-	$post_meta = '[post_tags before="" sep=" "]';
-	return $post_meta;
+  $post_meta = '[post_tags before="" sep=" "]';
+  return $post_meta;
 }}
 
 function getCustomfield($field='Nivel'){
@@ -242,7 +256,7 @@ function getCustomfield($field='Nivel'){
 add_action( 'genesis_before_entry_content', 'featured_post_image', 1 );
 function featured_post_image() {
   if ( is_singular( 'page' ) )  return;
-	//the_post_thumbnail('post-image');
+  //the_post_thumbnail('post-image');
   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
 }
 
@@ -252,7 +266,7 @@ function featured_post_image() {
 //----------
 add_filter( 'the_content_more_link', 'sp_read_more_link' );
 function sp_read_more_link() {
-	return ' [<a href="' . get_permalink() . '">Leer más</a>]';
+  return ' [<a href="' . get_permalink() . '">Leer más</a>]';
 }
 
 
@@ -270,7 +284,7 @@ function sp_previous_page_link ( $text ) {
 
 add_action( 'wp_enqueue_scripts', 'sp_disable_hoverIntent' );
 function sp_disable_hoverIntent() {
-	wp_deregister_script( 'hoverIntent' );
+  wp_deregister_script( 'hoverIntent' );
 }
 
 
@@ -299,19 +313,19 @@ function dequeue_script_embed(){
 add_action( 'wp_footer', 'dequeue_script_embed' );
 
 
+
 //Para la página del video-curso
 
 function enqueue_styles_scripts_video_curso() {
-  if ( is_page(289) ){
+  if ( is_page(102)){
     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
     wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.0.0', true );
   }
-  if ( is_page(326) ){
+  elseif( is_page(103) ){
         wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
-  } 
+  }
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );
-
 
 

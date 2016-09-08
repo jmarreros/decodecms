@@ -46,6 +46,8 @@
 	//Clonar iconos sociales
 	$('.social-icons').clone().appendTo('.site-footer .wrap p');
 
+	//clonar formulario suscripcion
+	//$('#text-4').clone().appendTo('#genesis-content');
 
 	//Color fondo de thumbnail
 	$('article.post').each(function(){
@@ -82,6 +84,18 @@
                 window.open($(this).attr("href"), 'share', opts);
         
 	});
+
+
+	//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	 	clonar_widget();
+	//}
+	
+	function clonar_widget(){
+		if ( $(window).width() <=768 )
+		{
+			$('#text-4').clone().insertBefore('#genesis-content article:first-child()');
+		}
+	}	
 
 
 })(jQuery);

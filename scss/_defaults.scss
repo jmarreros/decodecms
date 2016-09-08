@@ -1103,6 +1103,22 @@ aside .widget_tag_cloud{
 
 
 //Para el formulario de suscripción
+#genesis-content{
+	#text-4 {
+		.textwidget{
+			margin:0;
+			margin-bottom:15px;
+			.msg-img a{
+				border-bottom:none;
+			}
+		}
+		.wheader h3{
+			font-size: 2.3rem;
+			padding-top:3%;
+		}
+	}
+}
+
 #text-4{
 
 	padding:0;
@@ -1500,7 +1516,6 @@ aside.mashsb-container{
 // }
 
 
-
 .rel_posts{
 	
 	border-top:1px dotted $gris-claro;
@@ -1509,9 +1524,9 @@ aside.mashsb-container{
 	&:after{
 		content: "";
 		display: block;
-		margin-bottom: 20px;
-		padding-bottom:20px;
-		border-bottom:1px dotted $gris-claro;
+		margin-bottom: 10px;
+		padding-bottom:10px;
+		// border-bottom:1px dotted $gris-claro;
 		clear: both;
 	}
 
@@ -1560,7 +1575,7 @@ aside.mashsb-container{
 	}
 
 }
-
+ 
 
 //Social
 

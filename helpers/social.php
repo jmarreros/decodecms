@@ -5,6 +5,7 @@ function dc_social_sharing_buttons($content)
 {
 	if( is_single() )
 	{
+		$cad			='';
 		$plantilla		='
 		 <a class="dc-link dc-twitter" href="{twitter}" target="_blank"><i class="fa fa-twitter"></i> Twittear</a>'.
 		'<a class="dc-link dc-facebook" href="{facebook}" target="_blank"><i class="fa fa-facebook"></i> Compartir</a>'.

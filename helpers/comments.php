@@ -56,11 +56,9 @@ jQuery(document).ready(function(e){e("#commentform").validate({onfocusout:functi
 
 add_action('wp_footer', 'comment_validation_init',20);
 
-
-
 add_filter( 'genesis_show_comment_date', 'jmw_remove_comment_time_and_link' );
 function jmw_remove_comment_time_and_link( $comment_date ) {
-  printf( '<a class="idcomment fa fa-bookmark" href="%s"></a>', esc_url( get_comment_link( $comment->comment_ID ) ) );
+  printf( '<a class="idcomment fa fa-bookmark" href="%s"></a>', esc_url( get_comment_link() ) );
   printf( '<p %s>', genesis_attr( 'comment-meta' ) );
   printf( '<time %s>', genesis_attr( 'comment-time' ) );
   echo    esc_html( get_comment_date() );
