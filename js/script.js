@@ -93,10 +93,9 @@
 	function clonar_widget(){
 		if ( $(window).width() <=768 )
 		{
-			$('#text-4').clone().insertBefore('.home #genesis-content article:first-child()');
+			$('#text-4').clone().insertBefore('#genesis-content article:first-child()');
 		}
 	}	
-
 
 
 })(jQuery);

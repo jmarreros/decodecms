@@ -264,10 +264,10 @@ function featured_post_image() {
 
 //Read more
 //----------
-add_filter( 'the_content_more_link', 'sp_read_more_link' );
-function sp_read_more_link() {
-  return ' [<a href="' . get_permalink() . '">Leer más</a>]';
-}
+// add_filter( 'the_content_more_link', 'sp_read_more_link' );
+// function sp_read_more_link() {
+//   return ' [<a href="' . get_permalink() . '">Leer más</a>]';
+// }
 
 
 //Navigation

@@ -559,10 +559,9 @@
 		font-size: 2.6rem;
 	}
 
-	.msg-wrap p{
-		float:none!important;
-		text-align: center!important;
-	}
+	#text-4 .msg-img{
+		display: none!important;
+	}	
 
 	.header-image .site-title > a {
 		background-size:70% auto;
