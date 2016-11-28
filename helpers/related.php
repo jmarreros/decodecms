@@ -32,7 +32,7 @@
     }
 
     $loop	= new WP_QUERY(array(
-    				'cat__in'			=> $categ,
+    				'category__in'			=> $categ,
     				'posts_per_page'	=> 4,
     				'post__not_in'		=>array(get_the_ID()),
     				'orderby'			=>'rand'

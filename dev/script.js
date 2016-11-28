@@ -87,15 +87,56 @@
 
 
 	//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	 	clonar_widget();
+	 	// clonar_widget();
 	//}
 	
-	function clonar_widget(){
-		if ( $(window).width() <=768 )
-		{
-			$('#text-4').clone().insertBefore('#genesis-content article:first-child()');
-		}
-	}	
+	// function clonar_widget(){
+	// 	if ( $(window).width() <=768 )
+	// 	{
+	// 		$('#text-4').clone().insertBefore('#genesis-content article:first-child()');
+	// 	}
+	// }
 
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		mostrar_boletin_movil();
+	}
+	
+	function mostrar_boletin_movil(){
+		if ( $(window).width() <=768 ){
+			var tmplBoletin = '<div id="boletin-movil"><a class="wheader" href="http://eepurl.com/b_Sghj"><p>Únete a DecodeCMS</p></a></div>';
+			$(tmplBoletin).insertBefore('#genesis-content article:first-child()');
+		}
+	}
+
+
+	//Tabla de contenido
+
+	if ( $('body.single').length ){
+
+		var tmplwrap ="<div id='tabla-contenido'>\n<p class='titulo'>Tabla de Contenido</p>\n{contenido}</div>";
+		var tmpllink = "<p><i class='fa fa-caret-right'></i> <a href={link}>{texto}</a></p>\n";
+		var cadena 	= "";
+		
+		$('article h2').each(function(index){
+			texto 	 	= $(this).text();
+			enlace_id	= texto.replace(/\d-\s|\?|¿/g,'');
+			enlace_id 	= enlace_id.replace(/\s+/g, '_');
+
+			$(this).attr('id',enlace_id);
+
+			cadena += tmpllink.replace('{link}',"'#" + enlace_id + "'");
+			cadena  = cadena.replace('{texto}',texto);
+
+		});
+
+		$('div.rel_posts h3').attr('id','relacionados');
+		$('p.borde-video').attr('id','video');
+		cadena +="<p><i class='fa fa-link'></i> <a href='#relacionados'>- Artículos relacionados</a></p>\n";
+		cadena +="<p><i class='fa fa-video-camera'></i> <a href='#video'>- Video explicativo</a></p>\n";
+
+		cadena = tmplwrap.replace('{contenido}',cadena);
+
+		$(cadena).insertBefore( $('.entry-content h2').first() );
+	}
 
 })(jQuery);

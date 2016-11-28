@@ -206,6 +206,9 @@ function sp_custom_footer() {
   echo $str;
 }
 
+//Para la paginación del home
+add_filter( 'wpseo_genesis_force_adjacent_rel_home', '__return_true' ); 
+
 
 // Add To Top button
 //--------

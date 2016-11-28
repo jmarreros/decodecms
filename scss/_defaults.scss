@@ -663,8 +663,6 @@ img.alignright,
 } 
 
 
-
-
 .comment-list{
 
 	article{
@@ -704,10 +702,11 @@ img.alignright,
 
 	.comment-content{
 		clear: both;
+		font-family: Helvetica;
 
 		p{
 			//color : $white;
-			font-size: 1.9rem;
+			font-size: 1.6rem;
 			margin-bottom: 0;
 		}
 
@@ -771,8 +770,8 @@ img.alignright,
 		}
 		
 		span{
-			font-family: $font-titles;
-			font-size: 1.8rem;
+			font-family: Helvetica;//$font-titles;
+			font-size: 1.6rem;
 			display: block;
 			float: left;
 			margin-top:5px;
@@ -1201,8 +1200,36 @@ aside .widget_tag_cloud{
 
 }
 
+#boletin-movil {
+	a{
+		display: block;
+	}
+	
+	.wheader{
+		background-color:#32566a;
+		border-radius:4px;
+		min-height: 80px;
+		background-image:url(https://decodecms.com/wp-content/uploads/2016/08/boletin-widget.svg);
+		background-repeat: no-repeat;
+		background-position: top right;
+		margin-bottom: 30px;
+	}
 
+	p{
+		padding:0;
+		margin:0;
+		display: block;
+		padding-left:20px;
+		padding-top:2%;
+		width: 70%;
+		color:white;
+		text-align: left;
+		font-size: 2.4rem;
+		font-family: Ubuntu,sans-serif;
+		font-weight: 500;
+	}
 
+}
 	
 #mc_embed_signup{
 	padding:15px;
@@ -1444,6 +1471,9 @@ aside.mashsb-container{
 		list-style-type: disc;
 		margin-left: 36px;
 		margin-bottom: 10px;
+		li{
+			list-style-type: circle;
+		}
 	}
 
 	img.aligncenter{
@@ -1625,5 +1655,69 @@ aside.mashsb-container{
 	 	}
 	}
 
+}
+
+//tablas
+table{
+	&.formato1{
+		font-family: Helvetica;
+		font-size: 1.5rem;
+		border:1px solid $gris-claro;
+		margin-bottom: 4px;
+		
+		tr td:first-child{
+			background-color:#EEEEEE;
+		}
+
+		th{
+			background-color:#E0E0E0;
+		}
+		th,td{
+			padding:5px 10px;
+		}
+	}
+}
+
+#tabla-contenido{
+
+	font-family:Helvetica;
+	font-size:1.6rem;
+	background-color:#EEEEEE;
+	border-radius:4px;
+	padding:15px;
+	margin:-25px auto 40px;
+	width:80%;
+
+	.fa-video-camera{
+		font-size: 1.2rem;
+	}
+	.fa-link{
+		font-size: 1.4rem;
+	}
+
+	.titulo{
+		padding:4px;
+		border-radius:4px;
+		margin-bottom: 16px;
+		font-size: 1.8rem;
+		// font-weight: bold;
+		text-align: center;
+		background-color:#5D616C;
+		color:white;
+	}
+
+	p{
+		margin-bottom:6px;
+	}
+	a{
+		border-bottom:none;
+	}
+}
+
+.content{
+	pre[class*="language-"],
+	code[class*="language-"]{
+		overflow:auto;
+	}
 }
 

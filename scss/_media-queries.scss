@@ -259,6 +259,7 @@
 		display: none;
 	}
 	*/
+
 	//Navigation
 
 	.nav-primary .current-menu-item > a:after,
@@ -549,6 +550,20 @@
 		}
 	}
 
+		//Formato de tablas
+	table{
+		&.formato1{
+			font-size:1.2rem;
+			td,th{
+				padding:5px;
+			}
+		}
+	}
+
+	#tabla-contenido{
+		width: 100%;
+	}
+
 }
 
 
@@ -562,6 +577,10 @@
 	#text-4 .msg-img{
 		display: none!important;
 	}	
+
+	#text-4 .textwidget{
+		margin:0;
+	}
 
 	.header-image .site-title > a {
 		background-size:70% auto;
@@ -626,6 +645,18 @@
 
 		}
 	}
+
+	//Formato de tablas
+	table{
+		&.formato1{
+			tr td:last-child,
+			tr th:last-child{
+				display: none;
+			}
+		}
+	}
+
+	
 }
 
 
