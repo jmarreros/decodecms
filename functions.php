@@ -17,10 +17,13 @@ include_once('helpers/breadcrumbs.php');
 include_once('helpers/related.php');
 include_once('helpers/social.php');
 
+//custom post type
+//include_once('helpers/custom-post-type.php');
+
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.0.0' );
+define ('CHILD_THEME_VERSION', '1.0.10' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -54,6 +57,16 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+add_filter( 'wp_check_filetype_and_ext', function($filetype_ext_data, $file, $filename, $mimes) {
+  if ( substr($filename, -4) === '.svg' ) {
+    $filetype_ext_data['ext'] = 'svg';
+    $filetype_ext_data['type'] = 'image/svg+xml';
+  }
+  return $filetype_ext_data;
+}, 100, 4 );
+
+
+
 
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_header_right', 'genesis_do_subnav' );
@@ -61,9 +74,9 @@ add_action( 'genesis_header_right', 'genesis_do_subnav' );
 
 //Eliminar Emotions Emoji
 function disable_emojicons_tinymce( $plugins ) {
-  if ( is_array( $plugins ) ) 
+  if ( is_array( $plugins ) )
     return array_diff( $plugins, array( 'wpemoji' ) );
-  else 
+  else
     return array();
 }
 
@@ -101,7 +114,7 @@ add_action('wp_enqueue_scripts', 'jquery_script_remove_header');
 function jquery_script_remove_header() {
       wp_deregister_script( 'jquery' );
 }
- 
+
 add_action('genesis_after_footer', 'jquery_script_add_footer',0);
 function jquery_script_add_footer() {
       wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
@@ -114,7 +127,7 @@ function custom_stript() {
 
     // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
 
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', false, '1.0', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.3', true );
 }
 
 
@@ -136,7 +149,7 @@ add_action('wp_print_scripts','dequeue_script_lightbox');
 //Para el boletin de suscirpciones
 function dequeue_style_boletin(){
   if ( !is_admin() ){
-    wp_deregister_style('validate-engine-css'); 
+    wp_deregister_style('validate-engine-css');
   }
 }
 add_action( 'wp_print_styles', 'dequeue_style_boletin', 100 );
@@ -159,9 +172,8 @@ function dequeue_style_prism() {
 //Para el rating con estrellas
 add_action('genesis_entry_content','colocarEstrellas');
 function colocarEstrellas(){
-  if ( is_single() and  function_exists('the_ratings') ) the_ratings();  
+  if ( is_single() and  function_exists('the_ratings') ) the_ratings();
 }
-
 
 // genesis_after_header posicion búsqueda
 //---------------------------------------
@@ -207,7 +219,7 @@ function sp_custom_footer() {
 }
 
 //Para la paginación del home
-add_filter( 'wpseo_genesis_force_adjacent_rel_home', '__return_true' ); 
+add_filter( 'wpseo_genesis_force_adjacent_rel_home', '__return_true' );
 
 
 // Add To Top button
@@ -218,7 +230,7 @@ function genesis_to_top() {
 }
 
 
-//Metadata 
+//Metadata
 //--
 
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
@@ -319,16 +331,17 @@ add_action( 'wp_footer', 'dequeue_script_embed' );
 
 //Para la página del video-curso
 
-function enqueue_styles_scripts_video_curso() {
-  if ( is_page(102)){
-    wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
-    wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.0.0', true );
-  }
-  elseif( is_page(103) ){
-        wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css');
-  }
-}
-
-add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );
-
-
+// function enqueue_styles_scripts_video_curso() {
+//   global $post;
+//
+//   if ( is_page(102) || $post->post_parent == 250 ){
+//     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css',array(),'1.1.0');
+//     wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.1.0', true );
+//   }
+//   elseif( is_page(103) ){
+//     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css',array(),'1.1.0');
+//   }
+// 
+// }
+//
+// add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );

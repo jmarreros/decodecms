@@ -17,7 +17,7 @@
 
 
 	//To Top
-	
+
 	var offset = 300,
 	//Scroll (in pixels) after which the "back to top" link opacity is reduced
 	offset_opacity = 1200,
@@ -29,7 +29,7 @@
 	//Visible or not "To Top" link
 	$(window).scroll(function(){
 		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('top-is-visible') : $back_to_top.removeClass('top-is-visible top-fade-out');
-		if( $(this).scrollTop() > offset_opacity ) { 
+		if( $(this).scrollTop() > offset_opacity ) {
 			$back_to_top.addClass('top-fade-out');
 		}
 	});
@@ -70,7 +70,7 @@
 	$('.dc-social a').click(function(event){
 		event.preventDefault();
 
-                //popup 
+                //popup
                 var width  = 575,
                     height = 520,
                     left   = ($(window).width()  - width)  / 2,
@@ -82,14 +82,14 @@
                         ',left='   + left;
 
                 window.open($(this).attr("href"), 'share', opts);
-        
+
 	});
 
 
 	//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	 	// clonar_widget();
 	//}
-	
+
 	// function clonar_widget(){
 	// 	if ( $(window).width() <=768 )
 	// 	{
@@ -100,11 +100,11 @@
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		mostrar_boletin_movil();
 	}
-	
+
 	function mostrar_boletin_movil(){
 		if ( $(window).width() <=768 ){
 			var tmplBoletin = '<div id="boletin-movil"><a class="wheader" href="http://eepurl.com/b_Sghj"><p>Únete a DecodeCMS</p></a></div>';
-			$(tmplBoletin).insertBefore('#genesis-content article:first-child()');
+			$(tmplBoletin).insertBefore('.home #genesis-content article:first-child()');
 		}
 	}
 
@@ -116,7 +116,7 @@
 		var tmplwrap ="<div id='tabla-contenido'>\n<p class='titulo'>Tabla de Contenido</p>\n{contenido}</div>";
 		var tmpllink = "<p><i class='fa fa-caret-right'></i> <a href={link}>{texto}</a></p>\n";
 		var cadena 	= "";
-		
+
 		$('article h2').each(function(index){
 			texto 	 	= $(this).text();
 			enlace_id	= texto.replace(/\d-\s|\?|¿/g,'');
@@ -138,5 +138,21 @@
 
 		$(cadena).insertBefore( $('.entry-content h2').first() );
 	}
+
+
+
+	//Para los cursos, link de cursos
+	$('.container-cursos .curso').each(function(){
+
+		$(this).css( 'cursor', 'pointer' );
+
+		$(this).click(function(){
+			enlace = $(this).find('.container-img a').attr('href');
+			window.location.href = enlace;
+		});
+
+	});
+
+
 
 })(jQuery);

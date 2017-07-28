@@ -5,7 +5,7 @@
 	.site-inner > .content-sidebar-wrap{
 		display:flex;
 	}
-	
+
 @media only screen and (max-width: 1290px) {
 
 	aside .widget .widget-wrap{
@@ -106,9 +106,9 @@
 		color:$gris-medio;
 		&:hover{
 			color:$gris-oscuro;
-		}		
+		}
 	}
-	
+
 	.site-inner{
 		padding-right:20px;
 	}
@@ -120,7 +120,7 @@
 	#contacto_robot, #contacto_robot_brazo{
 		display: none;
 	}
-	
+
 	.header-image .site-description{
 		position:static;
 		// margin-bottom: 10px;
@@ -210,11 +210,11 @@
 	}
 
 
-	.site-header .title-area, 
+	.site-header .title-area,
 	.site-header .header-widget-area{
 		width: 100%;
 		float: none;
-		text-align: center;			
+		text-align: center;
 	}
 	.site-header .header-widget-area{
 		margin-bottom: 20px;
@@ -229,7 +229,7 @@
 
 	#anuncios{
 		.anuncio{
-			width: auto;	
+			width: auto;
 		}
 	}
 
@@ -273,8 +273,8 @@
 		display:block;
 		width:15px;
 		height:7px;
-	} 
-	
+	}
+
 	.nav-primary a{
 		position:relative;
 	}
@@ -302,14 +302,14 @@
 	.site-header .wrap {
 		padding: 0px;
 	}
-	
+
 	//Iconos menu secundario
 
 	.nav-secondary a:before{
 		font-family: "FontAwesome";
 		font-size: 18px;
 		margin-right:4px;
-		vertical-align: middle;	
+		vertical-align: middle;
 	}
 
 	.nav-secondary a span{
@@ -381,7 +381,7 @@
 
 
 // Navigation toggles - Mobile (Change max width as you see fit)
-// --------------------------------------------- 
+// ---------------------------------------------
 
 @media only screen and (max-width: 767px) {
 
@@ -396,7 +396,7 @@
 	}
 
 	//Menu Responsive
-	
+
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: block;
@@ -504,7 +504,7 @@
 	.nav-primary .current-menu-item > a {
 		color: #333;
 	}
-	
+
 	//contacto
 	.wpcf7-form {
 		width: 100%;
@@ -552,7 +552,7 @@
 
 		//Formato de tablas
 	table{
-		&.formato1{
+		&.formato1, &.formato2{
 			font-size:1.2rem;
 			td,th{
 				padding:5px;
@@ -576,7 +576,7 @@
 
 	#text-4 .msg-img{
 		display: none!important;
-	}	
+	}
 
 	#text-4 .textwidget{
 		margin:0;
@@ -621,7 +621,7 @@
 	#anuncios{
 		.nuevo{
 			display: none;
-		} 
+		}
 	}
 
 	.acerca_de{
@@ -648,7 +648,7 @@
 
 	//Formato de tablas
 	table{
-		&.formato1{
+		&.formato1, &.formato2{
 			tr td:last-child,
 			tr th:last-child{
 				display: none;
@@ -656,7 +656,7 @@
 		}
 	}
 
-	
+
 }
 
 

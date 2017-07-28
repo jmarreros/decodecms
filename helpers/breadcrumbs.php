@@ -23,3 +23,17 @@ return $args;
 
 add_filter( 'genesis_breadcrumb_args', 'sp_breadcrumb_args' );
 
+
+
+
+// // Remove breadcrumb cursos
+// function wps_remove_genesis_breadcrumbs() {
+//   if ( ! is_singular( array('page', 'attachment', 'post') ) ){
+//     remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );  	
+//   }
+// }
+
+// add_action( 'genesis_before', 'wps_remove_genesis_breadcrumbs' );
+
+
+

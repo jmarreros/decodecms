@@ -3,19 +3,19 @@
     Description: Este theme esta basado en el framwork genesis para el sitio Decodecms.com
     Author: Jhon Marreros Guzman
     Author URI: http://www.decodecms.com/
- 
-    Version: 1.0.0
- 
+
+    Version: 1.0.6
+
     Tags: black, orange, white, one-column, two-columns, three-columns, fixed-width, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
- 
+
     Template: genesis
     Template Version: 1.0.0
- 
+
     License: GPL-2.0+
-    License URI: http://www.opensource.org/licenses/gpl-license.php 
+    License URI: http://www.opensource.org/licenses/gpl-license.php
 */
 
-@import "variables"; 
+@import "variables";
 @import "reset";
 @import "fonts";
 @import "typography";
@@ -27,3 +27,4 @@
 @import "media-queries";
 @import "css_contact_form7";
 @import "css_post_ratings";
+@import "cursos";

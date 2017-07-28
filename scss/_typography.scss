@@ -134,7 +134,7 @@ h1 a,h2 a,h3 a{
 	font-size: 4.6rem;
 	padding:10px;
 	line-height:1.2em;
-	
+
 	a{
 		text-decoration:none;
 		color:$color-titles;
@@ -219,7 +219,7 @@ h1 a,h2 a,h3 a{
 			height: 12px;
 		}
 	}
-	
+
 	.rss{
 		background:#F67F00;
 	}
@@ -278,16 +278,13 @@ small{
 	content: "\f19a";
 }
 
-/*
 .nav-primary .wrap > ul > li:nth-child(3) > a:before{
-	content: "\f1aa";
-	font-size:30px;
+	// content: "\f0ad";
+  content: "\f02d";
+  font-size: 22px;
 }
-*/
 
-.nav-primary .wrap > ul > li:nth-child(3) > a:before{
-	content: "\f0ad";
-}
+
 
 
 .post-ratings{
@@ -297,11 +294,9 @@ small{
 
 
 /* ::selection {
-  background: $color-selection; 
+  background: $color-selection;
 }
 ::-moz-selection {
   background: $color-selection;
 }
 */
-
-
