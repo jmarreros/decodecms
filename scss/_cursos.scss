@@ -17,7 +17,7 @@
 		}
 
 	}
-
+	
 	.site-inner{
 		padding: 0;
 		max-width: 100%;
@@ -46,7 +46,7 @@
 		}
 
 		.ajax-loader{
-			background-image: url('../images/ajax-loader.gif');
+			background-image: url('images/ajax-loader.gif');
 			background-repeat: no-repeat;
 			background-position: center center;
 			height: 16px;
@@ -130,6 +130,16 @@
 		}
 
 	}//temario
+
+	.dc-social{
+		&:before{
+			content:"";
+			display: block;
+			clear: both;
+			height: 60px;
+		}
+	}
+
 
 } //curso-videos
 
@@ -285,6 +295,12 @@
     clear: both;
   }
 
+	+ .dc-social{
+		margin-top:60px;
+		clear: both;
+		float: none;
+	}
+
 } //container-cursos
 
 
@@ -323,12 +339,9 @@
         width:98%;
         margin-right:0;
 
-        .container-img{
-          img{
+        .container-img img{
             max-width: 120px;
-          }
         }
-    }
-
+    }//curso
   }
 }

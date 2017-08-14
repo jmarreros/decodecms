@@ -364,13 +364,14 @@
 	}
 
 
-	article .entry-content{
-		margin-left:200px;
-	}
-
 	.page article .entry-content,
 	.single article .entry-content{
 		margin-left:0;
+	}
+
+	article .entry-content,
+	.nivel.page article .entry-content{
+		margin-left:200px;
 	}
 
 	.dc-whatsapp {

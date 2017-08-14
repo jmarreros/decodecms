@@ -1082,6 +1082,23 @@ aside .featuredpost{
 	}
 }
 
+aside #custom_html-2,
+aside #text-5{
+	.widget-title{
+		background-color:#F48656;
+		&:before{
+			content: "\f201";
+		}
+	}
+	.tagcloud a{
+		color:#F48656;
+		background-color:#fedaca;
+		&:hover{
+			background-color:#f3ccbc;
+		}
+	}
+}
+
 
 aside .widget_tag_cloud{
 

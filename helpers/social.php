@@ -1,9 +1,12 @@
 <?php
 
 
-function dc_social_sharing_buttons($content) 
+function dc_social_sharing_buttons($content)
 {
-	if( is_single() )
+	global $post;
+	$page = 250;
+
+	if( is_single() || is_page($page) || (is_page() && $post->post_parent == $page) )
 	{
 		$cad			='';
 		$plantilla		='
@@ -22,16 +25,21 @@ function dc_social_sharing_buttons($content)
 		$googleURL 	= 'https://plus.google.com/share?url='.$urlArticulo;
 		$whatsappURL= 'whatsapp://send?text='.$titleArticulo . ' ' . $urlArticulo;
 		$linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$urlArticulo.'&amp;title='.$titleArticulo;
- 
+
 		$ar_buscar 		= array('{twitter}','{facebook}','{google}','{linkedin}','{whatsapp}');
 		$ar_reemplazar 	= array($twitterURL,$facebookURL,$googleURL,$linkedInURL,$whatsappURL);
 
 		$cad	.= '<div class="dc-social">';
-		$cad	.= '<p>¿Me ayudas a llegar a más gente?</p>';
+		if (is_single()){
+			$cad	.= '<p>¿Me ayudas a llegar a más gente?</p>';
+		}
 		$cad	.=  str_replace($ar_buscar, $ar_reemplazar, $plantilla);
 		$cad	.= '</div>';
 
-		$content = $cad.$content;
+		if (is_single()){
+			$content = $cad.$content;
+		}
+
 		$content .= $cad;
 
 		return $content;

@@ -275,16 +275,15 @@ small{
 }
 
 .nav-primary .wrap > ul > li:nth-child(2) > a:before{
-	content: "\f19a";
+  	content: "\f19a";
 }
 
-.nav-primary .wrap > ul > li:nth-child(3) > a:before{
-	// content: "\f0ad";
-  content: "\f02d";
-  font-size: 22px;
+.nav-primary .wrap > ul > li:nth-child(3) {
+    > a:before{
+      content: "\f02d";
+      // font-size: 22px;
+    }
 }
-
-
 
 
 .post-ratings{

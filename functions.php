@@ -1,6 +1,5 @@
 <?php
 
-
 //Seguridad
 add_action( 'send_headers', 'add_header_seguridad' );
 function add_header_seguridad() {
@@ -12,18 +11,17 @@ function add_header_seguridad() {
 
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
+include_once('helpers/general.php');
 include_once('helpers/comments.php');
 include_once('helpers/breadcrumbs.php');
 include_once('helpers/related.php');
 include_once('helpers/social.php');
 
-//custom post type
-//include_once('helpers/custom-post-type.php');
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.0.10' );
+define ('CHILD_THEME_VERSION', '1.1.4' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -127,7 +125,7 @@ function custom_stript() {
 
     // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
 
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.3', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.1', true );
 }
 
 
@@ -244,7 +242,7 @@ function post_info_filter($post_info) {
   $post_info =  '<span>[ [post_date format="j F Y"] ]</span> '.
                 '<span> [ Autor: [post_author_link before=""] ]</span> '.
                 '<span>[ [post_categories before=""] - '.
-                getCustomfield()."</span>".
+                getCustomfieldNivel()."</span>".
                 '<span>[ <i class="fa fa-video-camera"></i> ]';
 
                 //'[post_comments zero="0" one="1" more="%" hide_if_off="disabled"]'.
@@ -262,8 +260,12 @@ if ( !is_page() ) {
   return $post_meta;
 }}
 
-function getCustomfield($field='Nivel'){
-  return "<span class='custom".$field."'>".genesis_get_custom_field( $field)."]</span> ";
+function getCustomfieldNivel(){
+  $nivel_val  = genesis_get_custom_field( 'Nivel' );
+  $nivel_key  = array_search( $nivel_val, dcms_get_nivel_array() );
+  $url        = home_url()."/wordpress-nivel/".$nivel_key;
+
+  return "<span class='custom-nivel'><a href='".$url."'>".$nivel_val."</a></span>] ";
 }
 
 // Featured images
@@ -328,20 +330,25 @@ function dequeue_script_embed(){
 add_action( 'wp_footer', 'dequeue_script_embed' );
 
 
+//Excluir páginas de la búsqueda
+function dcms_search_filter( $query ) {
+  if ( $query->is_search && $query->is_main_query() ) {
+    $query->set( 'post__not_in', array( 102,103 ) );
+  }
+}
+add_action( 'pre_get_posts', 'dcms_search_filter' );
 
-//Para la página del video-curso
 
-// function enqueue_styles_scripts_video_curso() {
-//   global $post;
-//
-//   if ( is_page(102) || $post->post_parent == 250 ){
-//     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css',array(),'1.1.0');
-//     wp_enqueue_script( 'video-curso-script', get_stylesheet_directory_uri() .'/js/video-curso.js', array(), '1.1.0', true );
-//   }
-//   elseif( is_page(103) ){
-//     wp_enqueue_style( 'video-curso-estilo', get_stylesheet_directory_uri().'/css/video-curso.css',array(),'1.1.0');
-//   }
-// 
-// }
-//
-// add_action( 'wp_enqueue_scripts', 'enqueue_styles_scripts_video_curso' );
+//Para reescritura de la Url, para link niveles basico,intermedio,avanzado
+function dcms_custom_rewrite_tag() {
+  add_rewrite_tag('%nivel%', '([^&]+)');
+}
+add_action('init', 'dcms_custom_rewrite_tag', 10, 0);
+
+
+function dcms_custom_rewrite_rule() {
+  $pagina_nivel = dcms_get_pagina_nivel();
+  add_rewrite_rule('^wordpress-nivel/([^/]+)/?','index.php?page_id='.$pagina_nivel.'&nivel=$matches[1]','top');
+  //add_rewrite_rule('^wordpress-nivel/([^/]+)/page/([0-9]+)?$','index.php?page_id=333&nivel=$matches[1]&paged=$matches[2]','top');
+}
+add_action('init', 'dcms_custom_rewrite_rule', 10, 0);

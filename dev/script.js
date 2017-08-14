@@ -15,8 +15,7 @@
 
 	});
 
-
-	//To Top
+	//To Tops
 
 	var offset = 300,
 	//Scroll (in pixels) after which the "back to top" link opacity is reduced
@@ -50,13 +49,21 @@
 	//$('#text-4').clone().appendTo('#genesis-content');
 
 	//Color fondo de thumbnail
-	$('article.post').each(function(){
+	$('article').each(function(){
 		clase	= $(this).attr('class').split(' ').pop();
 		color 	= '#' + clase.substring(2);
 		$(this).find('.thumbnail').css('background-color',color);
 
 		$('.single-post article .thumbnail').fadeTo(200,1);
+
+    //validación para mostrar o no el thumbnail
+    if ( $(this).find('.thumbnail img').length <= 0 ){
+        $(this).find('.thumbnail').hide();
+        $(this).find('.entry-content').css('margin-left',0);
+    }
+
 	});
+
 
 
 	// Detectar <=IE11
@@ -84,18 +91,6 @@
                 window.open($(this).attr("href"), 'share', opts);
 
 	});
-
-
-	//if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	 	// clonar_widget();
-	//}
-
-	// function clonar_widget(){
-	// 	if ( $(window).width() <=768 )
-	// 	{
-	// 		$('#text-4').clone().insertBefore('#genesis-content article:first-child()');
-	// 	}
-	// }
 
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		mostrar_boletin_movil();
@@ -140,7 +135,8 @@
 	}
 
 
-
+	// cursos
+	//--------------
 	//Para los cursos, link de cursos
 	$('.container-cursos .curso').each(function(){
 
@@ -152,6 +148,130 @@
 		});
 
 	});
+
+
+	//pantalla detalle cursos
+  mostrar_notas('link-1');
+	$('.curso-videos #link-1').css('font-weight','bold');
+	$('.curso-videos #prev').hide();
+	$('.video-actual .ajax-loader').hide();
+
+
+
+	$('.curso-videos .temario a').click(function(e){
+		e.preventDefault();
+
+		var_url 	= $(this).attr('href');
+		var_texto 	= $(this).text();
+		var_texto = var_texto.replace(/\(.*\)/, "");
+
+		var_id		= $(this).attr('id');
+
+		$('.temario a').css('font-weight','');
+		$(this).css('font-weight','bold');
+
+		( $(this).attr('id')=='link-1' ) ? $('#prev').hide() : $('#prev').show();
+		( $(this).hasClass('link-last') ) ? $('#next').hide() : $('#next').show();
+
+		cambiar_video( var_url, var_texto, var_id);
+	});
+
+
+
+	$('.curso-videos #next,.curso-videos #prev').click(function(e){
+		e.preventDefault();
+
+		var_id 		= $('.video-actual ').attr('rel');
+
+		if ( $(this).attr('id') == "next" ){
+			id_valor 	= parseInt(var_id.substring(5)) + 1;
+		}
+		else{
+			id_valor 	= parseInt(var_id.substring(5)) - 1 ;
+		}
+
+		$('#link-'+id_valor).trigger('click');
+	});
+
+
+  function mostrar_notas(var_link){
+
+    var_link = '.' + var_link;
+
+    $('.curso-videos .notas-video > div').hide();
+
+    if ( $('.curso-videos .notas-video').find(var_link).length ){
+      $('.curso-videos .notas-video').show();
+      $('.curso-videos .notas-video').find(var_link).show();
+    }
+    else{
+      $('.curso-videos .notas-video').hide();
+    }
+
+  }
+
+	function cambiar_video( var_url, var_texto, var_id ){
+
+		//para videos suscripcion
+		if ( $('.video-actual video').length ){
+
+				$('.video-actual video').fadeOut('fast',function(){
+					$('.video-actual .ajax-loader').show();
+				});
+
+				$('.video-actual').attr('rel',var_id);
+
+				$('.video-actual video').attr('poster',cambiar_portada(var_id));
+
+				$('.video-actual video source').attr('src',var_url);
+				$('.video-actual video')[0].load();
+
+				$('.video-actual .titulo').text(var_texto);
+				$('.video-actual video').fadeIn('slow', function(){
+					$('.video-actual .ajax-loader').hide();
+				});
+
+				$("html, body").animate({ scrollTop: 0 }, "slow");
+		}
+
+		//para videos youtube
+		if ( $('.video-actual .video-youtube').length ){
+
+			$('.video-actual iframe').fadeOut('fast',function(){
+				$('.video-actual .ajax-loader').show();
+			});
+
+			$('.video-actual').attr('rel',var_id);
+
+			$('.video-actual iframe').attr('src',var_url);
+
+			$('.video-actual .titulo').text(var_texto);
+			$('.video-actual iframe').fadeIn('slow', function(){
+				$('.video-actual .ajax-loader').hide();
+			});
+
+		}
+
+    mostrar_notas(var_id);
+
+	}
+
+
+	function cambiar_portada( var_id ){
+
+		if ( $('.video-actual').hasClass('cambiar-portada') ){
+			var_numero = var_id.substring(5);
+			var_poster = $('.video-actual video').attr('poster');
+			var_poster = var_poster.substring(0,var_poster.length-5) + var_numero + '.png';
+
+			return var_poster;
+		}
+
+		return "";
+
+	}
+	//--------------
+	//Fin cursos
 
 
 

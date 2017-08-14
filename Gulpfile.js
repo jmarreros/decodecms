@@ -11,11 +11,11 @@ gulp.task('convertirCSS', function() {
         .pipe(gulp.dest('./dev/'));
 });
 
-gulp.task('convertirCSSMiniCurso',function(){
-  return gulp.src('dev/video-curso.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(gulp.dest('./css/'));
-});
+// gulp.task('convertirCSSMiniCurso',function(){
+//   return gulp.src('dev/video-curso.scss')
+//         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+//         .pipe(gulp.dest('./css/'));
+// });
 
 //concatenar con comentarios.css
 gulp.task('concatenar',['convertirCSS'], function () {
@@ -27,7 +27,7 @@ gulp.task('concatenar',['convertirCSS'], function () {
 
 //Tarea para monitorear cambios en los archivos sass
 gulp.task('watch_scss',function(){
-    gulp.watch(['scss/**/*.scss','dev/video-curso.scss'],['concatenar','convertirCSSMiniCurso']);
+    gulp.watch(['scss/**/*.scss'],['concatenar']);
 });
 
 
@@ -46,6 +46,3 @@ gulp.task('comprimirJS', function (cb) {
 
 //Default task
 gulp.task('default',['comprimirJS','watch_scss']);
-
-
-
