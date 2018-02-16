@@ -49,7 +49,7 @@
 	//$('#text-4').clone().appendTo('#genesis-content');
 
 	//Color fondo de thumbnail
-	$('article').each(function(){
+	$('main article.post').each(function(){
 		clase	= $(this).attr('class').split(' ').pop();
 		color 	= '#' + clase.substring(2);
 		$(this).find('.thumbnail').css('background-color',color);

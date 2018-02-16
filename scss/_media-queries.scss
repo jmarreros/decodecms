@@ -227,7 +227,7 @@
 		margin-bottom: 10px;
 	}
 
-	#anuncios{
+	.anuncios{
 		.anuncio{
 			width: auto;
 		}
@@ -618,8 +618,10 @@
 		margin-left: 10px;
 	}
 
-
-	#anuncios{
+	.content-banner{
+		display:none;
+	}
+	.anuncios{
 		.nuevo{
 			display: none;
 		}

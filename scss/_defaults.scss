@@ -928,13 +928,17 @@ span.required{
 }
 
 //Anuncios
-#anuncios{
-	text-align:center;
-	.anuncio{
-		display: inline-block;
-		//margin-right:2px;
-		width: 48%;
+.anuncios{
+	a{
+		display:block;
+		margin:auto;
+		text-decoration:none;
+		border:none;
 	}
+}
+
+.content-banner{
+	margin: 32px auto 25px;
 }
 
 #text-3{
@@ -1700,7 +1704,7 @@ table{
 
 	}
 
-	&.formato3{
+	&.formato3, &.formato4{
 		font-size:1.2rem;
 		th{
 			color:white;
@@ -1715,7 +1719,7 @@ table{
 		th{
 			text-align: center;
 		}
-
+		
 		td{
 				padding-left: 50px;
 		}
@@ -1731,6 +1735,16 @@ table{
 		}
 
 	}
+
+	&.formato4{
+		font-size: 1.5rem;
+		font-family: Helvetica, sans-serif;
+		th{
+			color:#4D4D4D;
+			background-color: #F1F1F1;
+		}
+	}
+
 
 	&.formato1{
 		font-family: Helvetica;

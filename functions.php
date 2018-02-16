@@ -21,7 +21,7 @@ include_once('helpers/social.php');
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.4' );
+define ('CHILD_THEME_VERSION', '1.1.6' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -125,7 +125,7 @@ function custom_stript() {
 
     // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
 
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.1', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.2', true );
 }
 
 
@@ -352,3 +352,26 @@ function dcms_custom_rewrite_rule() {
   //add_rewrite_rule('^wordpress-nivel/([^/]+)/page/([0-9]+)?$','index.php?page_id=333&nivel=$matches[1]&paged=$matches[2]','top');
 }
 add_action('init', 'dcms_custom_rewrite_rule', 10, 0);
+
+
+
+
+
+// Content Banner
+genesis_register_sidebar( array(
+  'id' => 'content-banner',
+  'name' => __( 'Content Banner', 'genesis' ),
+  'description' => __( 'Content Banner Area', 'genesis' ),
+) );
+
+add_action( 'genesis_before_loop', 'add_genesis_content_banner' );
+function add_genesis_content_banner() {
+  if ( ! is_single() && !is_page() ){
+        genesis_widget_area( 'content-banner', array(
+          'before' => '<div class="content-banner">',
+          'after'  => '</div>',
+    ) );
+  }
+}
+
+
