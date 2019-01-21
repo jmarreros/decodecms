@@ -21,7 +21,7 @@ include_once('helpers/social.php');
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.7' );
+define ('CHILD_THEME_VERSION', '1.1.9' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -117,6 +117,9 @@ add_action('genesis_after_footer', 'jquery_script_add_footer',0);
 function jquery_script_add_footer() {
       wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",false, '1.11.3', true);
       wp_enqueue_script( 'jquery');
+
+      wp_register_script('apigoogle', "https://apis.google.com/js/platform.js", false, '1.0', true);
+      wp_enqueue_script('apigoogle');
 }
 //Fin Jquery al final
 
@@ -125,7 +128,7 @@ function custom_stript() {
 
     // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
 
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.2', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.3', true );
 }
 
 
@@ -355,8 +358,6 @@ add_action('init', 'dcms_custom_rewrite_rule', 10, 0);
 
 
 
-
-
 // Content Banner
 genesis_register_sidebar( array(
   'id' => 'content-banner',
@@ -373,5 +374,71 @@ function add_genesis_content_banner() {
     ) );
   }
 }
+
+
+// Agregar estilo al backend de Wordpress
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/style-login.css' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Sitio Web DECODECMS';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
+
+
+
+
+//* Mover javascripts al footer
+/*
+function scripts_footer() {
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+ 
+    add_action('wp_footer', 'wp_print_scripts', 5);
+    add_action('wp_footer', 'wp_enqueue_scripts', 5);
+    add_action('wp_footer', 'wp_print_head_scripts', 5);
+}
+
+add_action( 'wp_enqueue_scripts', 'scripts_footer' );
+*/
+
+
+// Rest API add post meta
+/*
+add_action( 'rest_api_init', 'create_api_posts_meta_field' );
+ 
+function create_api_posts_meta_field() {
+ register_rest_field( 'post', 'post_meta_fields', array(
+ 'get_callback' => 'get_post_meta_for_api',
+ 'schema' => null,
+ )
+ );
+}
+ 
+function get_post_meta_for_api( $object ) {
+ $post_id = $object['id'];
+ return get_post_meta( $post_id );
+}
+*/
+
+
+
+// deshabilitar para posts individuales
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+// deshabilitar a nivel de custom post type
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 
