@@ -266,9 +266,10 @@
 	.nav-primary .current-post-ancestor > a:after,
 	.nav-primary .current-menu-ancestor > a:after{
 		content:"";
-		background:url(images/arrow-submenu.png) no-repeat;
+		background:url(images/arrow-submenu.svg) no-repeat;
+		background-size: 15px 7px;
 		position:absolute;
-		bottom:0;
+		bottom:-1px;
 		left:50%;
 		display:block;
 		width:15px;

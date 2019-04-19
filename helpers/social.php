@@ -12,7 +12,6 @@ function dc_social_sharing_buttons($content)
 		$plantilla		='
 		 <a class="dc-link dc-twitter" href="{twitter}" target="_blank"><i class="fa fa-twitter"></i> Twittear</a>'.
 		'<a class="dc-link dc-facebook" href="{facebook}" target="_blank"><i class="fa fa-facebook"></i> Compartir</a>'.
-		'<a class="dc-link dc-googleplus" href="{google}" target="_blank"><i class="fa fa-google-plus"></i> Compartir</a>'.
 		'<a class="dc-link dc-linkedin" href="{linkedin}" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>'.
 		'<a class="dc-link dc-whatsapp" href="{whatsapp}" target="_blank"><i class="fa fa-whatsapp"></i> WhatsApp</a>';
 
@@ -26,8 +25,8 @@ function dc_social_sharing_buttons($content)
 		$whatsappURL= 'whatsapp://send?text='.$titleArticulo . ' ' . $urlArticulo;
 		$linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$urlArticulo.'&amp;title='.$titleArticulo;
 
-		$ar_buscar 		= array('{twitter}','{facebook}','{google}','{linkedin}','{whatsapp}');
-		$ar_reemplazar 	= array($twitterURL,$facebookURL,$googleURL,$linkedInURL,$whatsappURL);
+		$ar_buscar 		= array('{twitter}','{facebook}','{linkedin}','{whatsapp}');
+		$ar_reemplazar 	= array($twitterURL,$facebookURL,$linkedInURL,$whatsappURL);
 
 		$cad	.= '<div class="dc-social">';
 		if (is_single()){
