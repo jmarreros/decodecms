@@ -106,7 +106,7 @@
 
 	//Tabla de contenido
 
-	if ( $('body.single').length ){
+	if ( $('body.single-post').length ){
 
 		var tmplwrap ="<div id='tabla-contenido'>\n<p class='titulo'>Tabla de Contenido</p>\n{contenido}</div>";
 		var tmpllink = "<p><i class='fa fa-caret-right'></i> <a href={link}>{texto}</a></p>\n";

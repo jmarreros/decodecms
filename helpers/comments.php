@@ -56,6 +56,8 @@ jQuery(document).ready(function(e){e("#commentform").validate({onfocusout:functi
 
 add_action('wp_footer', 'comment_validation_init',20);
 
+
+
 add_filter( 'genesis_show_comment_date', 'jmw_remove_comment_time_and_link' );
 function jmw_remove_comment_time_and_link( $comment_date ) {
   printf( '<a class="idcomment fa fa-bookmark" href="%s"></a>', esc_url( get_comment_link() ) );
@@ -109,51 +111,3 @@ function custom_comment_reply($content) {
 }
 add_filter('comment_reply_link', 'custom_comment_reply');
 
-
-
-
-
-/*
-jQuery(document).ready(function($) {
-
-    $('#commentform').validate({
-
-    onfocusout: function(element) {
-      this.element(element);
-    },
-     
-    rules: {
-      
-      author: {
-                required: true,
-                minlength: 3
-              },
-     
-      email:  {
-                required: true,
-                email: true
-              },
-     
-      comment:  {
-                required: true,
-                minlength: 10
-                }
-    },
-     
-    messages: {
-              author  : "Requerido",
-              email   : {
-                          required:"Requerido",
-                          email:"No válido"
-                        },
-              comment : {
-                          required:"Requerido",
-                          minlength:"Mínimo 10 caracteres"
-                        }
-    },
-
-  errorPlacement: function(error, element) {},
-   
-    }); //validate
-}); //onready
-*/

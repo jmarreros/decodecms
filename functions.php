@@ -8,7 +8,6 @@ function add_header_seguridad() {
   header( 'X-XSS-Protection: 1;mode=block' );
 }
 
-
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
 include_once('helpers/general.php');
@@ -21,14 +20,14 @@ include_once('helpers/social.php');
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.12' );
+define ('CHILD_THEME_VERSION', '1.1.17' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 function genesis_sample_google_fonts() {
   //wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Lora:400,700', array(), CHILD_THEME_VERSION );
 //  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,600|Crimson+Text:400,700', array(), CHILD_THEME_VERSION );
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,400i,600', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Ubuntu:400,500|Open+Sans:400,400i,600', array(), "1.0" );
 }
 
 //* Add HTML5 markup structure
@@ -128,7 +127,7 @@ function custom_stript() {
 
     // wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery'), '1.0', true );
 
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.3', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.5', true );
 }
 
 
@@ -227,7 +226,7 @@ add_filter( 'wpseo_genesis_force_adjacent_rel_home', '__return_true' );
 //--------
 add_action( 'genesis_before', 'genesis_to_top');
 function genesis_to_top() {
-   echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
+   echo '<a href="#0" class="to-top" title="Back To Top"></a>';
 }
 
 
@@ -240,11 +239,19 @@ remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_action('genesis_entry_content', 'genesis_post_info',1);
 add_action('genesis_entry_content', 'genesis_post_meta',2);
 
+
 add_filter( 'genesis_post_info', 'post_info_filter' );
 function post_info_filter($post_info) {
-  $post_info =  '<span>[ [post_date format="j F Y"] ]</span> '.
-                '<span> [ Autor: [post_author_link before=""] ]</span> '.
-                '<span>[ [post_categories before=""] - '.
+
+  $dates_post = '<span>[ [post_date format="j F Y"] ]</span> ';
+  if ( get_the_date() !=  get_the_modified_date() ){
+    $dates_post .= '<span>[ Actualizado: [post_modified_date format="j F Y"] ]</span>';
+    if ( ! is_single() ) $dates_post .= "<br>";
+  }
+
+  $post_info =  $dates_post.
+                '<span> [ Autor: [post_author_link before=""] ]</span>'.
+                '<span>[ [post_categories before=""] - '.
                 getCustomfieldNivel()."</span>".
                 '<span>[ <i class="fa fa-video-camera"></i> ]';
 
@@ -367,7 +374,7 @@ genesis_register_sidebar( array(
 
 add_action( 'genesis_before_loop', 'add_genesis_content_banner' );
 function add_genesis_content_banner() {
-  if ( ! is_single() && !is_page() ){
+  if ( is_singular('post') || is_home() || is_category() ){
         genesis_widget_area( 'content-banner', array(
           'before' => '<div class="content-banner">',
           'after'  => '</div>',
@@ -395,6 +402,49 @@ function my_login_logo_url_title() {
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
+// Gutenberg
+// deshabilitar para posts individuales
+//add_filter('use_block_editor_for_post', '__return_false', 10);
+// deshabilitar a nivel de custom post type
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+
+// Sensei Modifications
+// =====================
+
+// Change number courses column
+add_filter('sensei_course_loop_number_of_columns', 'dcms_course_loop_number_of_columns');
+function dcms_course_loop_number_of_columns(){
+  return 2;
+}
+
+
+remove_action('sensei_after_main_content', 'gcfws_genesis_sensei_wrapper_end', 10);
+add_action( 'sensei_after_main_content', 'dcms_sensei_wrapper_end', 10 );
+
+function dcms_sensei_wrapper_end() {
+        echo '</main> <!-- end main-->';
+        if (is_post_type_archive('course')){
+          get_sidebar('alt');
+        } else {
+          get_sidebar();
+        }
+        echo '</div> <!-- end .content-sidebar-wrap-->';
+}
+
+
+// Removemos el sidebar principal y usamos el sidebar para cursos
+// add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
+// function remove_primary_sidebar_single_pages() {
+//   remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+//   add_action('genesis_sidebar', 'dcms_genesis_alt_sidebar');
+// }
+
+// function dcms_genesis_alt_sidebar(){
+//   dynamic_sidebar( 'sidebar-alt' );
+// }
+
+
 
 
 
@@ -405,7 +455,7 @@ function scripts_footer() {
     remove_action('wp_head', 'wp_print_scripts');
     remove_action('wp_head', 'wp_print_head_scripts', 9);
     remove_action('wp_head', 'wp_enqueue_scripts', 1);
- 
+
     add_action('wp_footer', 'wp_print_scripts', 5);
     add_action('wp_footer', 'wp_enqueue_scripts', 5);
     add_action('wp_footer', 'wp_print_head_scripts', 5);
@@ -418,7 +468,7 @@ add_action( 'wp_enqueue_scripts', 'scripts_footer' );
 // Rest API add post meta
 /*
 add_action( 'rest_api_init', 'create_api_posts_meta_field' );
- 
+
 function create_api_posts_meta_field() {
  register_rest_field( 'post', 'post_meta_fields', array(
  'get_callback' => 'get_post_meta_for_api',
@@ -426,19 +476,11 @@ function create_api_posts_meta_field() {
  )
  );
 }
- 
+
 function get_post_meta_for_api( $object ) {
  $post_id = $object['id'];
  return get_post_meta( $post_id );
 }
 */
-
-
-
-// deshabilitar para posts individuales
-add_filter('use_block_editor_for_post', '__return_false', 10);
-
-// deshabilitar a nivel de custom post type
-add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 

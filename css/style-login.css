@@ -1,0 +1,21 @@
+body.login div#login h1 a {
+	width:256px;
+	height: 30px;
+	background-size: 256px 30px;
+    background-image: url("../images/logo.svg");
+}
+
+body.login {
+	background: #192d38;
+}
+
+
+body.login div#login p#nav a,
+body.login div#login p#backtoblog a{
+	color:#ccc;
+}
+
+body.login div#login p#nav a:hover,
+body.login div#login p#backtoblog a:hover{
+	color:white;
+}

@@ -670,6 +670,7 @@ img.alignright,
 		column-rule: $gris-medio;
 		border-radius:4px;
 		padding:10px 15px;
+		overflow-x: scroll;
 
 		&:hover{
 			.comment-reply i{
@@ -939,7 +940,26 @@ span.required{
 
 .content-banner{
 	margin: 32px auto 25px;
+	text-align: center;
+	a{
+		border:none;
+		display: inline-block;
+		position: relative;
+	}
+	span{
+		color:gray!important;
+		padding:1px 4px;
+		background-color:rgba(255,255,255,0.7);
+		text-transform: uppercase;
+		font-size: 10px;
+		display: block;
+		position: absolute;
+		bottom: 5px;
+		right: 0;
+	}
 }
+
+
 
 #text-3{
 	background-color:transparent;
@@ -1002,6 +1022,14 @@ span.required{
 	.wpcf7-mail-sent-ok{
 		background-color: #398f14;
 	}
+	small{
+		margin-left:32px;
+		display: block;
+		a{
+			color:white;
+			border-color:white;
+		}
+	}
 }
 
 .archive-title{
@@ -1011,6 +1039,7 @@ span.required{
 
 
 //breadcrumb
+.learn-press-breadcrumb,
 .breadcrumb{
 	font-family:Helvetica, sans-serif;
 	font-size:1.4rem;
@@ -1203,13 +1232,17 @@ aside .widget_tag_cloud{
 					opacity: .5;
 				}
 			}
+		padding-bottom: 28px;
+		}
 
+		.txt-featured{
+			color:#dedc1c;
 		}
 
 	}//msg-wrap
 
 	.boton{
-		margin-top: 10px;
+		margin-top: 15px;
 		input{
 			width: 100%;
 			text-transform:none;
@@ -1254,7 +1287,12 @@ aside .widget_tag_cloud{
 
 #mc_embed_signup{
 	padding:15px;
+
+	.mc-field-group{
+		margin-bottom: 10px;
+	}
 }
+
 
 //boletin
 // aside section.widget_wysija {

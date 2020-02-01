@@ -1,0 +1,50 @@
+.learnpress{
+	
+	.site-inner{
+		max-width:1120px;
+	}
+
+	.learn-press-breadcrumb{
+		margin-top:0;
+	}
+
+	.course-meta,
+	.learn-press-course-results-progress,
+	.course-remaining-time,
+	.learn-press-search-course-form{
+		display: none;
+	}
+
+	.content .entry-title:hover{
+		background-color:transparent;
+	}
+
+	&.single-lp_course{
+		h1{
+			display: none;			
+		}
+	}
+
+	.content article .thumbnail{
+		width:auto;
+		height: auto;
+		float: none;
+		margin:auto;
+		margin-top:10px;
+	}
+	.content article .thumbnail img{
+		max-width: 780px;
+	}
+
+	.sidebar-primary {
+		display: none;
+	}
+
+	.content{
+		width: 100%;
+	}
+
+	article .entry-content{
+		margin:24px;
+	}
+}
