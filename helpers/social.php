@@ -3,9 +3,12 @@
 function dc_social_sharing_buttons($content)
 {
 	global $post;
-	$page = 250;
 
-	if( is_single() || is_page($page) || (is_page() && $post->post_parent == $page) )
+	if( is_single() &&
+		!is_singular('course') &&
+		!is_singular('lesson') &&
+		!is_singular('quiz')
+		)
 	{
 		$cad			='';
 		$plantilla		='

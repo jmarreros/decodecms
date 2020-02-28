@@ -1,22 +1,20 @@
-body{
-	min-width:320px;
+body {
+  min-width: 320px;
 }
-
 
 /* ## Site Containers
 --------------------------------------------- */
 
 .site-inner,
 .wrap {
-	margin: 0 auto;
-	max-width: 1340px; //1200px;
+  margin: 0 auto;
+  max-width: 1340px; //1200px;
 }
 
 .site-inner {
-	clear: both;
-	padding-top:40px;
+  clear: both;
+  padding-top: 40px;
 }
-
 
 /* ## Column Widths and Positions
 --------------------------------------------- */
@@ -26,71 +24,72 @@ body{
 .content-sidebar-sidebar .content-sidebar-wrap,
 .sidebar-content-sidebar .content-sidebar-wrap,
 .sidebar-sidebar-content .content-sidebar-wrap {
-	width: 980px;
+  width: 980px;
 }
 
 .content-sidebar-sidebar .content-sidebar-wrap {
-	float: left;
+  float: left;
 }
 
 .sidebar-content-sidebar .content-sidebar-wrap,
 .sidebar-sidebar-content .content-sidebar-wrap {
-	float: right;
+  float: right;
 }
 
 /* ### Content */
 
 .content {
-	float: right;
-	width: 66%;//890px; //800px;
+  float: right;
+  width: 66%; //890px; //800px;
 }
 
 .content-sidebar .content,
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content {
-	float: left;
+  float: left;
 }
 
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content,
 .sidebar-sidebar-content .content {
-	//width: 580px;
+  //width: 580px;
 }
 
 .full-width-content .content {
-	width: 100%;
+  width: 100%;
 }
 
 /* ### Primary Sidebar */
 
+.sidebar-secondary,
 .sidebar-primary {
-	float: right;
-	width: 34%; //360px;
-	//background:#eee;
-	padding:10px;
-	border-bottom-right-radius:6px;
+  float: right;
+  width: 34%; //360px;
+  //   background: #eee;
+  padding: 10px;
+  border-bottom-right-radius: 6px;
 }
 
-main.content{
-	padding-right:15px;
-	padding-top:15px;
+main.content {
+  padding-right: 15px;
+  padding-top: 15px;
 }
 
 .sidebar-content .sidebar-primary,
 .sidebar-sidebar-content .sidebar-primary {
-	float: left;
+  float: left;
 }
 
 /* ### Secondary Sidebar */
 
-.sidebar-secondary {
-	float: left;
-	width: 180px;
-}
+// .sidebar-secondary {
+// 	float: left;
+// 	width: 180px;
+// }
 
-.content-sidebar-sidebar .sidebar-secondary {
-	float: right;
-}
+// .content-sidebar-sidebar .sidebar-secondary {
+//   float: right;
+// }
 
 /* ## Column Classes
 --------------------------------------------- */
@@ -107,90 +106,87 @@ main.content{
 .two-fourths,
 .two-sixths,
 .two-thirds {
-	float: left;
-	margin-left: 2.564102564102564%;
+  float: left;
+  margin-left: 2.564102564102564%;
 }
 
 .one-half,
 .three-sixths,
 .two-fourths {
-	width: 48.717948717948715%;
+  width: 48.717948717948715%;
 }
 
 .one-third,
 .two-sixths {
-	width: 31.623931623931625%;
+  width: 31.623931623931625%;
 }
 
 .four-sixths,
 .two-thirds {
-	width: 65.81196581196582%;
+  width: 65.81196581196582%;
 }
 
 .one-fourth {
-	width: 23.076923076923077%;
+  width: 23.076923076923077%;
 }
 
 .three-fourths {
-	width: 74.35897435897436%;
+  width: 74.35897435897436%;
 }
 
 .one-sixth {
-	width: 14.52991452991453%;
+  width: 14.52991452991453%;
 }
 
 .five-sixths {
-	width: 82.90598290598291%;
+  width: 82.90598290598291%;
 }
 
 .first {
-	clear: both;
-	margin-left: 0;
+  clear: both;
+  margin-left: 0;
 }
 
-.header-widget-area{
-	float:right;
+.header-widget-area {
+  float: right;
 }
 
 //Articles
 .content article {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  clear: both;
+  //border-bottom : 1px dotted $gris-claro;
 
-	margin-bottom:10px;
-	padding-bottom:10px;
-	clear:both;
-	//border-bottom : 1px dotted $gris-claro;
+  .thumbnail {
+    float: left;
+    border-radius: 4px;
+    margin-right: 20px;
+    // min-height: 200px;
+  }
 
-	.thumbnail{
-		float:left;
-		border-radius:4px;
-		margin-right: 20px;
-		// min-height: 200px;
-	}
-
-	.entry-meta{
-		margin-bottom:10px;
-	}
-
+  .entry-meta {
+    margin-bottom: 10px;
+  }
 }
 
-
-.widget .widget-title{
-	margin-bottom:15px;
+.widget .widget-title {
+  margin-bottom: 15px;
 }
 
-aside .widget{
-	margin-bottom:25px;
-	padding:10px;
+aside .widget {
+  margin-bottom: 25px;
+  padding: 10px;
 }
 
 //Para los botones de redes sociales
-.header-widget-area .widget_text{
-	position:absolute;
-	left:46%;
-	top:32px;
+.header-widget-area .widget_text {
+  position: absolute;
+  left: 46%;
+  top: 32px;
 }
 
 //A 960px cambia a block en media queries
-.site-inner > .content-sidebar-wrap{
-	display:flex;
+.site-inner > .content-sidebar-wrap {
+  display: flex;
 }

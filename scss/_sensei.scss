@@ -1,0 +1,62 @@
+.post-type-archive-course {
+  main.content {
+    width: 100%;
+    float: none;
+  }
+}
+
+.sensei {
+  .entry-title {
+    border-bottom: 1px solid #dedede;
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+  #customer_login {
+    display: flex;
+    .col-1,
+    .col-2 {
+      width: 45%;
+    }
+    .col-1 {
+      margin-right: 5%;
+    }
+    .login,
+    .register {
+      padding: 20px;
+      background-color: #eee;
+      border-radius: 6px;
+    }
+    .sensei-login-submit a {
+      margin-left: 16px;
+    }
+  }
+}
+
+//Conditional menu show/hide items
+
+body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(4) {
+  display: none;
+}
+
+body #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+  display: none;
+}
+
+body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+  display: inline-block;
+}
+
+#genesis-nav-primary .wrap > ul > li:nth-child(4) a::after,
+#genesis-nav-primary .wrap > ul > li:nth-child(5) a::after {
+  background: none;
+}
+
+@media (max-width: 767px) {
+  body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+    display: block;
+  }
+  body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) > a {
+    border-radius: 0;
+    padding: 18px 24px;
+  }
+}

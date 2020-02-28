@@ -418,20 +418,47 @@ function dcms_course_loop_number_of_columns(){
   return 2;
 }
 
-
-remove_action('sensei_after_main_content', 'gcfws_genesis_sensei_wrapper_end', 10);
+// Sidebar in courses
+remove_action('sensei_after_main_content', 'gcfws_genesis_sensei_wrapper_end', 10); // remover la función del plugin de integración genesis-sensei
 add_action( 'sensei_after_main_content', 'dcms_sensei_wrapper_end', 10 );
 
 function dcms_sensei_wrapper_end() {
         echo '</main> <!-- end main-->';
-        if (is_post_type_archive('course')){
+        if(is_singular('course')) {
           get_sidebar('alt');
-        } else {
-          get_sidebar();
         }
         echo '</div> <!-- end .content-sidebar-wrap-->';
 }
 
+// Remove unwanted fields WooCommerce checkout
+add_filter( 'woocommerce_checkout_fields' , 'woo_remove_billing_checkout_fields' );
+
+function woo_remove_billing_checkout_fields( $fields ) {
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_phone']);
+    unset($fields['order']['order_comments']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_city']);
+    return $fields;
+}
+
+
+
+
+
+// Items menu
+
+// if (is_post_type_archive('course')){
+//   //get_sidebar('alt');
+// }
 
 // Removemos el sidebar principal y usamos el sidebar para cursos
 // add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
