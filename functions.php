@@ -20,7 +20,7 @@ include_once('helpers/social.php');
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.17' );
+define ('CHILD_THEME_VERSION', '1.1.18' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -159,14 +159,16 @@ add_action( 'wp_print_styles', 'dequeue_style_boletin', 100 );
 add_action( 'wp_print_scripts', 'dequeue_script_prism' );
 function dequeue_script_prism() {
   if ( !is_single() ) wp_deregister_style( 'prism' );
+  else wp_enqueue_script( 'prism' );
+      
 }
 
 add_action( 'wp_print_scripts', 'dequeue_style_prism' );
 function dequeue_style_prism() {
   if ( !is_single() ) wp_deregister_style( 'prism' );
+  else wp_enqueue_style( 'prism' );
 }
 //
-
 
 
 //Para el rating con estrellas

@@ -23,8 +23,8 @@ article {
   font-size: 1.12em;
 }
 
-.single article{
-  font-size:1.18em;
+.single article {
+  font-size: 1.18em;
 }
 
 a,
@@ -300,4 +300,17 @@ small {
     content: "\f007";
     font-size: 20px;
   }
+}
+
+a.link-featured {
+  background-color: gray;
+  border: none;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+a.link-featured:hover {
+  background-color: $links;
+  color: white;
 }
