@@ -641,6 +641,14 @@ img.alignright,
     content: "\f086";
     margin-right: 8px;
   }
+  &#reply-title {
+    font-size: 18px;
+    font-weight: normal;
+    small {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
   &#reply-title:before {
     content: "";
   }
@@ -652,7 +660,6 @@ img.alignright,
     column-rule: $gris-medio;
     border-radius: 4px;
     padding: 10px 15px;
-    overflow-x: scroll;
 
     &:hover {
       .comment-reply i {
@@ -1476,6 +1483,10 @@ aside.mashsb-container {
 }
 
 .entry-content {
+  ul {
+    margin-left: 1rem;
+  }
+
   ol li,
   ul li {
     list-style-type: disc;

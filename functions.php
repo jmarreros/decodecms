@@ -20,7 +20,7 @@ include_once('helpers/social.php');
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.18' );
+define ('CHILD_THEME_VERSION', '1.1.21' );
 
 //* Enqueue Google Fonts
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -160,7 +160,7 @@ add_action( 'wp_print_scripts', 'dequeue_script_prism' );
 function dequeue_script_prism() {
   if ( !is_single() ) wp_deregister_style( 'prism' );
   else wp_enqueue_script( 'prism' );
-      
+
 }
 
 add_action( 'wp_print_scripts', 'dequeue_style_prism' );
@@ -295,7 +295,7 @@ function featured_post_image() {
 //----------
 // add_filter( 'the_content_more_link', 'sp_read_more_link' );
 // function sp_read_more_link() {
-//   return ' [<a href="' . get_permalink() . '">Leer más</a>]';
+//   return ' <a class="link-featured" href="' . get_permalink() . '">Leer más ...</a>';
 // }
 
 
@@ -401,7 +401,7 @@ add_filter( 'login_headerurl', 'my_login_logo_url' );
 function my_login_logo_url_title() {
     return 'Sitio Web DECODECMS';
 }
-add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+add_filter( 'login_headertext', 'my_login_logo_url_title' );
 
 
 // Gutenberg
