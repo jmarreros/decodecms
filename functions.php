@@ -33,6 +33,7 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 
 // Modificaciones
+include_once('helpers/general.php');
 include_once('includes/niveles.php');
 include_once('includes/design.php');
 include_once('includes/login-backend.php');
