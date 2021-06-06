@@ -1392,7 +1392,14 @@ aside.mashsb-container {
 }
 
 .entry-content .entry-meta:first-child > span {
-  // display:inline-block;
+  display: inline-block;
+}
+
+.entry-content .entry-meta:first-child span.sponsored {
+  background-color: #eee;
+  padding: 0 6px;
+  border-radius: 4px;
+  margin-left: 2px;
 }
 
 .acerca_de {
@@ -1927,4 +1934,19 @@ ul.descode {
 .entry-content em {
   font-family: Times New Roman, Times, Baskerville, Georgia, serif;
   font-size: 1.15em;
+}
+
+/*Video youtube responsive*/
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  background-color: #1d2e36;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
