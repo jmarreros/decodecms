@@ -36,3 +36,22 @@ function add_genesis_content_banner() {
     }
 }
 
+
+
+// genesis_after_header posicion búsqueda
+//---------------------------------------
+genesis_register_sidebar( array(
+  'id'      => 'social-footer',
+  'name'      => 'Pie social position',
+  'description' =>  'Footer social buttons',
+) );
+
+function position_social_footer() {
+  genesis_widget_area( 'social-footer', array(
+    'before' => '<div class="social-footer">',
+    'after' => '</div>'
+  ) );
+}
+add_action( 'genesis_footer', 'position_social_footer' );
+
+
