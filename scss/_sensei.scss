@@ -1,62 +1,124 @@
-.post-type-archive-course {
+.archive-course {
   main.content {
     width: 100%;
     float: none;
   }
-}
 
-.sensei {
-  .entry-title {
-    border-bottom: 1px solid #dedede;
-    margin-top: 20px;
-    margin-bottom: 32px;
+  .sensei-course-filters,
+  aside.sidebar-primary,
+  .post-ratings,
+  p.entry-permalink,
+  select.orderby {
+    display: none;
   }
-  #customer_login {
-    display: flex;
-    .col-1,
-    .col-2 {
-      width: 45%;
-    }
-    .col-1 {
-      margin-right: 5%;
-    }
-    .login,
-    .register {
-      padding: 20px;
-      background-color: #eee;
-      border-radius: 6px;
-    }
-    .sensei-login-submit a {
-      margin-left: 16px;
+
+  .course-container {
+    border-bottom: none;
+    margin: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .archive-header {
+    text-align: center;
+    margin: 2rem;
+  }
+
+  .des-courses {
+    margin: 3rem;
+  }
+
+  .site-inner {
+    padding: 0 4rem;
+    max-width: 1200px;
+  }
+
+  header.archive-header {
+    border-radius: 4px;
+    background-color: #4289b2;
+    padding: 2rem;
+    h1 {
+      color: white;
+      margin: 0;
+      img {
+        vertical-align: middle;
+        margin-right: 4px;
+      }
     }
   }
-}
 
-//Conditional menu show/hide items
-
-body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(4) {
-  display: none;
-}
-
-body #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-  display: none;
-}
-
-body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-  display: inline-block;
-}
-
-#genesis-nav-primary .wrap > ul > li:nth-child(4) a::after,
-#genesis-nav-primary .wrap > ul > li:nth-child(5) a::after {
-  background: none;
-}
-
-@media (max-width: 767px) {
-  body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-    display: block;
-  }
-  body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) > a {
-    border-radius: 0;
-    padding: 18px 24px;
+  .course-container li.course {
+    border-radius: 4px;
+    background-color: #f9f8f8;
+    border: 1px solid #ddd;
+    padding: 2rem 4rem;
   }
 }
+
+@media (max-width: 480px) {
+  .archive-course header.archive-header {
+    padding: 1.5rem;
+    h1 {
+      font-size: 3rem;
+      img {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// .sensei {
+//   .entry-title {
+//     border-bottom: 1px solid #dedede;
+//     margin-top: 20px;
+//     margin-bottom: 32px;
+//   }
+//   #customer_login {
+//     display: flex;
+//     .col-1,
+//     .col-2 {
+//       width: 45%;
+//     }
+//     .col-1 {
+//       margin-right: 5%;
+//     }
+//     .login,
+//     .register {
+//       padding: 20px;
+//       background-color: #eee;
+//       border-radius: 6px;
+//     }
+//     .sensei-login-submit a {
+//       margin-left: 16px;
+//     }
+//   }
+// }
+
+// //Conditional menu show/hide items
+
+// body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(4) {
+//   display: none;
+// }
+
+// body #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+//   display: none;
+// }
+
+// body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+//   display: inline-block;
+// }
+
+// #genesis-nav-primary .wrap > ul > li:nth-child(4) a::after,
+// #genesis-nav-primary .wrap > ul > li:nth-child(5) a::after {
+//   background: none;
+// }
+
+// @media (max-width: 767px) {
+//   body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
+//     display: block;
+//   }
+//   body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) > a {
+//     border-radius: 0;
+//     padding: 18px 24px;
+//   }
+// }

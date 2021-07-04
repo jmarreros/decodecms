@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E7ECED;}
+	.st1{fill:#28384C;}
+	.st2{fill:#AFB6BB;}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:#6C797A;}
+	.st5{fill:#556080;}
+	.st6{fill:#5388AE;}
+</style>
+<g>
+	<path class="st0" d="M441.4,8.8H70.6H26.5C11.9,8.8,0,20.7,0,35.3v309h70.6H203H309h132.4H512v-309c0-14.6-11.9-26.5-26.5-26.5
+		L441.4,8.8L441.4,8.8z"/>
+	<rect x="35.3" y="44.1" class="st1" width="441.4" height="282.5"/>
+	<polygon class="st0" points="114.8,79.4 114.8,247.2 324.9,247.2 361.9,210.1 361.9,79.4 	"/>
+	<path class="st2" d="M485.5,397.2h-459C11.9,397.2,0,385.4,0,370.8v-44.1h512v44.1C512,385.4,500.1,397.2,485.5,397.2z"/>
+	<path class="st3" d="M282.5,370.8h-53c-4.9,0-8.8-4-8.8-8.8s4-8.8,8.8-8.8h53c4.9,0,8.8,4,8.8,8.8S287.4,370.8,282.5,370.8z"/>
+	<path class="st2" d="M370.8,503.2H141.2c-9.8,0-17.7-7.9-17.7-17.7l0,0c0-9.8,7.9-17.7,17.7-17.7h229.5c9.8,0,17.7,7.9,17.7,17.7
+		l0,0C388.4,495.3,380.5,503.2,370.8,503.2z"/>
+	<path class="st4" d="M300.1,397.2h-88.3c0,39-13.9,70.6-53,70.6h194.2C314.1,467.9,300.1,436.3,300.1,397.2z"/>
+	<rect x="114.8" y="79.4" class="st5" width="247.2" height="44.1"/>
+	<rect x="150.1" y="176.6" class="st6" width="70.6" height="35.3"/>
+</g>
+</svg>

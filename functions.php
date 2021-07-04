@@ -14,7 +14,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.25' );
+define ('CHILD_THEME_VERSION', '1.1.26' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -54,10 +54,54 @@ include_once('includes/positions.php');
 // Sensei Modifications
 // =====================
 
+
+// Removemos el sidebar principal y usamos el sidebar para cursos dependiendo de la página
+add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
+function remove_primary_sidebar_single_pages() {
+  if (is_post_type_archive('course')){
+    remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+  }
+
+  if (is_singular('course')){
+    remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+    add_action('genesis_sidebar', function(){
+      dynamic_sidebar( 'sidebar-alt' );
+    });
+  }
+}
+
+// Agregamos la clase a la página de listado de cursos
+add_filter('body_class','dcms_add_class_sensei_body');
+function dcms_add_class_sensei_body( $classes ) {
+	if ( is_post_type_archive('course') ) {
+	    $classes[] = 'archive-course';
+	}
+	return $classes;
+}
+
+add_filter('course_archive_title', function(){
+  $img = "<img src='" . get_stylesheet_directory_uri() . "/images/computer.svg' width='52' height='50' />";
+  echo "<header class='archive-header'><h1>" . $img . " Cursos WordPress</h1></header>";
+  return;
+});
+
+add_action('sensei_loop_course_before', function(){
+  if (is_post_type_archive('course')){
+    echo '<section class="des-courses">
+            <p>Te presento los <strong>cursos que tienes disponibles en DecodeCMS</strong>, para llevar tu WordPress a otro nivel, algunos son <strong>gratuitos y otros de pago</strong>. Si todavía no eres alumno te invito a registrarte para acceder a los cursos. Si ya eres alumno, simplemente ingresa con tus datos de acceso.</p>
+          </section>
+      ';
+  }
+});
+
+
+
+
+
 // // Change number courses column
 // add_filter('sensei_course_loop_number_of_columns', 'dcms_course_loop_number_of_columns');
 // function dcms_course_loop_number_of_columns(){
-//   return 2;
+//   return 3;
 // }
 
 // // Sidebar in courses
@@ -99,20 +143,8 @@ include_once('includes/positions.php');
 // Items menu
 
 // if (is_post_type_archive('course')){
-//   //get_sidebar('alt');
+//   get_sidebar('alt');
 // }
-
-// Removemos el sidebar principal y usamos el sidebar para cursos
-// add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
-// function remove_primary_sidebar_single_pages() {
-//   remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-//   add_action('genesis_sidebar', 'dcms_genesis_alt_sidebar');
-// }
-
-// function dcms_genesis_alt_sidebar(){
-//   dynamic_sidebar( 'sidebar-alt' );
-// }
-
 
 
 

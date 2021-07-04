@@ -44,7 +44,7 @@ function sp_previous_page_link ( $text ) {
 //-----------------
 add_action( 'genesis_before_entry_content', 'featured_post_image', 1 );
 function featured_post_image() {
-  if ( is_singular( 'page' ) )  return;
+  if ( is_singular( 'page' ) || empty(get_the_post_thumbnail()) )  return;
   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
 }
 
