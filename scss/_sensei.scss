@@ -52,6 +52,26 @@
     background-color: #f9f8f8;
     border: 1px solid #ddd;
     padding: 2rem 4rem;
+    .sensei-course-meta {
+      display: none;
+    }
+  }
+
+  .content article .thumbnail {
+    margin-right: 3rem;
+  }
+
+  .course-title {
+    font-size: 3rem;
+  }
+
+  .course-container .course .course-excerpt {
+    margin-top: 1rem;
+    .more-link {
+      display: block;
+      margin-top: 1rem;
+      border: none;
+    }
   }
 }
 

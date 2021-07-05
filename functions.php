@@ -95,6 +95,14 @@ add_action('sensei_loop_course_before', function(){
 });
 
 
+add_filter('get_the_excerpt', function($excerpt){
+  if (is_post_type_archive('course')){
+    $link = ' <a class="more-link" href="' . get_permalink() . '">[Leer más...]</a>';
+    return $excerpt.$link;
+  }
+  return $excerpt;
+});
+
 
 
 
