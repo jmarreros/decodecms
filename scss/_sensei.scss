@@ -40,6 +40,7 @@
     h1 {
       color: white;
       margin: 0;
+      font-size: 4rem;
       img {
         vertical-align: middle;
         margin-right: 4px;
@@ -73,6 +74,27 @@
       border: none;
     }
   }
+
+  // h3.course-title a,
+  // .course-content .entry > a {
+  //   color: #333;
+  // }
+
+  .course-container .course-title {
+    font-size: 4rem;
+    width: 100%;
+    margin-bottom: 1.1rem !important;
+    a {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-left: -10px;
+      &:hover {
+        background-color: #ffffdc;
+        color: #333;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -85,6 +107,29 @@
       }
     }
   }
+}
+
+.buttons-course {
+  margin-top: 10px;
+}
+
+.btn-course {
+  background-color: #333;
+  color: white !important;
+  padding: 4px 16px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.btn-course.show-detail:hover,
+.btn-course:hover {
+  background-color: #ff646f;
+}
+
+.btn-course.show-detail {
+  background-color: #4289b2;
 }
 
 // .sensei {

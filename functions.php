@@ -97,11 +97,20 @@ add_action('sensei_loop_course_before', function(){
 
 add_filter('get_the_excerpt', function($excerpt){
   if (is_post_type_archive('course')){
-    $link = ' <a class="more-link" href="' . get_permalink() . '">[Leer más...]</a>';
+    $link = '<div class="buttons-course">
+            <a class="btn-course show-detail" href="' . get_permalink() . '">
+              <i class="fa fa-book"></i> Ver detalle
+            </a>
+            <a class="btn-course go-course" href="' . get_permalink() . '">
+            <i class="fa fa-arrow-right"></i> Ir al curso
+            </a>
+            </div>';
+
     return $excerpt.$link;
   }
   return $excerpt;
 });
+
 
 
 
@@ -191,5 +200,9 @@ function get_post_meta_for_api( $object ) {
  return get_post_meta( $post_id );
 }
 */
+
+
+
+
 
 
