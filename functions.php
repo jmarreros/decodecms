@@ -76,6 +76,12 @@ function dcms_add_class_sensei_body( $classes ) {
 	if ( is_post_type_archive('course') ) {
 	    $classes[] = 'archive-course';
 	}
+
+  if (is_user_logged_in()) {
+    $classes[] = 'logged-in';
+  } else {
+    $classes[] = 'logged-out';
+  }
 	return $classes;
 }
 
@@ -110,6 +116,57 @@ add_filter('get_the_excerpt', function($excerpt){
   }
   return $excerpt;
 });
+
+
+
+
+add_filter( 'wp_nav_menu_objects', 'my_dynamic_menu_items' );
+
+function my_dynamic_menu_items( $menu_items ) {
+	$final_menu = [];
+    foreach ( $menu_items as $menu_item ) {
+        if ( '#mi-cuenta#' == $menu_item->title ) {
+        	 $user=wp_get_current_user();
+        	if ( $user->ID ){
+        		 $menu_item->title = $user->user_firstname?$user->user_firstname:$user->user_login;
+        		 $final_menu[] = $menu_item;
+            }
+          else {
+            $menu_item->title = 'Acceder';
+            $final_menu[] = $menu_item;
+          }
+        } else {
+        	$final_menu[] = $menu_item;
+        }
+    }
+    return $final_menu;
+}
+
+
+
+
+
+// add_filter( 'wp_nav_menu_items', 'dcms_items_login_logout', 10, 2);
+
+// function dcms_items_login_logout( $items, $args ) {
+
+// 	if ($args->theme_location == 'primary') {
+// 		if (is_user_logged_in()){
+//       global $current_user;
+
+// 			$items .= '<li class="menu-item btn-menu btn-logout">
+// 						<a href="'. wp_logout_url(get_permalink()) .'">Desconectar</a>
+// 						</li>';
+// 		} else {
+// 			$items .= '<li class="menu-item btn-menu btn-login">
+// 						<a href="/mis-cursos/">Acceder</a>
+// 						</li>';
+// 		}
+// 	}
+
+// 	return $items;
+// }
+
 
 
 

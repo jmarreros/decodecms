@@ -289,13 +289,7 @@ small {
   }
 }
 
-.nav-primary .wrap > ul > li:nth-child(4),
-.nav-primary .wrap > ul > li:nth-child(5) {
-  > a {
-    background-color: #32566a;
-    padding: 12px 14px;
-    border-radius: 6px;
-  }
+.nav-primary .wrap > ul > li:nth-child(4) {
   > a:before {
     content: "\f007";
     font-size: 20px;
