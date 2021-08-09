@@ -35,7 +35,7 @@
 
   header.archive-header {
     border-radius: 4px;
-    background-color: #4289b2;
+    background-color: $background-primary-nav;
     padding: 2rem;
     h1 {
       color: white;
@@ -50,8 +50,8 @@
 
   .course-container li.course {
     border-radius: 4px;
-    background-color: #f9f8f8;
-    border: 1px solid #ddd;
+    background-color: $background-list-courses;
+    border: 1px solid $border-list-courses;
     padding: 2rem 4rem;
     .sensei-course-meta {
       display: none;
@@ -74,11 +74,6 @@
       border: none;
     }
   }
-
-  // h3.course-title a,
-  // .course-content .entry > a {
-  //   color: #333;
-  // }
 
   .course-container .course-title {
     font-size: 4rem;
@@ -132,8 +127,122 @@
   background-color: #4289b2;
 }
 
+// Primary Nav Access
 .logged-out .nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a {
   color: grey;
+}
+
+// message
+
+.sensei-message {
+  &.alert {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+}
+
+// Login
+#customer_login {
+  display: flex;
+  .col-1,
+  .col-2 {
+    border: 1px solid $border-list-courses;
+    padding: 20px;
+    background-color: $background-list-courses;
+    flex-grow: 1;
+  }
+  .col-1 {
+    margin-right: 20px;
+  }
+
+  .sensei-login-submit {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    a {
+      border: none;
+    }
+  }
+
+  .register .form-row:last-child {
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  #customer_login {
+    display: block;
+  }
+
+  #customer_login > div {
+    margin: 20px;
+  }
+}
+
+// Nav posts
+nav#post-entries {
+  display: none !important;
+}
+
+section#user-course-status-toggle {
+  border: none;
+  display: flex;
+  a {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid grey;
+    background-color: white;
+    padding: 10px;
+    margin: 0;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  #sensei-user-courses-all-action.active {
+    border-bottom: 0;
+  }
+}
+
+#sensei-user-courses {
+  ul.course-container {
+    padding: 20px !important;
+    margin: 0 !important;
+    margin-top: -1px !important;
+    border: 1px solid grey;
+  }
+}
+
+.single-course {
+  .modules-title {
+    display: none;
+  }
+
+  .course .module header {
+    font-size: 1.4rem;
+  }
+
+  .course .module-description,
+  .module-lessons header {
+    display: none !important;
+  }
+
+  .module-lessons .lessons-list {
+    font-size: 1.8rem;
+  }
+
+  .course .module .module-lessons ul {
+    margin-bottom: 0 !important;
+  }
+
+  .modules-title + .module {
+    margin-top: 2em;
+  }
+
+  .course {
+    margin-bottom: 0;
+  }
 }
 
 // .sensei {

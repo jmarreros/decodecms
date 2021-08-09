@@ -1,80 +1,79 @@
 //General
-$color-texto : #4d4d4d;
-$links : #FF646F;//#c3251d;
-$gris-claro : #ccc;
-$gris-medio : #a5a5a5;
+$color-texto: #4d4d4d;
+$links: #ff646f; //#c3251d;
+$gris-claro: #ccc;
+$gris-medio: #a5a5a5;
 $gris-oscuro: #333;
-$black : #000;
-$white : #fff;
+$black: #000;
+$white: #fff;
 $green: green;
-$color-boton:#333;
+$color-boton: #333;
 $color-selection: #ff9292;
 
-$logo-azul-claro: #699EBD;
-$logo-azul-medio: #4289B2;
-$logo-rojo-claro: #FF646F;
-$logo-blanco-medio:#E6E6E6;
-$logo-fondo:#231F20;
+$logo-azul-claro: #699ebd;
+$logo-azul-medio: #4289b2;
+$logo-rojo-claro: #ff646f;
+$logo-blanco-medio: #e6e6e6;
+$logo-fondo: #231f20;
 
 $color-links-recents: $logo-azul-medio;
-$color-links-featured: #F7931E;
+$color-links-featured: #f7931e;
 //$font-article:'Open Sans',Helvetica, sans-serif;
-$font-article:'Open Sans', sans-serif;
+$font-article: "Open Sans", sans-serif;
 //$font-article:'Helvetica';
-$font-body:Helvetica,Arial,sans-serif;
+$font-body: Helvetica, Arial, sans-serif;
 $font-titles: Ubuntu, sans-serif;
-$font-meta:$font-body;
+$font-meta: $font-body;
 
 // #--- HEADER
-$logo : "images/logo.svg";
+$logo: "images/logo.svg";
 $robot: "images/robot-header.svg";
-$background-header :#192D38;//$black;//#231F20;
-$background-header-image : "images/fondo-header.jpg";
-$background-dots:'images/background-dots.png';
+$background-header: #192d38; //$black;//#231F20;
+$background-header-image: "images/fondo-header.jpg";
+$background-dots: "images/background-dots.png";
 
 //navegacion superior derecha
-$color-submenu : $gris-claro; //letra
-$color-submenu-hover : $links; //letra links
+$color-submenu: $gris-claro; //letra
+$color-submenu-hover: $links; //letra links
 
-$color-submenu-dropdown : $gris-oscuro; //letra dropdown
-$background-submenu-dropdown : $white; //#3D3D3D; //fondo dropdown 
+$color-submenu-dropdown: $gris-oscuro; //letra dropdown
+$background-submenu-dropdown: $white; //#3D3D3D; //fondo dropdown
 
 //navegacion principal
-$background-primary-nav : #4289B2;//#D64F4F;//#3D3D3D;
-$border-primary-nav: #62A1C4;//#DD6E6E;//#4D4D4D;
-$color-primary-nav: $white;//$gris-claro; //letra
+$background-primary-nav: #4289b2; //#D64F4F;//#3D3D3D;
+$border-primary-nav: #62a1c4; //#DD6E6E;//#4D4D4D;
+$color-primary-nav: $white; //$gris-claro; //letra
 
 //footer
-$background-footer:transparent;  
-$color-footer:#808080;
+$background-footer: transparent;
+$color-footer: #808080;
 
 //titles
 $color-titles: $color-boton;
-$background-titles-hover:#ffffdc;
-$color-entry-meta:#808080;
+$background-titles-hover: #ffffdc;
+$color-entry-meta: #808080;
 
 //tags
-$color-tags:#91AA53;
-$background-tags:#DFF2BB;
+$color-tags: #91aa53;
+$background-tags: #dff2bb;
 
 //breadcrumb
-$background-breadcrumbs:#f9f8f8;
+$background-breadcrumbs: #f9f8f8;
+$background-list-courses: #f9f8f8;
+$border-list-courses: #ddd;
 
 //comentarios
-$background-list-comments : #F7F7F7; //$logo-azul-claro;//#fafafa;
-$background-admin-list-comments: #F2F2F2;
-$color-list-comments:$white;
+$background-list-comments: #f7f7f7; //$logo-azul-claro;//#fafafa;
+$background-admin-list-comments: #f2f2f2;
+$color-list-comments: $white;
 $border-list-comments: #f1f1f1;
-$background-form-comments: $logo-azul-medio;//#f7ffe7; //#f3ffda; //#feffe8;
+$background-form-comments: $logo-azul-medio; //#f7ffe7; //#f3ffda; //#feffe8;
 $border-form-comments: #dbe9bc; //#faf7c4;
 $border-error: $logo-rojo-claro; //#f78e9d;
-$background-error: $logo-rojo-claro;//#eb4545;
-$background-code:#fefff0;
+$background-error: $logo-rojo-claro; //#eb4545;
+$background-code: #fefff0;
 
 //contacto
-$background-form-contact:$logo-azul-medio;//#F9F8F8;//#f7ffe7;
-$borde-form-contact:#5694b8;
-$color-form-contact:$logo-blanco-medio;
-
-
-
+$background-form-contact: $logo-azul-medio; //#F9F8F8;//#f7ffe7;
+$borde-form-contact: #5694b8;
+$color-form-contact: $logo-blanco-medio;

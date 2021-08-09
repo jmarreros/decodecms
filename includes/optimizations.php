@@ -25,7 +25,9 @@ add_action( 'init', 'disable_wp_emojicons' );
 //Para el rating con estrellas
 add_action('genesis_entry_content','colocarEstrellas');
 function colocarEstrellas(){
-  if ( is_single() and  function_exists('the_ratings') ) the_ratings();
+  if ( is_singular('post') and  function_exists('the_ratings') ) {
+        the_ratings();
+      }
 }
 
 
