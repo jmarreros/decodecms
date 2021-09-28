@@ -54,19 +54,23 @@ include_once('includes/positions.php');
 // Sensei Modifications
 // =====================
 
-
 // Removemos el sidebar principal y usamos el sidebar para cursos dependiendo de la página
+// para cursos usamos sidebar alterno y para lecciones quitamos sidebar y breadcrumbs
 add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
 function remove_primary_sidebar_single_pages() {
-  if (is_post_type_archive('course')){
+  if ( is_post_type_archive('course') ){
     remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
   }
 
-  if (is_singular('course')){
+  if ( is_singular('lesson') ){
+    remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
+  }
+
+  if ( is_singular('course') || is_singular('lesson') ){
     remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
     add_action('genesis_sidebar', function(){
-      dynamic_sidebar( 'sidebar-alt' );
-    });
+                                    dynamic_sidebar( 'sidebar-alt' );
+                                  });
   }
 }
 
@@ -104,9 +108,6 @@ add_action('sensei_loop_course_before', function(){
 add_filter('get_the_excerpt', function($excerpt){
   if (is_post_type_archive('course')){
     $link = '<div class="buttons-course">
-            <a class="btn-course show-detail" href="' . get_permalink() . '">
-              <i class="fa fa-book"></i> Ver detalle
-            </a>
             <a class="btn-course go-course" href="' . get_permalink() . '">
             <i class="fa fa-arrow-right"></i> Ir al curso
             </a>

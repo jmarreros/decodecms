@@ -458,13 +458,13 @@ img.alignright,
   position: relative;
 }
 
-.widget_search {
+#search .widget_search {
   position: absolute;
   top: -42px;
   right: 10px;
 }
 
-.widget_search input[type="search"] {
+#search .widget_search input[type="search"] {
   font-size: 1.4rem;
   color: $gris-oscuro;
   width: 160px;
@@ -473,8 +473,9 @@ img.alignright,
   border: none;
 }
 
-.widget_search input[type="submit"] {
+#search .widget_search input[type="submit"] {
   font-family: "FontAwesome";
+  font-size: 1.6rem;
   color: rgba(255, 255, 255, 0.8);
   background-color: transparent;
   padding: 6px 8px;
