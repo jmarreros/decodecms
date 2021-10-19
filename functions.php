@@ -31,7 +31,6 @@ add_theme_support( 'custom-background' );
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
-
 // Modificaciones
 include_once('helpers/general.php');
 include_once('includes/levels.php');
@@ -142,6 +141,24 @@ function my_dynamic_menu_items( $menu_items ) {
     }
     return $final_menu;
 }
+
+
+
+// Active menu courses
+
+add_filter('nav_menu_css_class' , 'item_menu_courses_class' , 10 , 2);
+
+function item_menu_courses_class ($classes, $item) {
+
+      if ($item->title == 'Cursos'){
+        if ( is_post_type_archive('course') || is_singular(['course', 'lesson']) ) {
+          $classes[] = 'current-menu-item';
+        }
+      }
+
+      return $classes;
+}
+
 
 
 

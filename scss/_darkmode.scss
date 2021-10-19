@@ -1,0 +1,48 @@
+.wp-dark-mode-active {
+  .content h2.entry-title:hover,
+  .content h2.entry-title:hover a,
+  .archive-course .course-container .course-title a:hover {
+    background: #18272d;
+    color: white;
+  }
+
+  .widget_sensei_course_progress
+    .course-progress-lessons
+    .course-progress-lesson
+    a:hover,
+  .course .module .module-lessons ul li a:hover {
+    background-color: transparent;
+  }
+
+  // Temp vlfc-courses plugin
+  .vlfc-courses-container .vlfc-course:hover {
+    background-color: #212e34;
+  }
+
+  .vlfc-courses-container:hover .vlf-text p {
+    color: grey;
+  }
+
+  .course .module .module-lessons ul li a::before,
+  .course .module .module-lessons ul li a:hover::before,
+  .widget_sensei_course_progress
+    .course-progress-lessons
+    .course-progress-lesson
+    a::before,
+  .widget_sensei_course_progress
+    .course-progress-lessons
+    .course-progress-lesson
+    span::before {
+    color: grey;
+  }
+
+  .widget_sensei_course_progress ul.course-progress-navigation li a:hover {
+    background-color: #555;
+  }
+
+  .nav-primary .current-menu-item > a::after,
+  .nav-primary .current-post-ancestor > a::after,
+  .nav-primary .current-menu-ancestor > a::after {
+    background: url(images/dark-arrow-submenu.svg) no-repeat;
+  }
+}
