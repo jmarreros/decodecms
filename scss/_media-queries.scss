@@ -96,7 +96,7 @@
     margin-right: 0;
   }
 
-  .widget_search input[type="submit"] {
+  #search .widget_search input[type="submit"] {
     color: $gris-medio;
     &:hover {
       color: $gris-oscuro;
@@ -191,14 +191,16 @@
   }
 
   //Search
-  .widget_search {
-    position: static;
-    text-align: center;
-    margin: 10px auto;
-  }
+  #search {
+    .widget_search {
+      position: static;
+      text-align: center;
+      margin: 10px auto;
+    }
 
-  .widget_search input[type="search"] {
-    width: 50%;
+    .widget_search input[type="search"] {
+      width: 50%;
+    }
   }
 
   .site-header .title-area,
@@ -553,6 +555,10 @@
 }
 
 @media only screen and (max-width: 480px) {
+  #search .widget_search input[type="search"] {
+    width: 85%;
+  }
+
   .blog .content .entry-title,
   .category .content .entry-title {
     font-size: 2.6rem;
@@ -593,10 +599,6 @@
     .required {
       display: none;
     }
-  }
-
-  .widget_search input[type="search"] {
-    width: 85%;
   }
 
   .entry-comments-link {
