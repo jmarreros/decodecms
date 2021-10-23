@@ -205,15 +205,6 @@ section#user-course-status-toggle {
   }
 }
 
-#sensei-user-courses {
-  ul.course-container {
-    padding: 20px !important;
-    margin: 0 !important;
-    margin-top: -1px !important;
-    border: 1px solid grey;
-  }
-}
-
 .single-course {
   .modules-title {
     display: none;
@@ -242,6 +233,23 @@ section#user-course-status-toggle {
 
   .course {
     margin-bottom: 0;
+  }
+
+  .course-meta .status {
+    width: 100%;
+  }
+
+  .content article .thumbnail {
+    margin: 10px;
+    width: 100%;
+    background-color: #f6f6f6;
+    float: none;
+    clear: both;
+    height: auto;
+    padding: 12px;
+    img {
+      width: 200px;
+    }
   }
 }
 
@@ -428,64 +436,74 @@ section#user-course-status-toggle {
   input.reset {
     padding: 12px 22px !important;
   }
+
+  .sensei-breadcrumb {
+    background-color: #f9f8f8;
+    font-size: 1.4rem;
+    font-style: italic;
+    padding: 2px 12px !important;
+    &::before {
+      display: none;
+    }
+  }
 }
+
+#sensei-user-courses {
+  ul.course-container {
+    padding: 20px !important;
+    margin: 0 !important;
+    margin-top: -1px !important;
+    border: 1px solid grey;
+  }
+}
+
+// Temporalmente porque sólo habrá un curso
+#user-course-status-toggle .inactive {
+  display: none;
+}
+
+#user-course-status-toggle .active,
+#sensei-user-courses .course-container {
+  background-color: #f6f6f6;
+}
+
+#sensei-user-courses .course {
+  border-top: 2px dotted grey;
+}
+
+#sensei-user-courses .course:first-child {
+  border-top: none;
+  padding-top: 16px !important;
+}
+
+#sensei-user-courses .course {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+// --
 
 .sensei-message a:hover {
   color: $links !important;
 }
 
-// .sensei {
-//   .entry-title {
-//     border-bottom: 1px solid #dedede;
-//     margin-top: 20px;
-//     margin-bottom: 32px;
-//   }
-//   #customer_login {
-//     display: flex;
-//     .col-1,
-//     .col-2 {
-//       width: 45%;
-//     }
-//     .col-1 {
-//       margin-right: 5%;
-//     }
-//     .login,
-//     .register {
-//       padding: 20px;
-//       background-color: #eee;
-//       border-radius: 6px;
-//     }
-//     .sensei-login-submit a {
-//       margin-left: 16px;
-//     }
-//   }
-// }
+.course-content .entry-actions form span .course-complete {
+  padding: 4px 16px !important;
+}
 
-// //Conditional menu show/hide items
+.course-content .buttons-course .go-course {
+  padding: 10px 30px;
+  background-color: $btn-blue;
+  &:hover {
+    background-color: $btn-blue-hover;
+  }
+}
 
-// body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(4) {
-//   display: none;
-// }
+.sensei-course-progress__bar div {
+  background: $progress !important;
+}
 
-// body #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-//   display: none;
-// }
-
-// body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-//   display: inline-block;
-// }
-
-// #genesis-nav-primary .wrap > ul > li:nth-child(4) a::after,
-// #genesis-nav-primary .wrap > ul > li:nth-child(5) a::after {
-//   background: none;
-// }
-
-// @media (max-width: 767px) {
-//   body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) {
-//     display: block;
-//   }
-//   body.logged-in #genesis-nav-primary .wrap > ul > li:nth-child(5) > a {
-//     border-radius: 0;
-//     padding: 18px 24px;
-//   }
-// }
+.course .module header .status.in-progress,
+.course .course-meta .status.in-progress {
+  background-color: grey;
+}

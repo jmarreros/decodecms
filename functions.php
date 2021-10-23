@@ -143,7 +143,6 @@ function my_dynamic_menu_items( $menu_items ) {
 }
 
 
-
 // Active menu courses
 
 add_filter('nav_menu_css_class' , 'item_menu_courses_class' , 10 , 2);
@@ -160,123 +159,22 @@ function item_menu_courses_class ($classes, $item) {
 }
 
 
-
-
-
-
-// add_filter( 'wp_nav_menu_items', 'dcms_items_login_logout', 10, 2);
-
-// function dcms_items_login_logout( $items, $args ) {
-
-// 	if ($args->theme_location == 'primary') {
-// 		if (is_user_logged_in()){
-//       global $current_user;
-
-// 			$items .= '<li class="menu-item btn-menu btn-logout">
-// 						<a href="'. wp_logout_url(get_permalink()) .'">Desconectar</a>
-// 						</li>';
-// 		} else {
-// 			$items .= '<li class="menu-item btn-menu btn-login">
-// 						<a href="/mis-cursos/">Acceder</a>
-// 						</li>';
-// 		}
-// 	}
-
-// 	return $items;
-// }
-
-
-
-
-
-
-// // Change number courses column
-// add_filter('sensei_course_loop_number_of_columns', 'dcms_course_loop_number_of_columns');
-// function dcms_course_loop_number_of_columns(){
-//   return 3;
-// }
-
-// // Sidebar in courses
-// remove_action('sensei_after_main_content', 'gcfws_genesis_sensei_wrapper_end', 10); // remover la función del plugin de integración genesis-sensei
-// add_action( 'sensei_after_main_content', 'dcms_sensei_wrapper_end', 10 );
-
-// function dcms_sensei_wrapper_end() {
-//         echo '</main> <!-- end main-->';
-//         if(is_singular('course')) {
-//           get_sidebar('alt');
-//         }
-//         echo '</div> <!-- end .content-sidebar-wrap-->';
-// }
-
-// // Remove unwanted fields WooCommerce checkout
-// add_filter( 'woocommerce_checkout_fields' , 'woo_remove_billing_checkout_fields' );
-
-// function woo_remove_billing_checkout_fields( $fields ) {
-//     unset($fields['billing']['billing_company']);
-//     unset($fields['billing']['billing_address_1']);
-//     unset($fields['billing']['billing_address_2']);
-//     unset($fields['billing']['billing_city']);
-//     unset($fields['billing']['billing_postcode']);
-//     unset($fields['billing']['billing_country']);
-//     unset($fields['billing']['billing_state']);
-//     unset($fields['billing']['billing_phone']);
-//     unset($fields['order']['order_comments']);
-//     unset($fields['billing']['billing_address_2']);
-//     unset($fields['billing']['billing_postcode']);
-//     unset($fields['billing']['billing_company']);
-//     unset($fields['billing']['billing_city']);
-//     return $fields;
-// }
-
-
-
-
-
-// Items menu
-
-// if (is_post_type_archive('course')){
-//   get_sidebar('alt');
-// }
-
-
-
-
-
-//* Mover javascripts al footer
-/*
-function scripts_footer() {
-    remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 9);
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
-
-    add_action('wp_footer', 'wp_print_scripts', 5);
-    add_action('wp_footer', 'wp_enqueue_scripts', 5);
-    add_action('wp_footer', 'wp_print_head_scripts', 5);
+// Cambio textos
+add_filter( 'gettext', 'dcms_change_traduction_text', 10, 3 );
+function dcms_change_traduction_text( $translated, $original, $domain ) {
+    if ( $original == "Back to: " && $domain == 'sensei-lms' ) {
+        $translated = "";
+    }
+    return $translated;
 }
 
-add_action( 'wp_enqueue_scripts', 'scripts_footer' );
-*/
 
 
-// Rest API add post meta
-/*
-add_action( 'rest_api_init', 'create_api_posts_meta_field' );
 
-function create_api_posts_meta_field() {
- register_rest_field( 'post', 'post_meta_fields', array(
- 'get_callback' => 'get_post_meta_for_api',
- 'schema' => null,
- )
- );
-}
-
-function get_post_meta_for_api( $object ) {
- $post_id = $object['id'];
- return get_post_meta( $post_id );
-}
-*/
-
-
+// add_action( 'after_setup_theme', 'declare_sensei_support' );
+// function declare_sensei_support() {
+//     add_theme_support( 'sensei' );
+// }
 
 
 
