@@ -134,4 +134,16 @@
 		$(cadena).insertBefore( $('.entry-content h2').first() );
 	}
 
+
+	// Sensei
+
+	// Imagen en listado de mis-cursos
+	$('.mi-courses-featured').map(function(_){
+		$(this).prependTo($(this).parent().find('.course-excerpt'));
+	});
+
+	$('.buttons-course').map(function(_){
+		$(this).appendTo($(this).parent().find('.course-excerpt'));
+	});
+
 })(jQuery);

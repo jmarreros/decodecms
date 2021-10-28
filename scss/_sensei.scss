@@ -458,9 +458,14 @@ section#user-course-status-toggle {
 }
 
 // Temporalmente porque sólo habrá un curso
-#user-course-status-toggle .inactive {
-  display: none;
+
+#user-course-status-toggle {
+  display: none !important;
 }
+
+// #user-course-status-toggle .inactive {
+//   display: none;
+// }
 
 #user-course-status-toggle .active,
 #sensei-user-courses .course-container {
@@ -506,4 +511,19 @@ section#user-course-status-toggle {
 .course .module header .status.in-progress,
 .course .course-meta .status.in-progress {
   background-color: grey;
+}
+
+#sensei-user-courses {
+  .mi-courses-featured {
+    float: left;
+    height: 150px !important;
+    margin-right: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .wp-block-sensei-lms-learner-courses__courses-list__details {
+    > p {
+      margin: 0;
+    }
+  }
 }
