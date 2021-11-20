@@ -1194,9 +1194,14 @@ aside .widget_tag_cloud {
 
     .msg-texto {
       a {
+        display: inline-block;
+        // background-color: #333;
         color: white;
+        padding: 4px 10px;
+        font-size: 14px;
+        border-radius: 6px;
         &:hover {
-          opacity: 0.5;
+          background-color: #32566a;
         }
       }
       padding-bottom: 28px;

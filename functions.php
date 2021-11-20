@@ -46,7 +46,9 @@ include_once('includes/optimizations.php');
 include_once('includes/meta.php');
 include_once('includes/analytics.php');
 include_once('includes/positions.php');
+include_once('includes/landing.php');
 include_once('includes/sensei.php');
+
 
 
 // add_action( 'after_setup_theme', 'declare_sensei_support' );

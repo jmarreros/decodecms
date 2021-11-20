@@ -1,0 +1,72 @@
+.is_landing {
+  #search {
+    display: none;
+  }
+
+  .site-inner {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .wp-block-embed-vimeo {
+    margin-top: 40px;
+  }
+
+  .to-top.top-is-visible {
+    display: none;
+  }
+
+  #mc_embed_signup {
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+    background-color: #4289b2;
+    border: 1px solid #3c6880;
+    border-radius: 10px;
+    margin-bottom: 50px;
+
+    form {
+      padding: 20px 30px;
+    }
+
+    #mc-embedded-subscribe {
+      background-color: #333;
+      height: auto;
+      padding: 4px 20px;
+      text-transform: uppercase;
+    }
+
+    #mc-embedded-subscribe:hover {
+      background-color: #32566a;
+    }
+
+    .mc-field-group label,
+    .indicates-required {
+      color: white;
+    }
+
+    .foot {
+      display: flex;
+    }
+
+    div#mce-responses {
+      background-color: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    div#mce-responses {
+      background-color: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    div.response {
+      width: 100%;
+      margin: 0;
+      font-weight: normal;
+      line-height: 20px;
+      padding: 10px 20px 10px;
+    }
+  }
+}

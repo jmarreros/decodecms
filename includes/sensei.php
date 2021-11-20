@@ -131,9 +131,9 @@ function dcms_change_traduction_text( $translated, $original, $domain ) {
 add_action('sensei_course_content_inside_before', 'add_featured_image_course');
 
 function add_featured_image_course( $id_course ){
-    global $id_my_courses_page;
+  global $id_my_courses_page;
 
-    if ( $id_my_courses_page == 'mis-cursos' ){
+    if ( isset($id_my_courses_page) && $id_my_courses_page == 'mis-cursos' ){
         $image_url = get_the_post_thumbnail_url($id_course);
         echo "<img class='mi-courses-featured' src='${image_url}' width='150' height='150' />";
     }
