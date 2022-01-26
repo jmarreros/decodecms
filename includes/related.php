@@ -3,7 +3,7 @@
 function dc_related_after_content( $content )
 {
     global $wp;
-    $is_amp = substr($wp->request,-3) == 'amp';
+    $is_amp = substr($wp->request,-4) == '/amp';
 
     $number_related = 4;
     $custom_field = 'relacionados';
@@ -30,7 +30,9 @@ function dc_related_after_content( $content )
                 'posts_per_page'    => $number_related,
                 'post__not_in'      => array(get_the_ID()),
                 ));
+
      $cad = dc_loop_related($loop, $template_li, $counter);
+
     // -- Entradas de acuerdo a la categoría
     if ( $number_related - $counter > 0 ){
         $terms = get_the_terms( get_the_ID(), 'category');
@@ -66,7 +68,14 @@ function dc_loop_related($loop, $template_li, &$counter){
             $search  = Array('{url}','{thumb}','{title}');
             $replace = Array(get_permalink(),get_the_post_thumbnail(),get_the_title());
 
+            // error_log(print_r('--->',true));
+            // error_log(get_the_post_thumbnail());
+            // error_log(print_r($cad,true));
+
             $str .= str_replace($search,$replace, $template_li);
+
+            error_log(print_r($str,true));
+
             $counter++;
         }
     }

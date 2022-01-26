@@ -92,16 +92,16 @@
 
 	});
 
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		mostrar_boletin_movil();
-	}
+	// if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	// 	mostrar_boletin_movil();
+	// }
 
-	function mostrar_boletin_movil(){
-		if ( $(window).width() <=768 ){
-			var tmplBoletin = '<div id="boletin-movil"><a class="wheader" href="http://eepurl.com/b_Sghj"><p>Únete a DecodeCMS</p></a></div>';
-			$(tmplBoletin).insertBefore('.home #genesis-content article:first-child()');
-		}
-	}
+	// function mostrar_boletin_movil(){
+	// 	if ( $(window).width() <=768 ){
+	// 		var tmplBoletin = '<div id="boletin-movil"><a class="wheader" href="http://eepurl.com/b_Sghj"><p>Únete a DecodeCMS</p></a></div>';
+	// 		$(tmplBoletin).insertBefore('.home #genesis-content article:first-child()');
+	// 	}
+	// }
 
 
 	//Tabla de contenido

@@ -1,0 +1,97 @@
+ins {
+  text-decoration: none;
+}
+
+.archive-course {
+  .course-products {
+    display: none;
+  }
+}
+
+body.single-course button.single_add_to_cart_button {
+  color: white !important;
+  background: #192d38 !important;
+  padding: 20px;
+  border-radius: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+body.single-course form.cart {
+  text-align: center;
+}
+
+body.single-course del .amount {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.single-lesson div.sensei-message.info,
+.woocommerce div.sensei-message.info {
+  color: white;
+  background: #4289b2 !important;
+  border-radius: 10px;
+}
+
+.single-lesson div.sensei-message.info a,
+.woocommerce div.sensei-message.info a {
+  color: white !important;
+}
+
+body.woocommerce-cart .product-name a,
+body.single-course.logged-out .lessons-list a {
+  pointer-events: none;
+  cursor: default;
+  border: none;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message {
+  background-color: #00a32a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message::before {
+  color: white;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message .button {
+  background: #192d38 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 14px 20px;
+  color: white !important;
+}
+
+body.woocommerce-cart .site-inner,
+body.woocommerce-checkout .site-inner {
+  max-width: 1200px;
+  padding: 20px 40px;
+}
+
+body.woocommerce-cart button {
+  border-radius: 8px !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  background: #192d38 !important;
+}
+
+.wc-proceed-to-checkout .checkout-button {
+  border-radius: 10px !important;
+  color: white !important;
+  background: #192d38 !important;
+}
+
+#coupon_code {
+  min-width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.shop_table.shop_table_responsive,
+form.woocommerce-cart-form {
+  background-color: #f2f2f2;
+}

@@ -527,3 +527,8 @@ section#user-course-status-toggle {
     }
   }
 }
+
+.single-course .content a,
+.single-lesson .content a {
+  border-bottom: none;
+}

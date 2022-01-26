@@ -14,7 +14,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.27' );
+define ('CHILD_THEME_VERSION', '1.1.29' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -57,5 +57,13 @@ include_once('includes/sensei.php');
 // }
 
 
+
+
+// Excluir de la búsqueda
+add_action( 'pre_get_posts', 'dcms_exclude_all_pages' );
+function dcms_exclude_all_pages($query){
+	if ( $query->is_search && $query->is_main_query() )
+		$query->set( 'post_type', ['post', 'course'] );
+}
 
 
