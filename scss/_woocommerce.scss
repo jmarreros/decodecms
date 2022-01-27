@@ -37,6 +37,7 @@ body.single-course del .amount {
   color: white !important;
 }
 
+body.woocommerce-page .product-name a,
 body.woocommerce-cart .product-name a,
 body.single-course.logged-out .lessons-list a {
   pointer-events: none;
@@ -53,6 +54,7 @@ body.single-course.logged-out .lessons-list a {
   margin-top: 15px;
 }
 
+.woocommerce-notices-wrapper .woocommerce-message a,
 .woocommerce-notices-wrapper .woocommerce-message::before {
   color: white;
 }
@@ -65,6 +67,7 @@ body.single-course.logged-out .lessons-list a {
   color: white !important;
 }
 
+body.woocommerce-account .site-inner,
 body.woocommerce-cart .site-inner,
 body.woocommerce-checkout .site-inner {
   max-width: 1200px;
@@ -150,4 +153,80 @@ table.shop_table.cart th {
   padding-top: 30px !important;
   border: 1px solid #ccc;
   padding: 20px;
+}
+
+.wc_payment_methods.payment_methods li {
+  list-style: none;
+}
+
+.form-row.place-order {
+  background-color: white;
+}
+
+.button.wc-backward,
+.woocommerce-button.button,
+.woocommerce-Button.button,
+button#place_order {
+  padding: 18px 22px;
+  border-radius: 10px !important;
+  color: white !important;
+  background: #192d38 !important;
+  font-weight: normal !important;
+}
+
+.woocommerce-thankyou-order-received {
+  background-color: #00a32a;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+form.lost_reset_password {
+  background-color: #eee;
+  padding: 20px;
+}
+
+.woocommerce-password-strength.bad {
+  font-weight: normal;
+  padding: 10px;
+}
+
+.woocommerce-checkout #customer_details {
+  background-color: #eee;
+  margin-bottom: 32px;
+}
+
+.course-progress-details summary {
+  display: none !important;
+}
+
+form.edit-account button {
+  margin-top: 20px !important;
+}
+
+.woocommerce-edit-account form.edit-account em {
+  display: none;
+}
+
+.woocommerce-edit-account form.edit-account fieldset {
+  margin-top: 25px;
+}
+
+.woocommerce-edit-account form.edit-account {
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.woocommerce-edit-account form.edit-account legend {
+  font-weight: bold;
+}
+
+.woocommerce-account .woocommerce-order-sensei-courses {
+  margin: 50px auto;
+}
+
+p.order-again {
+  display: none;
 }

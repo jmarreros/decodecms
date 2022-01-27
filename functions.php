@@ -48,6 +48,7 @@ include_once('includes/analytics.php');
 include_once('includes/positions.php');
 include_once('includes/landing.php');
 include_once('includes/sensei.php');
+include_once('includes/woocommerce.php');
 
 
 
@@ -59,11 +60,5 @@ include_once('includes/sensei.php');
 
 
 
-// Excluir de la búsqueda
-add_action( 'pre_get_posts', 'dcms_exclude_all_pages' );
-function dcms_exclude_all_pages($query){
-	if ( $query->is_search && $query->is_main_query() )
-		$query->set( 'post_type', ['post', 'course'] );
-}
 
 

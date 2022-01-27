@@ -140,32 +140,11 @@ function add_featured_image_course( $id_course ){
 }
 
 
-
-
-// Remove fields from checkout page
-add_filter('woocommerce_billing_fields','wpb_custom_billing_fields');
-function wpb_custom_billing_fields( $fields = array() ) {
-
-	unset($fields['billing_company']);
-	unset($fields['billing_address_1']);
-	unset($fields['billing_address_2']);
-	unset($fields['billing_state']);
-	unset($fields['billing_city']);
-	unset($fields['billing_phone']);
-	unset($fields['billing_postcode']);
-	unset($fields['billing_country']);
-
-	return $fields;
+// Excluir de la búsqueda
+add_action( 'pre_get_posts', 'dcms_exclude_all_pages' );
+function dcms_exclude_all_pages($query){
+	if ( $query->is_search && $query->is_main_query() )
+		$query->set( 'post_type', ['post', 'course'] );
 }
 
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields_ek', 99 );
-function custom_override_checkout_fields_ek( $fields ) {
-     unset($fields['billing']['billing_company']);
-     unset($fields['billing']['billing_address_1']);
-     unset($fields['billing']['billing_postcode']);
-     unset($fields['billing']['billing_state']);
 
-     return $fields;
-}
-
-add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
