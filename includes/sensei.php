@@ -4,7 +4,7 @@
 // para cursos usamos sidebar alterno y para lecciones quitamos sidebar y breadcrumbs
 add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
 function remove_primary_sidebar_single_pages() {
-  if ( is_post_type_archive('course') ){
+  if ( is_post_type_archive('course') || is_singular('course')){
     remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
   }
 
@@ -12,7 +12,7 @@ function remove_primary_sidebar_single_pages() {
     remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
   }
 
-  if ( is_singular('course') || is_singular('lesson') ){
+  if ( is_singular('lesson') ){
     remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
     add_action('genesis_sidebar', function(){
                                     dynamic_sidebar( 'sidebar-alt' );
@@ -138,3 +138,34 @@ function add_featured_image_course( $id_course ){
         echo "<img class='mi-courses-featured' src='${image_url}' width='150' height='150' />";
     }
 }
+
+
+
+
+// Remove fields from checkout page
+add_filter('woocommerce_billing_fields','wpb_custom_billing_fields');
+function wpb_custom_billing_fields( $fields = array() ) {
+
+	unset($fields['billing_company']);
+	unset($fields['billing_address_1']);
+	unset($fields['billing_address_2']);
+	unset($fields['billing_state']);
+	unset($fields['billing_city']);
+	unset($fields['billing_phone']);
+	unset($fields['billing_postcode']);
+	unset($fields['billing_country']);
+
+	return $fields;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields_ek', 99 );
+function custom_override_checkout_fields_ek( $fields ) {
+     unset($fields['billing']['billing_company']);
+     unset($fields['billing']['billing_address_1']);
+     unset($fields['billing']['billing_postcode']);
+     unset($fields['billing']['billing_state']);
+
+     return $fields;
+}
+
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );

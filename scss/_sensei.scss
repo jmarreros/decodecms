@@ -206,6 +206,18 @@ section#user-course-status-toggle {
 }
 
 .single-course {
+  .site-inner {
+    max-width: 1200px;
+    padding: 20px 50px;
+    .content {
+      width: 100%;
+    }
+
+    aside#genesis-sidebar-primary {
+      display: none;
+    }
+  }
+
   .modules-title {
     display: none;
   }

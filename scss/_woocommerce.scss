@@ -95,3 +95,59 @@ body.woocommerce-cart button {
 form.woocommerce-cart-form {
   background-color: #f2f2f2;
 }
+
+table.shop_table.cart th {
+  background-color: #4289b2;
+  color: white;
+}
+
+.woocommerce {
+  .woocommerce-info {
+    background: #4398c7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .woocommerce-info::before,
+  .woocommerce-info a {
+    color: white !important;
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  .woocommerce-info a:hover {
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.woocommerce-form-login-toggle + .woocommerce-form-login {
+  background: #eee;
+  border-radius: 12px !important;
+
+  .woocommerce-button {
+    color: white !important;
+    font-weight: normal;
+    border-radius: 8px !important;
+    padding: 12px 16px;
+    background: #192d38 !important;
+  }
+}
+
+.woocommerce-form-coupon-toggle + .woocommerce-form-coupon {
+  background: #eee;
+  .button {
+    color: white !important;
+    font-weight: normal;
+    border-radius: 8px !important;
+    padding: 12px 16px;
+    background: #192d38 !important;
+  }
+}
+
+#customer_details {
+  padding-top: 30px !important;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
