@@ -112,11 +112,15 @@ table.shop_table.cart th {
     border-radius: 10px;
   }
 
-  .woocommerce-info::before,
-  .woocommerce-info a {
+  .woocommerce-info::before {
     color: white !important;
     border-bottom: none;
+  }
+
+  .woocommerce-info a {
     text-decoration: underline;
+    border-bottom: none;
+    color: white;
   }
 
   .woocommerce-info a:hover {
@@ -163,6 +167,7 @@ table.shop_table.cart th {
   background-color: white;
 }
 
+.woocommerce-address-fields .button,
 .button.wc-backward,
 .woocommerce-button.button,
 .woocommerce-Button.button,
@@ -228,5 +233,23 @@ form.edit-account button {
 }
 
 p.order-again {
+  display: none;
+}
+
+.woocommerce .woocommerce-address-fields__field-wrapper {
+  background-color: #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.woocommerce-order-details .woocommerce-table--order-details {
+  background-color: #eee;
+}
+
+.woocommerce-customer-details address {
+  background-color: #eee;
+}
+
+.payment_method_woo-mercado-pago-basic .mp-badge-checkout {
   display: none;
 }
