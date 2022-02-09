@@ -60,6 +60,8 @@
 
   .content article .thumbnail {
     margin-right: 3rem;
+    width: 300px;
+    height: 300px;
   }
 
   .course-title {
@@ -206,6 +208,10 @@ section#user-course-status-toggle {
 }
 
 .single-course {
+  .thumbnail {
+    display: none;
+  }
+
   .site-inner {
     max-width: 1200px;
     padding: 20px 50px;
@@ -402,6 +408,15 @@ section#user-course-status-toggle {
     list-style-type: none !important;
   }
 
+  article.entry li {
+    list-style-type: square !important;
+    margin: 0;
+  }
+
+  article.entry footer {
+    margin-bottom: 40px;
+  }
+
   ol.comment-list > li {
     margin-left: 0;
   }
@@ -457,6 +472,9 @@ section#user-course-status-toggle {
     &::before {
       display: none;
     }
+  }
+
+  article.entry {
   }
 }
 
