@@ -799,6 +799,10 @@ img.alignright,
   padding: 15px;
   margin-bottom: 20px;
 
+  .required-field-message {
+    color: #ccc;
+  }
+
   #cancel-comment-reply-link {
     color: $white;
   }
@@ -888,6 +892,9 @@ img.alignright,
 
   .form-submit {
     clear: both;
+    .submit {
+      box-shadow: none !important;
+    }
   }
 }
 

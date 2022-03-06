@@ -18,7 +18,13 @@ add_action( 'genesis_footer', 'sp_custom_footer' );
 function sp_custom_footer() {
   $year = date("Y");
   $img  = "<img src='".get_stylesheet_directory_uri()."/images/logo-pie.svg' alt='logo decode pie' width='134' height='17' />";
-  $str  = "<p class='copy'>&copy $img  <span> Copyright $year | </span> <span> Todos los derechos reservados | <a class='politica' href='/politica-de-privacidad/' >Política de Privacidad</a></span> </p> ";
+
+  $str  = "<div class='copy'>";
+  $str .= "&copy {$img} <br>";
+  $str .= "<a class='politica' href='/politica-de-privacidad/' >Política de Privacidad</a> | <a class='politica' href='/reembolso_devoluciones/' >Política de devoluciones</a><br>";
+  $str .= "<span> Copyrigth $year </span> <span> Todos los derechos reservados </span><br>" ;
+  $str .= "</div>";
+
   echo $str;
 }
 

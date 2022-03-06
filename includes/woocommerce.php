@@ -47,3 +47,21 @@ function dcms_remove_items_menu_my_account($items) {
 
     return $items;
 }
+
+
+// Sólo perrmitir agregar un ítem al carrito
+add_filter( 'woocommerce_add_cart_item_data', 'dcms_only_one_item_in_cart', 10, 1 );
+function dcms_only_one_item_in_cart( $cartItemData ) {
+	wc_empty_cart();
+	return $cartItemData;
+}
+
+
+// Message Button checkout page
+add_action( 'woocommerce_after_checkout_form', 'dcms_footer_checkout_message', 10 );
+
+function dcms_footer_checkout_message( ) {
+  echo '<section class="alert alert-info">
+  <strong>¿Problemas con la compra?</strong>, envíame un mensaje al <a href="https://decodecms.com/contacto/" target="_blank">formulario de contacto</a>.
+  </section>';
+}

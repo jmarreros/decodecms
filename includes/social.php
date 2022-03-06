@@ -4,12 +4,7 @@ function dc_social_sharing_buttons($content)
 {
 	global $post;
 
-	if( is_single() &&
-		!is_singular('course') &&
-		!is_singular('lesson') &&
-		!is_singular('quiz')
-		)
-	{
+	if( is_singular('post') ) {
 		$cad			='';
 		$plantilla		='
 		 <a class="dc-link dc-twitter" href="{twitter}" target="_blank"><i class="fa fa-twitter"></i> Twittear</a>'.
@@ -45,8 +40,7 @@ function dc_social_sharing_buttons($content)
 
 		return $content;
 	}
-	else
-	{
+	else {
 		return $content;
 	}
 };

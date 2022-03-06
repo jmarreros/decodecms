@@ -4,8 +4,8 @@
 // para cursos usamos sidebar alterno y para lecciones quitamos sidebar y breadcrumbs
 add_action( 'get_header', 'remove_primary_sidebar_single_pages' );
 function remove_primary_sidebar_single_pages() {
-  if ( is_post_type_archive('course') || is_singular('course')){
-    remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+  if ( is_post_type_archive('course') || is_singular('course') || is_singular('product')){
+        remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
   }
 
   if ( is_singular('lesson') ){

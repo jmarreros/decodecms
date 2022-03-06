@@ -253,3 +253,9 @@ p.order-again {
 .payment_method_woo-mercado-pago-basic .mp-badge-checkout {
   display: none;
 }
+
+body.woocommerce {
+  .entry-content .entry-meta {
+    display: none;
+  }
+}

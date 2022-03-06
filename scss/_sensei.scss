@@ -403,7 +403,7 @@ section#user-course-status-toggle {
   ul.children,
   ol li,
   ul li,
-  ol.comment-list {
+  #comments ol.comment-list li {
     list-style: none;
     list-style-type: none !important;
   }
@@ -474,7 +474,8 @@ section#user-course-status-toggle {
     }
   }
 
-  article.entry {
+  #commentform .logged-in-as {
+    display: none;
   }
 }
 
