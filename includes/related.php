@@ -74,7 +74,7 @@ function dc_loop_related($loop, $template_li, &$counter){
 
             $str .= str_replace($search,$replace, $template_li);
 
-            error_log(print_r($str,true));
+            // error_log(print_r($str,true));
 
             $counter++;
         }

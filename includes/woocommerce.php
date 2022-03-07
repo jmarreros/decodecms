@@ -41,7 +41,6 @@ function iconic_remove_password_strength() {
 // Remove elements my-account navigation
 add_filter( 'woocommerce_account_menu_items', 'dcms_remove_items_menu_my_account' , 99, 1);
 function dcms_remove_items_menu_my_account($items) {
-    error_log(print_r($items,true));
     unset($items['downloads']);
     unset($items['edit-address']);
 

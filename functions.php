@@ -14,7 +14,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.29' );
+define ('CHILD_THEME_VERSION', '1.1.30' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -51,13 +51,18 @@ include_once('includes/sensei.php');
 include_once('includes/woocommerce.php');
 
 
-// add_action( 'after_setup_theme', 'declare_sensei_support' );
-// function declare_sensei_support() {
-//     add_theme_support( 'sensei' );
-// }
 
+add_filter( 'the_content', 'dcms_change_embebed_youtube');
 
+function dcms_change_embebed_youtube( $content ){
+  if ( ! is_singular('post') ) return $content;
 
+  $pattern = "/youtube\.com\/embed\/(.+?)\"/";
+  $substitution = "youtube.com/embed/$1/?rel=0\"";
+  $content = preg_replace($pattern, $substitution, $content);
+
+  return $content;
+}
 
 
 

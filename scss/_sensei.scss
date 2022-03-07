@@ -615,3 +615,21 @@ ul.course-container .user-active:not(.course) a {
 ul.course-container .user-active:not(.course) a:hover {
   color: white !important;
 }
+
+// Banner curso
+.banner-course .banner-course {
+  width: 95%;
+}
+
+.banner-course a {
+  color: #032f47;
+}
+
+.banner-course img {
+  background-color: #032f47;
+  width: 100%;
+}
+
+#text-6 {
+  margin-bottom: 0;
+}
