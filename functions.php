@@ -14,7 +14,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'DecodeCMS' );
 define( 'CHILD_THEME_URL', 'https://www.decodecms.com/' );
-define ('CHILD_THEME_VERSION', '1.1.30' );
+define ('CHILD_THEME_VERSION', '1.1.34' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
@@ -52,17 +52,51 @@ include_once('includes/woocommerce.php');
 
 
 
-add_filter( 'the_content', 'dcms_change_embebed_youtube');
 
-function dcms_change_embebed_youtube( $content ){
-  if ( ! is_singular('post') ) return $content;
 
-  $pattern = "/youtube\.com\/embed\/(.+?)\"/";
-  $substitution = "youtube.com/embed/$1/?rel=0\"";
-  $content = preg_replace($pattern, $substitution, $content);
 
-  return $content;
+// Inserta el pixel de Facebook en todas las páginas y añade el evento de conversión de compra para medir las compras finalizadas
+if ( in_array( 'woocommerce/woocommerce.php', get_option( 'active_plugins' ) ) && version_compare( WC()->version , '3.0.0', '>' ) ){
+	add_action( 'wp_head', 'fb_pixel_purchases_traking' );
+	function fb_pixel_purchases_traking() {
+
+		$fb_pixel_id = '492510214278379'; // Debes reemplazar el texto <FB_PIXEL_ID> por tu código identificador del pixel manteniendo las comillas
+
+		ob_start()
+		?>
+		<!-- Start FB Tracking -->
+		<script>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+			n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+				document,'script','//connect.facebook.net/en_US/fbevents.js');
+			fbq('init', <?php echo '\''. $fb_pixel_id .'\'';?>);
+			fbq('track', 'PageView');
+		</script>
+		<noscript>
+			<img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=<?php echo $fb_pixel_id;?>&amp;ev=PageView&amp;noscript=1" />
+		</noscript>
+		<!-- END FB Tracking -->
+		<?php
+
+		if ( is_wc_endpoint_url( get_option( 'woocommerce_checkout_order_received_endpoint' ) ) && isset( $_GET[ 'key' ] ) ) {
+
+			$order = new WC_Order( wc_get_order_id_by_order_key( $_GET[ 'key' ] ) );
+			$order_total = $order->get_total();
+			?>
+			<script>
+				fbq('track', 'Purchase', {
+					value: <?php echo '\''. $order_total .'\''; ?>,
+					currency: <?php echo '\''. get_woocommerce_currency() .'\''; ?>
+				});
+			</script>
+			<?php
+		}
+
+		$fb_pixel_script = ob_get_contents();
+		ob_end_clean();
+		echo $fb_pixel_script;
+	}
 }
-
-
 

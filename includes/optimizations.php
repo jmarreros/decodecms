@@ -58,17 +58,16 @@ function dcms_search_filter( $query ) {
 
 
 
-
-// Agregar rel=0 videos youtube
+  // Agregar rel=0 videos youtube
 add_filter( 'the_content', 'dcms_change_embebed_youtube');
-
 function dcms_change_embebed_youtube( $content ){
   if ( ! is_singular('post') ) return $content;
 
-  $pattern = "/youtube\.com\/embed\/(.+?)\"/";
+  $pattern = "/youtube\.com\/embed\/(((?!rel=0).)+?)\"/";
   $substitution = "youtube.com/embed/$1/?rel=0\"";
   $content = preg_replace($pattern, $substitution, $content);
 
   return $content;
 }
+
 

@@ -122,6 +122,9 @@ function dcms_change_traduction_text( $translated, $original, $domain ) {
     if ( $original == "Back to: " && $domain == 'sensei-lms' ) {
         $translated = "";
     }
+    if ( $translated == "Detalles de facturación" ) {
+        $translated = "👉 Ingresa tus datos requeridos";
+    }
     return $translated;
 }
 

@@ -3,6 +3,7 @@ tmp/
 style.css
 proyectoDecodeCMS.sublime-project
 proyectoDecodeCMS.sublime-workspace
-package.json
 .DS_Store
 DS_Store
+.DS_Store
+.gitignore

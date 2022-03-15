@@ -61,6 +61,9 @@ add_action( 'woocommerce_after_checkout_form', 'dcms_footer_checkout_message', 1
 
 function dcms_footer_checkout_message( ) {
   echo '<section class="alert alert-info">
-  <strong>¿Problemas con la compra?</strong>, envíame un mensaje al <a href="https://decodecms.com/contacto/" target="_blank">formulario de contacto</a>.
+  <strong>¿Problemas con la compra?</strong>, asegúrate de <strong>haber llenado los campos requeridos</strong> del formulario superior.
+  <br>Si aún tienes problemas envíame un mensaje al <a href="https://decodecms.com/contacto/" target="_blank">formulario de contacto</a>.
   </section>';
 }
+
+

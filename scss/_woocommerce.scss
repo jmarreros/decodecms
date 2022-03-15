@@ -259,3 +259,45 @@ body.woocommerce {
     display: none;
   }
 }
+
+.checkbox .woocommerce-terms-and-conditions-checkbox-text {
+  font-weight: 600;
+}
+
+.checkbox .woocommerce-form__input-checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.checkout .woocommerce-billing-fields h3 {
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .woocommerce-checkout #customer_details {
+    float: left;
+    width: 60%;
+  }
+  .woocommerce-checkout #order_review_heading,
+  .woocommerce-checkout #order_review {
+    float: left;
+    width: 38%;
+    margin-left: 2%;
+  }
+
+  .woocommerce-checkout .col2-set .col-1,
+  .woocommerce-checkout .col2-set .col-2 {
+    width: 100% !important;
+  }
+
+  .woocommerce-checkout .checkout.woocommerce-checkout:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
