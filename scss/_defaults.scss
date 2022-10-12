@@ -1416,6 +1416,10 @@ aside.mashsb-container {
   margin-left: 2px;
 }
 
+.entry-meta span:first-child time{
+  text-transform: capitalize;
+}
+
 .acerca_de {
   .texto {
     float: left;

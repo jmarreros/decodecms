@@ -100,3 +100,22 @@ if ( in_array( 'woocommerce/woocommerce.php', get_option( 'active_plugins' ) ) &
 	}
 }
 
+
+
+
+add_filter( 'get_the_time', 'dcms_time_ago_text', 10, 3 );
+add_filter( 'get_the_modified_time', 'dcms_time_ago_text', 10, 3 );
+
+function dcms_time_ago_text($date, $format, $post) {
+
+	$post_date = str_contains( current_filter(), 'modified' ) ?
+				strtotime( $post->post_modified ) :
+				strtotime( $post->post_date );
+
+	
+	if ( (time() - YEAR_IN_SECONDS ) > $post_date || date(DATE_W3C, $post_date) === $date ){
+		return $date;
+	}
+
+	return sprintf( 'hace %s', human_time_diff($post_date, current_time( 'U' ) ) );
+}
