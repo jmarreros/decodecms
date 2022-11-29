@@ -127,7 +127,10 @@
 		$('div.rel_posts h3').attr('id','relacionados');
 		$('p.borde-video, p.borde-video-sus').attr('id','video');
 		cadena +="<p><i class='fa fa-link'></i> <a href='#relacionados'>- Artículos relacionados</a></p>\n";
-		cadena +="<p><i class='fa fa-video-camera'></i> <a href='#video'>- Video explicativo</a></p>\n";
+		
+		if ( $('.entry-meta .fa-video-camera').length ){
+			cadena +="<p><i class='fa fa-video-camera'></i> <a href='#video'>- Video explicativo</a></p>\n";
+		}
 
 		cadena = tmplwrap.replace('{contenido}',cadena);
 
