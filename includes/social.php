@@ -32,9 +32,9 @@ function dc_social_sharing_buttons($content)
 		$cad	.=  str_replace($ar_buscar, $ar_reemplazar, $plantilla);
 		$cad	.= '</div>';
 
-		if (is_single()){
-			$content = $cad.$content;
-		}
+//		if (is_single()){
+//			$content = $cad.$content;
+//		}
 
 		$content .= $cad;
 
@@ -45,4 +45,4 @@ function dc_social_sharing_buttons($content)
 	}
 };
 
-add_filter( 'the_content', 'dc_social_sharing_buttons',0);
+add_filter( 'the_content', 'dc_social_sharing_buttons',5);

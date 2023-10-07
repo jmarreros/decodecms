@@ -49,6 +49,8 @@ include_once('includes/positions.php');
 include_once('includes/landing.php');
 include_once('includes/sensei.php');
 include_once('includes/woocommerce.php');
+include_once('includes/youtube.php');
+include_once('includes/metabox.php');
 
 
 
@@ -102,7 +104,11 @@ if ( in_array( 'woocommerce/woocommerce.php', get_option( 'active_plugins' ) ) &
 
 
 
+// Disable XML - RCP
+add_filter('xmlrpc_enabled', '__return_false');
 
+
+// Time ago
 add_filter( 'get_the_time', 'dcms_time_ago_text', 10, 3 );
 add_filter( 'get_the_modified_time', 'dcms_time_ago_text', 10, 3 );
 
@@ -119,3 +125,24 @@ function dcms_time_ago_text($date, $format, $post) {
 
 	return sprintf( 'hace %s', human_time_diff($post_date, current_time( 'U' ) ) );
 }
+
+
+
+// add_action( 'pre_get_posts', 'dcms_add_tags_search' );
+// function dcms_add_tags_search($query)
+// {
+// 	if ( $query->is_search && $query->is_main_query() ){
+// 		$terms = explode(' ', $query->get('s'));
+
+//         $query->set('tax_query', array(
+//             'relation'=>'OR',
+//             array(
+//                 'taxonomy'=>'post_tag',
+//                 'field'=>'slug',
+//                 'terms'=>$terms
+//             )
+//         ));
+// 	}
+// }
+
+

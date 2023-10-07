@@ -50,7 +50,7 @@ function sp_previous_page_link ( $text ) {
 //-----------------
 add_action( 'genesis_before_entry_content', 'featured_post_image', 1 );
 function featured_post_image() {
-  if ( is_singular( 'page' ) || empty(get_the_post_thumbnail()) )  return;
+  if ( is_singular( ['page','post']) || empty(get_the_post_thumbnail()) )  return;
   echo "<div class='thumbnail'>".get_the_post_thumbnail()."</div>";
 }
 
@@ -61,6 +61,25 @@ add_action( 'genesis_before', 'genesis_to_top');
 function genesis_to_top() {
    echo '<a href="#0" class="to-top" title="Back To Top"></a>';
 }
+
+
+// Move video Youtube below the title in articles
+//add_filter('the_content', 'dcms_move_content_youtube', 1, 1);
+//function dcms_move_content_youtube($content){
+//  if ( ! is_singular('post') ) return $content;
+//
+//  $pattern = '/<p class="aligncenter borde-video-sus">(.*)/s';
+//
+//  preg_match($pattern, $content, $matches);
+//
+//  error_log(print_r($content,true));
+//  error_log(print_r($matches,true));
+//
+//  $replacement = '';
+////  $content = preg_replace($pattern, $replacement, $content);
+//
+//  return $content;
+//}
 
 
 

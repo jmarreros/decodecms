@@ -5,8 +5,8 @@
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
-add_action('genesis_entry_content', 'genesis_post_info',1);
-add_action('genesis_entry_content', 'genesis_post_meta',2);
+add_action('genesis_entry_content', 'genesis_post_info',5);
+add_action('genesis_entry_content', 'genesis_post_meta',6);
 
 
 add_filter( 'genesis_post_info', 'post_info_filter' );

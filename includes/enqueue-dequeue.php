@@ -27,7 +27,7 @@ function jquery_script_add_footer() {
 // Custom script
 add_action( 'wp_enqueue_scripts', 'custom_stript');
 function custom_stript() {
-    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.5', true );
+    wp_enqueue_script( 'decode_script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.5.6', true );
 }
 
 
